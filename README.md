@@ -14,5 +14,13 @@ This should work for rectangular images too:
 
 ![rectangular image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/2013-05-05%2011.42.11.png)
 
+## Examples
+Some examples:
+
+![rectangular image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/half.png)
+
+![rectangular image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/quater.png)
+
+
 ## Customizable
 The color of the progressbar can be set easy. See http://developer.android.com/design/style/color.html
