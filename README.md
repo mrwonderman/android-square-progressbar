@@ -7,12 +7,12 @@ The idea came when I needed a way to display a progressbar in a clever way in my
 ## Square image
 So this is what I want to look like when it's finished:
 
-![square image](https://lh6.googleusercontent.com/e5LBcVGHSmc3OW2avk5b7Q13P9zNso6fv03auYss4Y_I5ykh2jgugmaH49OqfT98qw=w300)
+![square image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/2013-05-05%2011.41.54.png)
 
 ## Rectangular image
 This should work for rectangular images too:
 
-![rectangular image](https://lh3.googleusercontent.com/uOs1YULrvuye1QrvcG-gfS0uEGYopNGiKldzDjtN1WFSvieTGTLIHx8Xo2dIqqSWCA=w300)
+![rectangular image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/2013-05-05%2011.42.11.png)
 
 ## Customizable
 The color of the progressbar can be set easy. See http://developer.android.com/design/style/color.html
