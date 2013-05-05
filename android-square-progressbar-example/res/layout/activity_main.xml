@@ -14,15 +14,6 @@
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
 
-    <net.yscs.android.square_progressbar.SquareProgressBar
-        android:id="@+id/subi1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="93dp" >
-    </net.yscs.android.square_progressbar.SquareProgressBar>
-
     <EditText
         android:id="@+id/editText1"
         android:layout_width="wrap_content"
@@ -53,5 +44,12 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true" >
     </net.yscs.android.square_progressbar.SquareProgressBar>
+
+    <net.yscs.android.square_progressbar.SquareProgressBar
+        android:id="@+id/subi1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

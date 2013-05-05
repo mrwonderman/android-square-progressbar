@@ -17,12 +17,12 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		final SquareProgressBar subi = (SquareProgressBar) findViewById(R.id.subi1);
-		subi.setImage(R.drawable.snape);
-		subi.setProgress(50);
+		subi.setImage(R.drawable.house);
+		subi.setProgress(10);
 
 		final SquareProgressBar subi2 = (SquareProgressBar) findViewById(R.id.subi2);
-		subi2.setImage(R.drawable.fam);
-		subi2.setProgress(25);
+		subi2.setImage(R.drawable.darth);
+		subi2.setProgress(15);
 
 		Button button = (Button) findViewById(R.id.button1);
 		button.setOnClickListener(new OnClickListener() {
