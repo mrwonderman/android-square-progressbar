@@ -5,7 +5,7 @@ android-square-progressbar
 The idea came when I needed a way to display a progressbar in a clever way in my quiz app. There I have a square image and some text below it. But no more space for a progressbar. So the best way would be a progressbar around the image.
 
 ## Square image
-So this is what I want to look like when it's finished:
+So this is what I want to look it like when it's finished:
 
 ![square image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/2013-05-05%2011.41.54.png)
 
