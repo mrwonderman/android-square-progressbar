@@ -18,11 +18,11 @@ public class MainActivity extends Activity {
 
 		final SquareProgressBar subi = (SquareProgressBar) findViewById(R.id.subi1);
 		subi.setImage(R.drawable.house);
-		subi.setProgress(10);
+		subi.setProgress(25);
 
 		final SquareProgressBar subi2 = (SquareProgressBar) findViewById(R.id.subi2);
 		subi2.setImage(R.drawable.darth);
-		subi2.setProgress(15);
+		subi2.setProgress(3);
 
 		Button button = (Button) findViewById(R.id.button1);
 		button.setOnClickListener(new OnClickListener() {

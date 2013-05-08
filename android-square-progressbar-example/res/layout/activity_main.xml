@@ -38,18 +38,17 @@
         android:text="Tataaa" />
 
     <net.yscs.android.square_progressbar.SquareProgressBar
-        android:id="@+id/subi2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true" >
-    </net.yscs.android.square_progressbar.SquareProgressBar>
-
-    <net.yscs.android.square_progressbar.SquareProgressBar
         android:id="@+id/subi1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView1"
+        android:layout_centerHorizontal="true" />
+
+    <net.yscs.android.square_progressbar.SquareProgressBar
+        android:id="@+id/subi2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/subi1"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

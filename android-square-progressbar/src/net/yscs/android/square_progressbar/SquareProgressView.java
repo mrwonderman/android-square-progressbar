@@ -52,24 +52,94 @@ public class SquareProgressView extends View {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
-		// int scope = canvas.getWidth() + canvas.getHeight() +
-		// canvas.getHeight()
-		// + canvas.getWidth();
-		// float d = scope * (progress / 100);
-		//
-		// System.out.println(d);
-		//
-		// Path path = new Path();
-		// path.moveTo(canvas.getWidth() / 2, (canvas.getWidth() / 2) + d);
-		// canvas.drawPath(path, progressBarPaint);
+		float scope = canvas.getWidth() + canvas.getHeight()
+				+ canvas.getHeight() + canvas.getWidth();
+		float percent = (scope / 100) * progress;
+		float halfOfTheImage = canvas.getWidth() / 2;
 
-		// complete path (100%)
+		if (percent > halfOfTheImage) {
+			paintFirstHalfOfTheTop(canvas);
+			float second = percent - halfOfTheImage;
+
+			if (second > canvas.getHeight()) {
+				paintRightSide(canvas);
+				float third = second - canvas.getHeight();
+
+				if (third > canvas.getWidth()) {
+					paintBottomSide(canvas);
+					float forth = third - canvas.getWidth();
+
+					if (forth > canvas.getHeight()) {
+						paintLeftSide(canvas);
+						float fifth = forth - canvas.getHeight();
+
+						if (fifth == halfOfTheImage) {
+							paintSecondHalfOfTheTop(canvas);
+						} else {
+							Path path = new Path();
+							path.moveTo(0, 0);
+							path.lineTo(fifth, 0);
+							canvas.drawPath(path, progressBarPaint);
+						}
+					} else {
+						Path path = new Path();
+						path.moveTo(0, canvas.getHeight());
+						path.lineTo(0, canvas.getHeight() - forth);
+						canvas.drawPath(path, progressBarPaint);
+					}
+
+				} else {
+					Path path = new Path();
+					path.moveTo(canvas.getWidth(), canvas.getHeight());
+					path.lineTo(canvas.getWidth() - third, canvas.getHeight());
+					canvas.drawPath(path, progressBarPaint);
+				}
+			} else {
+				Path path = new Path();
+				path.moveTo(canvas.getWidth(), 0);
+				path.lineTo(canvas.getWidth(), second);
+				canvas.drawPath(path, progressBarPaint);
+			}
+
+		} else {
+			Path path = new Path();
+			path.moveTo(halfOfTheImage, 0);
+			path.lineTo(halfOfTheImage + percent, 0);
+			canvas.drawPath(path, progressBarPaint);
+		}
+	}
+
+	public void paintFirstHalfOfTheTop(Canvas canvas) {
 		Path path = new Path();
 		path.moveTo(canvas.getWidth() / 2, 0);
 		path.lineTo(canvas.getWidth(), 0);
+		canvas.drawPath(path, progressBarPaint);
+	}
+
+	public void paintRightSide(Canvas canvas) {
+		Path path = new Path();
+		path.moveTo(canvas.getWidth(), 0);
 		path.lineTo(canvas.getWidth(), canvas.getHeight());
+		canvas.drawPath(path, progressBarPaint);
+	}
+
+	public void paintBottomSide(Canvas canvas) {
+		Path path = new Path();
+		path.moveTo(canvas.getWidth(), canvas.getHeight());
 		path.lineTo(0, canvas.getHeight());
+		canvas.drawPath(path, progressBarPaint);
+	}
+
+	public void paintLeftSide(Canvas canvas) {
+		Path path = new Path();
+		path.moveTo(0, canvas.getHeight());
 		path.lineTo(0, 0);
+		canvas.drawPath(path, progressBarPaint);
+	}
+
+	public void paintSecondHalfOfTheTop(Canvas canvas) {
+		Path path = new Path();
+		path.moveTo(0, 0);
 		path.lineTo(canvas.getWidth() / 2, 0);
 		canvas.drawPath(path, progressBarPaint);
 	}
@@ -83,6 +153,13 @@ public class SquareProgressView extends View {
 		this.invalidate();
 	}
 
+	/**
+	 * Just copied this method from sirius ;D. Thanks for that =).
+	 * 
+	 * @param dp
+	 *            the dp to convert
+	 * @return the amount of pixels as an integer
+	 */
 	private int convertDpToPx(float dp) {
 		return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
 				getContext().getResources().getDisplayMetrics());
