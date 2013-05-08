@@ -3,6 +3,7 @@ android-square-progressbar
 
 # General idea
 The idea came when I needed a way to display a progressbar in a clever way in my quiz app. There I have a square image and some text below it. But no more space for a progressbar. So the best way would be a progressbar around the image.
+Download it here: https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/android-square-progressbar.jar
 
 ## Square image
 So this is what I want to look it like when it's finished:
