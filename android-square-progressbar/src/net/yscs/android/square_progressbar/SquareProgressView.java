@@ -18,7 +18,6 @@ public class SquareProgressView extends View {
 
 	public SquareProgressView(Context context) {
 		super(context);
-
 		progressBarPaint = new Paint();
 		progressBarPaint.setColor(context.getResources().getColor(
 				android.R.color.holo_green_dark));
@@ -29,7 +28,6 @@ public class SquareProgressView extends View {
 
 	public SquareProgressView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-
 		progressBarPaint = new Paint();
 		progressBarPaint.setColor(context.getResources().getColor(
 				android.R.color.holo_green_dark));
@@ -40,7 +38,6 @@ public class SquareProgressView extends View {
 
 	public SquareProgressView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-
 		progressBarPaint = new Paint();
 		progressBarPaint.setColor(context.getResources().getColor(
 				android.R.color.holo_green_dark));
@@ -163,6 +160,10 @@ public class SquareProgressView extends View {
 	private int convertDpToPx(float dp) {
 		return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
 				getContext().getResources().getDisplayMetrics());
+	}
+
+	public void setColor(int androidHoloColor) {
+		progressBarPaint.setColor(androidHoloColor);
 	}
 
 }

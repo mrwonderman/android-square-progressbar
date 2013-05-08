@@ -29,13 +29,18 @@ public class SquareProgressBar extends RelativeLayout {
 		mInflater.inflate(R.layout.progressbarview, this, true);
 	}
 
-	public void setImage(int snape) {
+	public void setImage(int image) {
 		ImageView imageView = (ImageView) findViewById(R.id.imageView1);
-		imageView.setImageResource(snape);
+		imageView.setImageResource(image);
 	}
 
-	public void setProgress(int i) {
+	public void setProgress(int progress) {
 		SquareProgressView bar = (SquareProgressView) findViewById(R.id.squareProgressBar1);
-		bar.setProgress(i);
+		bar.setProgress(progress);
+	}
+
+	public void setColor(int androidHoloColor) {
+		SquareProgressView bar = (SquareProgressView) findViewById(R.id.squareProgressBar1);
+		bar.setColor(androidHoloColor);
 	}
 }

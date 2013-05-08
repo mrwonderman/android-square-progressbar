@@ -23,6 +23,8 @@ public class MainActivity extends Activity {
 		final SquareProgressBar subi2 = (SquareProgressBar) findViewById(R.id.subi2);
 		subi2.setImage(R.drawable.darth);
 		subi2.setProgress(3);
+		subi2.setColor(getApplicationContext().getResources().getColor(
+				android.R.color.holo_blue_dark));
 
 		Button button = (Button) findViewById(R.id.button1);
 		button.setOnClickListener(new OnClickListener() {
