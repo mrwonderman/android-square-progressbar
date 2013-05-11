@@ -4,9 +4,9 @@ android-square-progressbar
 # First things first
 Here you can find my blogpost about the library: http://www.signer.pro/android-square-progressbar/
 
-Library: http://pub.signer.pro/android-square-progressbar-1_0.jar
+Library: http://pub.signer.pro/android-square-progressbar-1.0.1.jar
 
-Example application: http://pub.signer.pro/android-square-progressbar-example.apk
+Example application: http://pub.signer.pro/android-square-progressbar-example-1.0.1.apk
 
 ## Examples
 Some examples:
