@@ -43,4 +43,9 @@ public class SquareProgressBar extends RelativeLayout {
 		SquareProgressView bar = (SquareProgressView) findViewById(R.id.squareProgressBar1);
 		bar.setColor(androidHoloColor);
 	}
+
+	public void setBorder(int border) {
+		SquareProgressView bar = (SquareProgressView) findViewById(R.id.squareProgressBar1);
+		bar.setBorderInDp(border);
+	}
 }

@@ -6,7 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 
 public class MainActivity extends Activity {
 	boolean darth = false;
@@ -18,20 +19,8 @@ public class MainActivity extends Activity {
 
 		final SquareProgressBar squareProgressBar = (SquareProgressBar) findViewById(R.id.subi2);
 		squareProgressBar.setImage(R.drawable.house);
-		squareProgressBar.setProgress(3);
 		squareProgressBar.setColor(getApplicationContext().getResources()
 				.getColor(android.R.color.holo_blue_dark));
-
-		Button button = (Button) findViewById(R.id.button1);
-		button.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				EditText editText = (EditText) findViewById(R.id.editText1);
-				squareProgressBar.setProgress(Integer.parseInt(editText
-						.getText().toString()));
-			}
-		});
 
 		Button change = (Button) findViewById(R.id.button2);
 		change.setOnClickListener(new OnClickListener() {
@@ -45,6 +34,26 @@ public class MainActivity extends Activity {
 					squareProgressBar.setImage(R.drawable.darth);
 					darth = true;
 				}
+			}
+		});
+
+		SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar1);
+		seekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {
+
+			}
+
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {
+
+			}
+
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int progress,
+					boolean fromUser) {
+				squareProgressBar.setProgress(progress);
 			}
 		});
 	}
