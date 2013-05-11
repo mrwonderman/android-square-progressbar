@@ -21,6 +21,7 @@ public class MainActivity extends Activity {
 		squareProgressBar.setImage(R.drawable.house);
 		squareProgressBar.setColor(getApplicationContext().getResources()
 				.getColor(android.R.color.holo_blue_dark));
+		squareProgressBar.setProgress(90);
 
 		Button change = (Button) findViewById(R.id.button2);
 		change.setOnClickListener(new OnClickListener() {

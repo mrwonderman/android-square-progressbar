@@ -75,15 +75,25 @@ public class SquareProgressView extends View {
 						} else {
 							Path path = new Path();
 							path.moveTo(convertDpToPx(5), convertDpToPx(10));
-							path.lineTo(fifth, convertDpToPx(10));
+							if (fifth > 10) {
+								path.lineTo(fifth, convertDpToPx(10));
+							} else {
+								path.lineTo(30, convertDpToPx(10));
+							}
 							canvas.drawPath(path, progressBarPaint);
 						}
 					} else {
 						Path path = new Path();
 						path.moveTo(convertDpToPx(10), canvas.getHeight()
 								- convertDpToPx(5));
-						path.lineTo(convertDpToPx(10), canvas.getHeight()
-								- forth);
+						if (forth > 20) {
+							path.lineTo(convertDpToPx(10), canvas.getHeight()
+									- forth);
+						} else {
+							path.lineTo(convertDpToPx(10),
+									canvas.getHeight() - 40);
+
+						}
 						canvas.drawPath(path, progressBarPaint);
 					}
 
