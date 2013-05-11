@@ -12,10 +12,7 @@ Example application: http://pub.signer.pro/android-square-progressbar-example.ap
 Some examples:
 
 ![rectangular image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/one.png)
-
 ![rectangular image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/two.png)
-
-![rectangular image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/device-2013-05-11-184654.png)
 
 # General idea
 The idea came when I needed a way to display a progressbar in a clever way in my quiz app. There I have a square image and some text below it. But no more space for a progressbar. So the best way would be a progressbar around the image.
