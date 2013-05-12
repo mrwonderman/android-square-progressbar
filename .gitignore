@@ -11,3 +11,5 @@ android-square-progressbar-example/bin/*
 android-square-progressbar-example/gen/*
 
 android-square-progressbar-example/bin/R.txt
+
+.DS_Store
