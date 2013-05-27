@@ -27,3 +27,6 @@ Some examples:
     sProgressBar.setImage(R.drawable.house);
     sProgressBar.setProgress(25);
     sProgressBar.setColor(getApplicationContext().getResources().getColor(android.R.color.holo_blue_dark));
+
+## Roadmap
+![roadmap](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/roadmap.png)
