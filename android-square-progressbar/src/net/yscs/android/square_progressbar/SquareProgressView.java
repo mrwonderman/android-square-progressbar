@@ -14,7 +14,8 @@ public class SquareProgressView extends View {
 	private int progress;
 	private final Paint progressBarPaint;
 
-	private float borderInDP = 10;
+	private float borderInDP = 5;
+	private float strokewidth = 0;
 
 	public SquareProgressView(Context context) {
 		super(context);
@@ -49,6 +50,7 @@ public class SquareProgressView extends View {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
+		strokewidth = convertDpToPx(borderInDP);
 		float scope = canvas.getWidth() + canvas.getHeight()
 				+ canvas.getHeight() + canvas.getWidth();
 		float percent = (scope / 100) * progress;
@@ -74,87 +76,76 @@ public class SquareProgressView extends View {
 							paintSecondHalfOfTheTop(canvas);
 						} else {
 							Path path = new Path();
-							path.moveTo(convertDpToPx(5), convertDpToPx(10));
-							if (fifth > 10) {
-								path.lineTo(fifth, convertDpToPx(10));
-							} else {
-								path.lineTo(30, convertDpToPx(10));
-							}
+							path.moveTo(strokewidth, (strokewidth / 2));
+							path.lineTo(strokewidth + fifth, (strokewidth / 2));
 							canvas.drawPath(path, progressBarPaint);
 						}
 					} else {
 						Path path = new Path();
-						path.moveTo(convertDpToPx(10), canvas.getHeight()
-								- convertDpToPx(5));
-						if (forth > 20) {
-							path.lineTo(convertDpToPx(10), canvas.getHeight()
-									- forth);
-						} else {
-							path.lineTo(convertDpToPx(10),
-									canvas.getHeight() - 40);
-
-						}
+						path.moveTo((strokewidth / 2), canvas.getHeight()
+								- strokewidth);
+						path.lineTo((strokewidth / 2), canvas.getHeight()
+								- forth);
 						canvas.drawPath(path, progressBarPaint);
 					}
 
 				} else {
 					Path path = new Path();
-					path.moveTo(canvas.getWidth() - convertDpToPx(10),
-							canvas.getHeight() - convertDpToPx(10));
+					path.moveTo(canvas.getWidth() - strokewidth,
+							canvas.getHeight() - (strokewidth / 2));
 					path.lineTo(canvas.getWidth() - third, canvas.getHeight()
-							- convertDpToPx(10));
+							- (strokewidth / 2));
 					canvas.drawPath(path, progressBarPaint);
 				}
 			} else {
 				Path path = new Path();
-				path.moveTo(canvas.getWidth() - convertDpToPx(10),
-						convertDpToPx(10));
-				path.lineTo(canvas.getWidth() - convertDpToPx(10), second);
+				path.moveTo(canvas.getWidth() - (strokewidth / 2), strokewidth);
+				path.lineTo(canvas.getWidth() - (strokewidth / 2), strokewidth
+						+ second);
 				canvas.drawPath(path, progressBarPaint);
 			}
 
 		} else {
 			Path path = new Path();
-			path.moveTo(halfOfTheImage, convertDpToPx(10));
-			path.lineTo(halfOfTheImage + percent, convertDpToPx(10));
+			path.moveTo(halfOfTheImage, strokewidth / 2);
+			path.lineTo(halfOfTheImage + percent, strokewidth / 2);
 			canvas.drawPath(path, progressBarPaint);
 		}
 	}
 
 	public void paintFirstHalfOfTheTop(Canvas canvas) {
 		Path path = new Path();
-		path.moveTo(canvas.getWidth() / 2, convertDpToPx(10));
-		path.lineTo(canvas.getWidth() - convertDpToPx(5), convertDpToPx(10));
+		path.moveTo(canvas.getWidth() / 2, strokewidth / 2);
+		path.lineTo(canvas.getWidth() + strokewidth, strokewidth / 2);
 		canvas.drawPath(path, progressBarPaint);
 	}
 
 	public void paintRightSide(Canvas canvas) {
 		Path path = new Path();
-		path.moveTo(canvas.getWidth() - convertDpToPx(10), convertDpToPx(10));
-		path.lineTo(canvas.getWidth() - convertDpToPx(10), canvas.getHeight()
-				- convertDpToPx(5));
+		path.moveTo(canvas.getWidth() - (strokewidth / 2), strokewidth);
+		path.lineTo(canvas.getWidth() - (strokewidth / 2), canvas.getHeight());
 		canvas.drawPath(path, progressBarPaint);
 	}
 
 	public void paintBottomSide(Canvas canvas) {
 		Path path = new Path();
-		path.moveTo(canvas.getWidth() - convertDpToPx(10), canvas.getHeight()
-				- convertDpToPx(10));
-		path.lineTo(convertDpToPx(10), canvas.getHeight() - convertDpToPx(10));
+		path.moveTo(canvas.getWidth() - strokewidth, canvas.getHeight()
+				- (strokewidth / 2));
+		path.lineTo(0, canvas.getHeight() - (strokewidth / 2));
 		canvas.drawPath(path, progressBarPaint);
 	}
 
 	public void paintLeftSide(Canvas canvas) {
 		Path path = new Path();
-		path.moveTo(convertDpToPx(10), canvas.getHeight() - convertDpToPx(5));
-		path.lineTo(convertDpToPx(10), convertDpToPx(10));
+		path.moveTo((strokewidth / 2), canvas.getHeight() - strokewidth);
+		path.lineTo((strokewidth / 2), 0);
 		canvas.drawPath(path, progressBarPaint);
 	}
 
 	public void paintSecondHalfOfTheTop(Canvas canvas) {
 		Path path = new Path();
-		path.moveTo(convertDpToPx(5), convertDpToPx(10));
-		path.lineTo(canvas.getWidth() / 2, convertDpToPx(10));
+		path.moveTo(strokewidth, (strokewidth / 2));
+		path.lineTo(canvas.getWidth() / 2, (strokewidth / 2));
 		canvas.drawPath(path, progressBarPaint);
 	}
 
@@ -198,7 +189,4 @@ public class SquareProgressView extends View {
 		this.invalidate();
 	}
 
-	public float getRemainingBorder() {
-		return convertDpToPx(20) - convertDpToPx(getBorderInDp());
-	}
 }
