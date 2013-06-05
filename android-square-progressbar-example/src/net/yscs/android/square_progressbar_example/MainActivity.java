@@ -22,6 +22,7 @@ public class MainActivity extends Activity {
 		squareProgressBar.setColor(getApplicationContext().getResources()
 				.getColor(android.R.color.holo_blue_dark));
 		squareProgressBar.setProgress(25);
+		squareProgressBar.setWidth(8);
 
 		Button change = (Button) findViewById(R.id.button2);
 		change.setOnClickListener(new OnClickListener() {
@@ -60,25 +61,23 @@ public class MainActivity extends Activity {
 				});
 
 		SeekBar widthSeekBar = (SeekBar) findViewById(R.id.seekBar2);
-		widthSeekBar
-				.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+		widthSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
-					@Override
-					public void onStopTrackingTouch(SeekBar seekBar) {
-						// nothing to do
-					}
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {
+				// nothing to do
+			}
 
-					@Override
-					public void onStartTrackingTouch(SeekBar seekBar) {
-						// nothing to do
-					}
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {
+				// nothing to do
+			}
 
-					@Override
-					public void onProgressChanged(SeekBar seekBar,
-							int progress, boolean fromUser) {
-						squareProgressBar.setWidth(progress);
-					}
-				});
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int progress,
+					boolean fromUser) {
+				squareProgressBar.setWidth(progress);
+			}
+		});
 	}
-
 }
