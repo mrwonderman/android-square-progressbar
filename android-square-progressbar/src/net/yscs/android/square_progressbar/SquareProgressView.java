@@ -1,12 +1,12 @@
 package net.yscs.android.square_progressbar;
 
+import net.yscs.android.square_progressbar.utils.CalculationUtil;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.Path;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.View;
 
 public class SquareProgressView extends View {
@@ -14,14 +14,16 @@ public class SquareProgressView extends View {
 	private int progress;
 	private final Paint progressBarPaint;
 
-	private float borderInDP = 10;
+	private float widthInDp = 0;
+	private float strokewidth = 0;
 
 	public SquareProgressView(Context context) {
 		super(context);
 		progressBarPaint = new Paint();
 		progressBarPaint.setColor(context.getResources().getColor(
 				android.R.color.holo_green_dark));
-		progressBarPaint.setStrokeWidth(convertDpToPx(borderInDP));
+		progressBarPaint.setStrokeWidth(CalculationUtil.convertDpToPx(
+				widthInDp, getContext()));
 		progressBarPaint.setAntiAlias(true);
 		progressBarPaint.setStyle(Style.STROKE);
 	}
@@ -31,7 +33,8 @@ public class SquareProgressView extends View {
 		progressBarPaint = new Paint();
 		progressBarPaint.setColor(context.getResources().getColor(
 				android.R.color.holo_green_dark));
-		progressBarPaint.setStrokeWidth(convertDpToPx(borderInDP));
+		progressBarPaint.setStrokeWidth(CalculationUtil.convertDpToPx(
+				widthInDp, getContext()));
 		progressBarPaint.setAntiAlias(true);
 		progressBarPaint.setStyle(Style.STROKE);
 	}
@@ -41,7 +44,8 @@ public class SquareProgressView extends View {
 		progressBarPaint = new Paint();
 		progressBarPaint.setColor(context.getResources().getColor(
 				android.R.color.holo_green_dark));
-		progressBarPaint.setStrokeWidth(convertDpToPx(borderInDP));
+		progressBarPaint.setStrokeWidth(CalculationUtil.convertDpToPx(
+				widthInDp, getContext()));
 		progressBarPaint.setAntiAlias(true);
 		progressBarPaint.setStyle(Style.STROKE);
 	}
@@ -49,11 +53,12 @@ public class SquareProgressView extends View {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
+		strokewidth = CalculationUtil.convertDpToPx(widthInDp, getContext());
 		float scope = canvas.getWidth() + canvas.getHeight()
 				+ canvas.getHeight() + canvas.getWidth();
 		float percent = (scope / 100) * progress;
 		float halfOfTheImage = canvas.getWidth() / 2;
-
+		Path path = new Path();
 		if (percent > halfOfTheImage) {
 			paintFirstHalfOfTheTop(canvas);
 			float second = percent - halfOfTheImage;
@@ -73,88 +78,72 @@ public class SquareProgressView extends View {
 						if (fifth == halfOfTheImage) {
 							paintSecondHalfOfTheTop(canvas);
 						} else {
-							Path path = new Path();
-							path.moveTo(convertDpToPx(5), convertDpToPx(10));
-							if (fifth > 10) {
-								path.lineTo(fifth, convertDpToPx(10));
-							} else {
-								path.lineTo(30, convertDpToPx(10));
-							}
+							path.moveTo(strokewidth, (strokewidth / 2));
+							path.lineTo(strokewidth + fifth, (strokewidth / 2));
 							canvas.drawPath(path, progressBarPaint);
 						}
 					} else {
-						Path path = new Path();
-						path.moveTo(convertDpToPx(10), canvas.getHeight()
-								- convertDpToPx(5));
-						if (forth > 20) {
-							path.lineTo(convertDpToPx(10), canvas.getHeight()
-									- forth);
-						} else {
-							path.lineTo(convertDpToPx(10),
-									canvas.getHeight() - 40);
-
-						}
+						path.moveTo((strokewidth / 2), canvas.getHeight()
+								- strokewidth);
+						path.lineTo((strokewidth / 2), canvas.getHeight()
+								- forth);
 						canvas.drawPath(path, progressBarPaint);
 					}
 
 				} else {
-					Path path = new Path();
-					path.moveTo(canvas.getWidth() - convertDpToPx(10),
-							canvas.getHeight() - convertDpToPx(10));
+					path.moveTo(canvas.getWidth() - strokewidth,
+							canvas.getHeight() - (strokewidth / 2));
 					path.lineTo(canvas.getWidth() - third, canvas.getHeight()
-							- convertDpToPx(10));
+							- (strokewidth / 2));
 					canvas.drawPath(path, progressBarPaint);
 				}
 			} else {
-				Path path = new Path();
-				path.moveTo(canvas.getWidth() - convertDpToPx(10),
-						convertDpToPx(10));
-				path.lineTo(canvas.getWidth() - convertDpToPx(10), second);
+				path.moveTo(canvas.getWidth() - (strokewidth / 2), strokewidth);
+				path.lineTo(canvas.getWidth() - (strokewidth / 2), strokewidth
+						+ second);
 				canvas.drawPath(path, progressBarPaint);
 			}
 
 		} else {
-			Path path = new Path();
-			path.moveTo(halfOfTheImage, convertDpToPx(10));
-			path.lineTo(halfOfTheImage + percent, convertDpToPx(10));
+			path.moveTo(halfOfTheImage, strokewidth / 2);
+			path.lineTo(halfOfTheImage + percent, strokewidth / 2);
 			canvas.drawPath(path, progressBarPaint);
 		}
 	}
 
 	public void paintFirstHalfOfTheTop(Canvas canvas) {
 		Path path = new Path();
-		path.moveTo(canvas.getWidth() / 2, convertDpToPx(10));
-		path.lineTo(canvas.getWidth() - convertDpToPx(5), convertDpToPx(10));
+		path.moveTo(canvas.getWidth() / 2, strokewidth / 2);
+		path.lineTo(canvas.getWidth() + strokewidth, strokewidth / 2);
 		canvas.drawPath(path, progressBarPaint);
 	}
 
 	public void paintRightSide(Canvas canvas) {
 		Path path = new Path();
-		path.moveTo(canvas.getWidth() - convertDpToPx(10), convertDpToPx(10));
-		path.lineTo(canvas.getWidth() - convertDpToPx(10), canvas.getHeight()
-				- convertDpToPx(5));
+		path.moveTo(canvas.getWidth() - (strokewidth / 2), strokewidth);
+		path.lineTo(canvas.getWidth() - (strokewidth / 2), canvas.getHeight());
 		canvas.drawPath(path, progressBarPaint);
 	}
 
 	public void paintBottomSide(Canvas canvas) {
 		Path path = new Path();
-		path.moveTo(canvas.getWidth() - convertDpToPx(10), canvas.getHeight()
-				- convertDpToPx(10));
-		path.lineTo(convertDpToPx(10), canvas.getHeight() - convertDpToPx(10));
+		path.moveTo(canvas.getWidth() - strokewidth, canvas.getHeight()
+				- (strokewidth / 2));
+		path.lineTo(0, canvas.getHeight() - (strokewidth / 2));
 		canvas.drawPath(path, progressBarPaint);
 	}
 
 	public void paintLeftSide(Canvas canvas) {
 		Path path = new Path();
-		path.moveTo(convertDpToPx(10), canvas.getHeight() - convertDpToPx(5));
-		path.lineTo(convertDpToPx(10), convertDpToPx(10));
+		path.moveTo((strokewidth / 2), canvas.getHeight() - strokewidth);
+		path.lineTo((strokewidth / 2), 0);
 		canvas.drawPath(path, progressBarPaint);
 	}
 
 	public void paintSecondHalfOfTheTop(Canvas canvas) {
 		Path path = new Path();
-		path.moveTo(convertDpToPx(5), convertDpToPx(10));
-		path.lineTo(canvas.getWidth() / 2, convertDpToPx(10));
+		path.moveTo(strokewidth, (strokewidth / 2));
+		path.lineTo(canvas.getWidth() / 2, (strokewidth / 2));
 		canvas.drawPath(path, progressBarPaint);
 	}
 
@@ -167,18 +156,6 @@ public class SquareProgressView extends View {
 		this.invalidate();
 	}
 
-	/**
-	 * Just copied this method from sirius ;D. Thanks for that =).
-	 * 
-	 * @param dp
-	 *            the dp to convert
-	 * @return the amount of pixels as an integer
-	 */
-	private int convertDpToPx(float dp) {
-		return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
-				getContext().getResources().getDisplayMetrics());
-	}
-
 	public void setColor(int androidHoloColor) {
 		progressBarPaint.setColor(androidHoloColor);
 	}
@@ -186,19 +163,18 @@ public class SquareProgressView extends View {
 	/**
 	 * @return the border
 	 */
-	public float getBorderInDp() {
-		return borderInDP;
+	public float getWidthInDp() {
+		return widthInDp;
 	}
 
 	/**
 	 * @return the border
 	 */
-	public void setBorderInDp(int border) {
-		this.borderInDP = border;
+	public void setWidthInDp(int width) {
+		this.widthInDp = width;
+		progressBarPaint.setStrokeWidth(CalculationUtil.convertDpToPx(
+				widthInDp, getContext()));
 		this.invalidate();
 	}
 
-	public float getRemainingBorder() {
-		return convertDpToPx(20) - convertDpToPx(getBorderInDp());
-	}
 }

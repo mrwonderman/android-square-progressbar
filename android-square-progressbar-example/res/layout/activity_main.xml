@@ -17,6 +17,38 @@
         android:paddingTop="20dp" >
     </net.yscs.android.square_progressbar.SquareProgressBar>
 
+    <SeekBar
+        android:id="@+id/seekBar1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button2"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/textView1"
+        android:max="100"
+        android:progress="25" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button2"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_alignTop="@+id/seekBar1"
+        android:gravity="center_vertical"
+        android:text="@string/progress"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/seekBar1"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignTop="@+id/seekBar2"
+        android:gravity="center_vertical"
+        android:text="@string/width"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
@@ -24,15 +56,16 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:text="change image" />
+        android:text="@string/change_image" />
 
     <SeekBar
-        android:id="@+id/seekBar1"
+        android:id="@+id/seekBar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
-        android:layout_alignRight="@+id/button2"
-        android:max="100"
-        android:progress="25" />
+        android:layout_above="@+id/seekBar1"
+        android:layout_alignLeft="@+id/seekBar1"
+        android:layout_alignParentRight="true"
+        android:max="20"
+        android:progress="8" />
 
 </RelativeLayout>

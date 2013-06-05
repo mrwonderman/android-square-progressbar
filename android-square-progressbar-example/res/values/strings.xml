@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">android-square-progressbar-example</string>
+    <string name="progress">Progress:</string>
+    <string name="width">Width:</string>
+    <string name="change_image">change image</string>
 </resources>

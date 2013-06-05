@@ -38,25 +38,47 @@ public class MainActivity extends Activity {
 			}
 		});
 
-		SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar1);
-		seekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+		SeekBar progressSeekBar = (SeekBar) findViewById(R.id.seekBar1);
+		progressSeekBar
+				.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
-			@Override
-			public void onStopTrackingTouch(SeekBar seekBar) {
+					@Override
+					public void onStopTrackingTouch(SeekBar seekBar) {
+						// nothing to do
+					}
 
-			}
+					@Override
+					public void onStartTrackingTouch(SeekBar seekBar) {
+						// nothing to do
+					}
 
-			@Override
-			public void onStartTrackingTouch(SeekBar seekBar) {
+					@Override
+					public void onProgressChanged(SeekBar seekBar,
+							int progress, boolean fromUser) {
+						squareProgressBar.setProgress(progress);
+					}
+				});
 
-			}
+		SeekBar widthSeekBar = (SeekBar) findViewById(R.id.seekBar2);
+		widthSeekBar
+				.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
-			@Override
-			public void onProgressChanged(SeekBar seekBar, int progress,
-					boolean fromUser) {
-				squareProgressBar.setProgress(progress);
-			}
-		});
+					@Override
+					public void onStopTrackingTouch(SeekBar seekBar) {
+						// nothing to do
+					}
+
+					@Override
+					public void onStartTrackingTouch(SeekBar seekBar) {
+						// nothing to do
+					}
+
+					@Override
+					public void onProgressChanged(SeekBar seekBar,
+							int progress, boolean fromUser) {
+						squareProgressBar.setWidth(progress);
+					}
+				});
 	}
 
 }

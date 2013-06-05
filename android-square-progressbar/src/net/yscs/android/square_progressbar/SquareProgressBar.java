@@ -1,5 +1,6 @@
 package net.yscs.android.square_progressbar;
 
+import net.yscs.android.square_progressbar.utils.CalculationUtil;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -7,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 public class SquareProgressBar extends RelativeLayout {
+
+	private ImageView imageView;
 
 	public SquareProgressBar(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
@@ -30,7 +33,7 @@ public class SquareProgressBar extends RelativeLayout {
 	}
 
 	public void setImage(int image) {
-		ImageView imageView = (ImageView) findViewById(R.id.imageView1);
+		imageView = (ImageView) findViewById(R.id.imageView1);
 		imageView.setImageResource(image);
 	}
 
@@ -44,8 +47,10 @@ public class SquareProgressBar extends RelativeLayout {
 		bar.setColor(androidHoloColor);
 	}
 
-	public void setBorder(int border) {
+	public void setWidth(int width) {
 		SquareProgressView bar = (SquareProgressView) findViewById(R.id.squareProgressBar1);
-		bar.setBorderInDp(border);
+		int padding = CalculationUtil.convertDpToPx(width, getContext());
+		imageView.setPadding(padding, padding, padding, padding);
+		bar.setWidthInDp(width);
 	}
 }
