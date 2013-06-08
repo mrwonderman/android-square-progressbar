@@ -156,8 +156,8 @@ public class SquareProgressView extends View {
 		this.invalidate();
 	}
 
-	public void setColor(int androidHoloColor) {
-		progressBarPaint.setColor(androidHoloColor);
+	public void setColor(int color) {
+		progressBarPaint.setColor(color);
 		this.invalidate();
 	}
 

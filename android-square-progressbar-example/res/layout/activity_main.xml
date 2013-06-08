@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@+id/changeButton"
-        android:layout_alignParentRight="true"
+        android:layout_toLeftOf="@+id/progressDisplay"
         android:layout_toRightOf="@+id/textView1"
         android:max="100"
         android:progress="25" />
@@ -92,6 +92,15 @@
         android:layout_alignLeft="@+id/horizontalScrollView1"
         android:layout_marginBottom="8dp"
         android:text="@string/colour"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/progressDisplay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView1"
+        android:layout_alignBottom="@+id/textView1"
+        android:layout_alignRight="@+id/changeButton"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

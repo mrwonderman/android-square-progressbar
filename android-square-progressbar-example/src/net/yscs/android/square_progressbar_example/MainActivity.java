@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 	boolean darth = false;
@@ -26,9 +27,12 @@ public class MainActivity extends Activity {
 
 		final SquareProgressBar squareProgressBar = (SquareProgressBar) findViewById(R.id.subi2);
 		squareProgressBar.setImage(R.drawable.house);
-		squareProgressBar.setColor(color.holo_blue_dark);
+		squareProgressBar.setColor("#C9C9C9");
 		squareProgressBar.setProgress(25);
 		squareProgressBar.setWidth(8);
+
+		final TextView progressView = (TextView) findViewById(R.id.progressDisplay);
+		progressView.setText("25%");
 
 		Button change = (Button) findViewById(R.id.changeButton);
 		change.setOnClickListener(new OnClickListener() {
@@ -63,6 +67,7 @@ public class MainActivity extends Activity {
 					public void onProgressChanged(SeekBar seekBar,
 							int progress, boolean fromUser) {
 						squareProgressBar.setProgress(progress);
+						progressView.setText(progress + "%");
 					}
 				});
 
@@ -111,7 +116,7 @@ public class MainActivity extends Activity {
 			colourView.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					squareProgressBar.setColor(resId);
+					squareProgressBar.setHoloColor(resId);
 				}
 			});
 			scrollViewLayout.addView(colourView);
