@@ -11,7 +11,7 @@ import android.view.View;
 
 public class SquareProgressView extends View {
 
-	private int progress;
+	private double progress;
 	private final Paint progressBarPaint;
 
 	private float widthInDp = 0;
@@ -56,7 +56,7 @@ public class SquareProgressView extends View {
 		strokewidth = CalculationUtil.convertDpToPx(widthInDp, getContext());
 		float scope = canvas.getWidth() + canvas.getHeight()
 				+ canvas.getHeight() + canvas.getWidth();
-		float percent = (scope / 100) * progress;
+		float percent = (scope / 100) * Float.valueOf(String.valueOf(progress));
 		float halfOfTheImage = canvas.getWidth() / 2;
 		Path path = new Path();
 		if (percent > halfOfTheImage) {
@@ -147,11 +147,11 @@ public class SquareProgressView extends View {
 		canvas.drawPath(path, progressBarPaint);
 	}
 
-	public int getProgress() {
+	public double getProgress() {
 		return progress;
 	}
 
-	public void setProgress(int progress) {
+	public void setProgress(double progress) {
 		this.progress = progress;
 		this.invalidate();
 	}

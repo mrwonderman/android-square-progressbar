@@ -42,7 +42,7 @@ public class SquareProgressBar extends RelativeLayout {
 		imageView.setImageResource(image);
 	}
 
-	public void setProgress(int progress) {
+	public void setProgress(double progress) {
 		bar.setProgress(progress);
 	}
 
