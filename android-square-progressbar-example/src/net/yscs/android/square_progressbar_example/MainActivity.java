@@ -26,13 +26,13 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		final SquareProgressBar squareProgressBar = (SquareProgressBar) findViewById(R.id.subi2);
-		squareProgressBar.setImage(R.drawable.house);
+		squareProgressBar.setImage(R.drawable.city);
 		squareProgressBar.setColor("#C9C9C9");
-		squareProgressBar.setProgress(25);
+		squareProgressBar.setProgress(32);
 		squareProgressBar.setWidth(8);
 
 		final TextView progressView = (TextView) findViewById(R.id.progressDisplay);
-		progressView.setText("25%");
+		progressView.setText("32%");
 
 		Button change = (Button) findViewById(R.id.changeButton);
 		change.setOnClickListener(new OnClickListener() {
@@ -40,10 +40,10 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				if (darth) {
-					squareProgressBar.setImage(R.drawable.house);
+					squareProgressBar.setImage(R.drawable.city);
 					darth = false;
 				} else {
-					squareProgressBar.setImage(R.drawable.darth);
+					squareProgressBar.setImage(R.drawable.millennium_stadium);
 					darth = true;
 				}
 			}

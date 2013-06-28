@@ -14,7 +14,7 @@ public class SquareProgressView extends View {
 	private double progress;
 	private final Paint progressBarPaint;
 
-	private float widthInDp = 0;
+	private float widthInDp = 10;
 	private float strokewidth = 0;
 
 	public SquareProgressView(Context context) {
