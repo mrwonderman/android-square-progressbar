@@ -21,11 +21,11 @@ Some examples:
 ![rectangular image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/newscreen2.png)
 
 ### How to use it?
-SquareProgressBar sProgressBar = (SquareProgressBar) findViewById(R.id.squareprogressbar);
-squareProgressBar.setImage(R.drawable.city);
-squareProgressBar.setColor("#C9C9C9");
-squareProgressBar.setProgress(32);
-squareProgressBar.setWidth(8);
+    SquareProgressBar sProgressBar = (SquareProgressBar) findViewById(R.id.squareprogressbar);
+    squareProgressBar.setImage(R.drawable.city);
+    squareProgressBar.setColor("#C9C9C9");
+    squareProgressBar.setProgress(32);
+    squareProgressBar.setWidth(8);
 
 ## Colour / Color
 (http://en.wikipedia.org/wiki/American_and_British_English_spelling_differences#-our.2C_-or)
