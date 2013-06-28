@@ -18,7 +18,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:padding="5dp"
+        android:contentDescription="@string/description"
+        android:padding="10dp"
         android:src="@drawable/ic_launcher" />
 
 </RelativeLayout>
