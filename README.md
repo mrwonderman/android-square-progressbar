@@ -21,7 +21,7 @@ Some examples:
 ![rectangular image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/newscreen2.png)
 
 ### How to use it?
-    SquareProgressBar sProgressBar = (SquareProgressBar) findViewById(R.id.squareprogressbar);
+    SquareProgressBar squareProgressBar = (SquareProgressBar) findViewById(R.id.squareprogressbar);
     squareProgressBar.setImage(R.drawable.city);
     squareProgressBar.setColor("#C9C9C9");
     squareProgressBar.setProgress(32);
