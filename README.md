@@ -1,6 +1,6 @@
 android-square-progressbar
 ==========================
-![square image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/IMG_3462.JPG)
+![square image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/IMG_20130628_185136.jpg)
 ## First things first
 Here you can find my blogpost about the library: http://www.signer.pro/android-square-progressbar/
 
@@ -17,14 +17,23 @@ The idea came when I needed a way to display a progressbar in a clever way in my
 ### Examples
 Some examples:
 
-![rectangular image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/one.png)
-![rectangular image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/two.png)
+![rectangular image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/newscreen1.png)
+![rectangular image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/newscreen2.png)
 
 ### How to use it?
-    final SquareProgressBar sProgressBar = (SquareProgressBar) findViewById(R.id.squareprogressbar);
-    sProgressBar.setImage(R.drawable.house);
-    sProgressBar.setProgress(25);
-    sProgressBar.setColor(getApplicationContext().getResources().getColor(android.R.color.holo_blue_dark));
+SquareProgressBar sProgressBar = (SquareProgressBar) findViewById(R.id.squareprogressbar);
+squareProgressBar.setImage(R.drawable.city);
+squareProgressBar.setColor("#C9C9C9");
+squareProgressBar.setProgress(32);
+squareProgressBar.setWidth(8);
 
-## Roadmap
-![roadmap](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/roadmap.png)
+## Colour / Color
+(http://en.wikipedia.org/wiki/American_and_British_English_spelling_differences#-our.2C_-or)
+
+There are 3 possibilities to set the colour of the progressbar:
+
+    squareProgressBar.setColor("#C9C9C9");
+    
+  	squareProgressBar.setColorRGB(112, 13, 119);
+    
+    squareProgressBar.setHoloColor(color.holo_blue_dark);
