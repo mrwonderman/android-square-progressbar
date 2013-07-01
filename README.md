@@ -2,7 +2,9 @@ android-square-progressbar
 ==========================
 ![square image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/IMG_20130628_185136.jpg)
 ## First things first
-Here you can find my blogpost about the library: http://www.signer.pro/android-square-progressbar/
+My post about the update 1.1.0 : http://www.signer.pro/android-square-progressbar-v-1-1-0/
+
+My post about the initial version 1.0 : http://www.signer.pro/android-square-progressbar/
 
 Example application: https://play.google.com/store/apps/details?id=net.yscs.android.square_progressbar_example
 
@@ -12,10 +14,11 @@ Example application: https://play.google.com/store/apps/details?id=net.yscs.andr
 </a>
 
 ## General idea
-The idea came when I needed a way to display a progressbar in a clever way in my quiz app. There I have a square image and some text below it. But no more space for a progressbar. So the best way would be a progressbar around the image.
+Sometimes you dont have enough space in your layout to display a progressBar. So this library gives you a new approach. You can simply display a progressbar in a colour/color you want around an image.
 
+This library is in an early state, but with your feedback it only can get better. So feel free to submit new feature request and report bugs.
 ### Examples
-Some examples:
+Here are some examples how these progressBars could look like:
 
 ![rectangular image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/newscreen1.png)
 ![rectangular image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/newscreen2.png)
