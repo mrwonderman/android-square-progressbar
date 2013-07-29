@@ -135,5 +135,14 @@ public class MainActivity extends Activity {
 				squareProgressBar.setOpacity(isChecked);
 			}
 		});
+
+		CheckBox greyscale = (CheckBox) findViewById(R.id.checkBox2);
+		greyscale.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
+				squareProgressBar.setImageGrayscale(isChecked);
+			}
+		});
 	}
 }

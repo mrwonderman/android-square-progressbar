@@ -7,4 +7,5 @@
     <string name="colour">Colour:</string>
     <string name="opacity">Opacity</string>
     <string name="style">Style:</string>
+    <string name="grayscale">Grayscale</string>
 </resources>

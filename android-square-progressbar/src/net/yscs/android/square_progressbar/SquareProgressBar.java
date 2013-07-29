@@ -3,6 +3,8 @@ package net.yscs.android.square_progressbar;
 import net.yscs.android.square_progressbar.utils.CalculationUtil;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
@@ -20,6 +22,7 @@ public class SquareProgressBar extends RelativeLayout {
 	private ImageView imageView;
 	private final SquareProgressView bar;
 	private boolean opacity;
+	private boolean greyscale;
 
 	/**
 	 * New SquareProgressBar.
@@ -82,6 +85,7 @@ public class SquareProgressBar extends RelativeLayout {
 	public void setImage(int image) {
 		imageView = (ImageView) findViewById(R.id.imageView1);
 		imageView.setImageResource(image);
+
 	}
 
 	/**
@@ -193,5 +197,23 @@ public class SquareProgressBar extends RelativeLayout {
 	public void setOpacity(boolean opacity) {
 		this.opacity = opacity;
 		setProgress(bar.getProgress());
+	}
+
+	/**
+	 * You can set the image to b/w with this method. Works fine with the
+	 * opacity.
+	 * 
+	 * @param greyscale
+	 *            true if the grayscale should be activated.
+	 */
+	public void setImageGrayscale(boolean greyscale) {
+		this.greyscale = greyscale;
+		if (greyscale) {
+			ColorMatrix matrix = new ColorMatrix();
+			matrix.setSaturation(0);
+			imageView.setColorFilter(new ColorMatrixColorFilter(matrix));
+		} else {
+			imageView.setColorFilter(null);
+		}
 	}
 }
