@@ -5,4 +5,6 @@
     <string name="width">Width:</string>
     <string name="change_image">change image</string>
     <string name="colour">Colour:</string>
+    <string name="opacity">Opacity</string>
+    <string name="style">Style:</string>
 </resources>

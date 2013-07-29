@@ -12,6 +12,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
@@ -30,6 +33,7 @@ public class MainActivity extends Activity {
 		squareProgressBar.setColor("#C9C9C9");
 		squareProgressBar.setProgress(32);
 		squareProgressBar.setWidth(8);
+		squareProgressBar.setOpacity(false);
 
 		final TextView progressView = (TextView) findViewById(R.id.progressDisplay);
 		progressView.setText("32%");
@@ -121,5 +125,15 @@ public class MainActivity extends Activity {
 			});
 			scrollViewLayout.addView(colourView);
 		}
+
+		CheckBox opacity = (CheckBox) findViewById(R.id.checkBox1);
+		opacity.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView,
+					boolean isChecked) {
+				squareProgressBar.setOpacity(isChecked);
+			}
+		});
 	}
 }

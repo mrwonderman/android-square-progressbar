@@ -19,6 +19,7 @@ public class SquareProgressBar extends RelativeLayout {
 
 	private ImageView imageView;
 	private final SquareProgressView bar;
+	private boolean opacity;
 
 	/**
 	 * New SquareProgressBar.
@@ -84,7 +85,9 @@ public class SquareProgressBar extends RelativeLayout {
 	}
 
 	/**
-	 * Sets the progress of the {@link SquareProgressBar}.
+	 * Sets the progress of the {@link SquareProgressBar}. If opacity is
+	 * selected then here it sets it. See {@link #setOpacity(boolean)} for more
+	 * information.
 	 * 
 	 * @param progress
 	 *            the progress
@@ -92,7 +95,11 @@ public class SquareProgressBar extends RelativeLayout {
 	 */
 	public void setProgress(double progress) {
 		bar.setProgress(progress);
-		setOpacity((int) progress);
+		if (opacity) {
+			setOpacity((int) progress);
+		} else {
+			setOpacity(100);
+		}
 	}
 
 	/**
@@ -164,10 +171,27 @@ public class SquareProgressBar extends RelativeLayout {
 	 * deprecated method here as the new one is only available for the API-level
 	 * 16. And the min API level o this library is 14.
 	 * 
+	 * Use this only as private method.
+	 * 
 	 * @param progress
 	 *            the progress
 	 */
-	public void setOpacity(int progress) {
+	private void setOpacity(int progress) {
 		imageView.setAlpha((int) (2.55 * progress));
+	}
+
+	/**
+	 * Switches the opacity state of the image. This forces the
+	 * SquareProgressBar to redraw with the current progress. As bigger the
+	 * progress is, then more of the image comes to view. If the progress is 0,
+	 * then you can't see the image at all. If the progress is 100, the image is
+	 * shown full.
+	 * 
+	 * @param opacity
+	 *            true if opacity should be enabled.
+	 */
+	public void setOpacity(boolean opacity) {
+		this.opacity = opacity;
+		setProgress(bar.getProgress());
 	}
 }
