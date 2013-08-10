@@ -216,4 +216,12 @@ public class SquareProgressBar extends RelativeLayout {
 			imageView.setColorFilter(null);
 		}
 	}
+
+	public boolean isOpacity() {
+		return opacity;
+	}
+
+	public boolean isGreyscale() {
+		return greyscale;
+	}
 }
