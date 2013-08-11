@@ -64,24 +64,29 @@ public class MainActivity extends Activity {
 					ViewGroup parent) {
 				View item = convertView;
 
+				// Header Item
 				View headerItem = LayoutInflater.from(getApplicationContext())
 						.inflate(R.layout.lv_header_layout, parent, false);
 				TextView title = (TextView) headerItem
 						.findViewById(R.id.lv_list_hdr);
 
+				// Custom Style Item
 				View styleItem = LayoutInflater.from(getApplicationContext())
 						.inflate(R.layout.lv_style, parent, false);
 				CheckBox box = (CheckBox) styleItem
 						.findViewById(R.id.checkBox1);
 
+				// Link to Github Item
 				View githubItem = LayoutInflater.from(getApplicationContext())
 						.inflate(R.layout.lv_github, parent, false);
 				TextView githublink = (TextView) githubItem
 						.findViewById(R.id.textView1);
 
+				// Link to homepage Item
 				View signerItem = LayoutInflater.from(getApplicationContext())
 						.inflate(R.layout.lv_signer, parent, false);
 
+				// Link to Image Item
 				View imageItem = LayoutInflater.from(getApplicationContext())
 						.inflate(R.layout.lv_image, parent, false);
 				ImageView imagePreview = (ImageView) imageItem
@@ -268,10 +273,6 @@ public class MainActivity extends Activity {
 			}
 		};
 		drawerLayout.setDrawerListener(drawerToggle);
-
-		if (savedInstanceState == null) {
-			// selectItem();
-		}
 	}
 
 	@Override
@@ -335,9 +336,7 @@ public class MainActivity extends Activity {
 	}
 
 	private void selectItem(int position) {
-		if (position != 0 || position != 11 || position != 13) {
-			drawerListView.setItemChecked(position, true);
-		}
+		drawerListView.setItemChecked(position, true);
 	}
 
 	private class DrawerItemClickListener implements
@@ -345,7 +344,8 @@ public class MainActivity extends Activity {
 		@Override
 		public void onItemClick(AdapterView<?> parent, View view, int position,
 				long id) {
-			if (position != 0 || position != 11 || position != 13) {
+			if ((position != 0) && (position != 11) && (position != 13)
+					&& (position != 17)) {
 				selectItem(position);
 			}
 		}
