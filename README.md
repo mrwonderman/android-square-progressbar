@@ -1,7 +1,10 @@
 android-square-progressbar
 ==========================
-![square image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/IMG_20130628_185136.jpg)
+![square image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/IMG_20130811_112751.jpg)
 ## First things first
+
+My post aboth the update 1.2.0 : http://www.signer.pro/android-square-progressbar-v-1-2-0/
+
 My post about the update 1.1.0 : http://www.signer.pro/android-square-progressbar-v-1-1-0/
 
 My post about the initial version 1.0 : http://www.signer.pro/android-square-progressbar/
@@ -37,6 +40,6 @@ There are 3 possibilities to set the colour of the progressbar:
 
     squareProgressBar.setColor("#C9C9C9");
     
-  	squareProgressBar.setColorRGB(112, 13, 119);
+    squareProgressBar.setColorRGB(112, 13, 119);
     
     squareProgressBar.setHoloColor(color.holo_blue_dark);
