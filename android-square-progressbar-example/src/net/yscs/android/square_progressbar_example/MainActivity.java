@@ -39,6 +39,8 @@ public class MainActivity extends Activity {
 	public static String[] partTitle, descriptions;
 	private SquareFragment squareFragment;
 
+	private int lastPosition;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -222,11 +224,13 @@ public class MainActivity extends Activity {
 					colourView.setBackgroundColor(context.getResources()
 							.getColor(integer));
 					item.setOnClickListener(new OnClickListener() {
+
 						@Override
 						public void onClick(View arg0) {
 							squareFragment.squareProgressBar
 									.setHoloColor(integer);
 							selectItem(position);
+							lastPosition = position;
 						}
 					});
 					TextView textView = (TextView) item
@@ -347,6 +351,8 @@ public class MainActivity extends Activity {
 			if ((position != 0) && (position != 11) && (position != 13)
 					&& (position != 17)) {
 				selectItem(position);
+			} else {
+				selectItem(lastPosition);
 			}
 		}
 	}
