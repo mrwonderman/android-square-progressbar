@@ -27,11 +27,28 @@ Here are some examples how these progressBars could look like:
 ![rectangular image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/newscreen2.png)
 
 ### How to use it?
-    SquareProgressBar squareProgressBar = (SquareProgressBar) findViewById(R.id.squareprogressbar);
+
+After you included the library as a library project to your project, add the following xml code to your layout:
+
+    <net.yscs.android.square_progressbar.SquareProgressBar
+        android:id="@+id/subi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="20dp" >
+    </net.yscs.android.square_progressbar.SquareProgressBar>
+    
+Then you use the following code to set some inital settings:
+
+    SquareProgressBar squareProgressBar = (SquareProgressBar) findViewById(R.id.subi);
     squareProgressBar.setImage(R.drawable.city);
     squareProgressBar.setColor("#C9C9C9");
     squareProgressBar.setProgress(32);
     squareProgressBar.setWidth(8);
+    squareProgressBar.setOpacity(false);
+    
+Sadly you need to set the opacity from the start. This will be fixed with the version 1.3.0.
 
 ## Colour / Color
 (http://en.wikipedia.org/wiki/American_and_British_English_spelling_differences#-our.2C_-or)
