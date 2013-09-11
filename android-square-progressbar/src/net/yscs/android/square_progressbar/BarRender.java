@@ -20,6 +20,14 @@ import android.graphics.Paint.Style;
 import android.graphics.PorterDuff;
 import android.graphics.Rect;
 
+/**
+ * This class will handle the drawing of the progress bar for the
+ * SquareProgressBar.
+ * 
+ * @author Luksprog
+ * 
+ * @since 2.0
+ */
 class BarRender {
 
     private int mContainerWidth = 0;
@@ -41,6 +49,20 @@ class BarRender {
         mPaint.setAntiAlias(true);
     }
 
+    /**
+     * Called when the container changes in such a way that the renderer must
+     * recalculate its own values(like changes in size, the size of the maximum
+     * progress etc)
+     * 
+     * @param width
+     *            the new width of the SquareProgressBar
+     * @param height
+     *            the new height of the SquareProgressBar
+     * @param space
+     *            the new width for the progress bar
+     * @param maxProgress
+     *            the new maximum progress
+     */
     void setupValues(int width, int height, int space, int maxProgress) {
         this.mContainerWidth = width;
         this.mContainerHeight = height;
@@ -58,7 +80,13 @@ class BarRender {
         mClear = clear;
     }
 
-    void draw(Canvas canvas) {        
+    /**
+     * Do the actual drawing!
+     * 
+     * @param canvas
+     *            the Canvas obtained from the SquareProgressBar
+     */
+    void draw(Canvas canvas) {
         final Rect r = mTempRect;
         int totalPixelProgress = mCurProgress * mPixelStep;
         int leftOver = totalPixelProgress - mHalfWidth;
@@ -135,6 +163,9 @@ class BarRender {
         mWidthSpace = newWidth;
     }
 
+    /**
+     * Helper method to update our work Rect with the proper values.
+     */
     private void makeRectBar(Rect r, int left, int top, int right, int bottom) {
         r.left = left;
         r.top = top;
@@ -142,11 +173,29 @@ class BarRender {
         r.bottom = bottom;
     }
 
+    /**
+     * Calculates the full range which the progress will fill.
+     * 
+     * @param width
+     *            the width of the SquareProgressbar
+     * @param height
+     *            the height of the SquareProgressBar
+     * @return the size of the range which the progress bar will fill.
+     */
     private int calculateEntireRange(int width, int height) {
         int result = 2 * width + 2 * (height - 2 * mWidthSpace);
         return result < 0 ? 0 : result;
     }
 
+    /**
+     * Maps the entire range to the maximum progress obtaining the actual pixel
+     * step used in the drawing. Also, adds some extra pixel offset so the
+     * progress will remain in valid proportions(so we end up with decent visual
+     * progress increase).
+     * 
+     * @param entireRange
+     * @return
+     */
     private int calcPixelToProgressPoint(int entireRange) {
         if (entireRange == 0 || mMaxProgress == 0) {
             return 0;

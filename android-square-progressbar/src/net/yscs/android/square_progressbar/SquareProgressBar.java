@@ -24,7 +24,6 @@ import android.widget.ImageView;
 public class SquareProgressBar extends ViewGroup {
 
     private ImageView mImage;
-    private boolean mOpacity;
     private boolean mGreyscale;
     private int mCurWidth;
     private int mCurProgress;
@@ -87,7 +86,7 @@ public class SquareProgressBar extends ViewGroup {
 
     /**
      * Sets the image of the {@link SquareProgressBar}. Must be a valid
-     * ressourceId.
+     * resourceId.
      * 
      * @param image
      *            the image as a ressourceId
@@ -99,9 +98,11 @@ public class SquareProgressBar extends ViewGroup {
 
     /**
      * Sets the {@link URI} as the image of the {@link SquareProgressBar}.
+     * (Note: the Bitmap will be decoded on the main UI thread, if you don't
+     * want this then use setImage(Drawable)).
      * 
      * @param image
-     *            the image as a ressourceId
+     *            the URI pointing to the image as a ressourceId.
      * @since 2.0
      */
     public void setImage(Uri imageUri) {
@@ -109,8 +110,7 @@ public class SquareProgressBar extends ViewGroup {
     }
 
     /**
-     * Sets the {@link Bitmap} of the {@link SquareProgressBar}. Must be a valid
-     * ressourceId.
+     * Sets the {@link Bitmap} of the {@link SquareProgressBar}.
      * 
      * @param image
      *            the image as a ressourceId
@@ -121,8 +121,7 @@ public class SquareProgressBar extends ViewGroup {
     }
 
     /**
-     * Sets the {@link Drawable} of the {@link SquareProgressBar}. Must be a
-     * valid ressourceId.
+     * Sets the {@link Drawable} of the {@link SquareProgressBar}.
      * 
      * @param image
      *            the image as a ressourceId
@@ -147,39 +146,19 @@ public class SquareProgressBar extends ViewGroup {
         invalidate();
     }
 
+    /**
+     * Sets the maximum progress.
+     * 
+     * @param maximumProgress
+     *            the value representing the maximum progress.
+     */
     public void setMaximumProgress(int maximumProgress) {
         mMaxProgress = maximumProgress;
         mRender.setMaxProgress(mMaxProgress);
     }
 
     /**
-     * Sets the colour of the {@link SquareProgressBar} to a predefined android
-     * holo color. <br/>
-     * <b>Examples:</b>
-     * <ul>
-     * <li>holo_blue_bright</li>
-     * <li>holo_blue_dark</li>
-     * <li>holo_blue_light</li>
-     * <li>holo_green_dark</li>
-     * <li>holo_green_light</li>
-     * <li>holo_orange_dark</li>
-     * <li>holo_orange_light</li>
-     * <li>holo_purple</li>
-     * <li>holo_red_dark</li>
-     * <li>holo_red_light</li>
-     * </ul>
-     * 
-     * @param androidHoloColor
-     * @since 1.0
-     */
-    public void setHoloColor(int androidHoloColor) {
-        mCurColor = getContext().getResources().getColor(androidHoloColor);
-        mRender.changeColor(mCurColor);
-        invalidate();
-    }
-
-    /**
-     * Sets the colour of the {@link SquareProgressBar}. YOu can give it a
+     * Sets the color of the {@link SquareProgressBar}. You can give it a
      * hex-color string like <i>#C9C9C9</i>.
      * 
      * @param colorString
@@ -193,7 +172,20 @@ public class SquareProgressBar extends ViewGroup {
     }
 
     /**
-     * This sets the colour of the {@link SquareProgressBar} with a RGB colour.
+     * Sets the color of the {@link SquareProgressBar}.
+     * 
+     * @param the
+     *            new color
+     * @since 2.0
+     */
+    public void setColor(int color) {
+        mCurColor = color;
+        mRender.changeColor(mCurColor);
+        invalidate();
+    }
+
+    /**
+     * This sets the color of the {@link SquareProgressBar} with a RGB colour.
      * 
      * @param r
      *            red
@@ -241,28 +233,54 @@ public class SquareProgressBar extends ViewGroup {
         }
     }
 
+    /**
+     * Set how should the progress bar be handled when the maximum progress is
+     * achieved.
+     * 
+     * @param clear
+     *            true if the progress bar should be hidden, false otherwise.
+     */
     public void clearProgressAtEnd(boolean clear) {
         mClearAtEnd = clear;
         mRender.setToClear(mClearAtEnd);
     }
 
+    /**
+     * Check if the widget will hide it's progress bar when the maximum progress
+     * is achieved.
+     * 
+     * @return true if the progress will disappear when the maximum progress is
+     *         achieved, false otherwise.
+     */
     public boolean isClearingAtEnd() {
         return mClearAtEnd;
     }
 
-    public boolean isOpacitySet() {
-        return mOpacity;
-    }
-
+    /**
+     * Check if currently the greyscale is set for the image.
+     * 
+     * @return true if the greyscale is set for the image, false otherwise.
+     */
     public boolean isGreyscaleSet() {
         return mGreyscale;
     }
 
+    /**
+     * Get the current level of progress. Return 0 when the progress bar is in
+     * indeterminate mode.
+     * 
+     * @return the current progress, between 0 and getMax()
+     */
     public int getProgress() {
         return mCurProgress;
     }
 
-    public int getMaxProgress() {
+    /**
+     * Returns the maximum progress.
+     * 
+     * @return the value representing the maximum progress value.
+     */
+    public int getMax() {
         return mMaxProgress;
     }
 
@@ -305,11 +323,19 @@ public class SquareProgressBar extends ViewGroup {
                 mMaxProgress);
     }
 
+    /**
+     * Not implemented at this moment. You could simply use the setWidth()
+     * method with a Color.TRANSPARENT.
+     */
     @Override
     public void setPadding(int left, int top, int right, int bottom) {
         // TODO to implement!!!
     }
 
+    /**
+     * Not implemented at this moment. You could simply use the setWidth()
+     * method with a Color.TRANSPARENT.
+     */
     @Override
     public void setPaddingRelative(int start, int top, int end, int bottom) {
         // TODO to implement!!!

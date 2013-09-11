@@ -22,8 +22,7 @@ public class SquareFragment extends Fragment {
         squareProgressBar.setImage(R.drawable.city);
         squareProgressBar.setColor("#C9C9C9");
         squareProgressBar.setProgress(32);
-        squareProgressBar.setWidth(8);
-        squareProgressBar.useOpacity(false);
+        squareProgressBar.setWidth(8);        
         squareProgressBar.clearProgressAtEnd(true);
 
         final TextView progressView = (TextView) view
