@@ -82,7 +82,9 @@ public class CustomAdapter extends BaseAdapter {
         case TYPE_HEADER:
             TextView title = (TextView) item.findViewById(R.id.lv_list_hdr);
             title.setText(position == 0 ? "Pick color"
-                    : (position == 7 ? "Pick image:" : "Source links:"));
+                    : (position == 7 ? "Pick image:"
+                            : (position == 12 ? "Clear at end:"
+                                    : "Source links:")));
             break;
         case TYPE_AUTHOR:
             break;
@@ -134,7 +136,7 @@ public class CustomAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 1 + mColors.length + 1 + mImages.length + 3;
+        return 1 + mColors.length + 1 + mImages.length + 2 + 3;
     }
 
     @Override
