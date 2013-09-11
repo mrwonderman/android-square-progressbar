@@ -1,10 +1,15 @@
 package net.yscs.android.square_progressbar;
 
+import java.net.URI;
+
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -93,6 +98,41 @@ public class SquareProgressBar extends ViewGroup {
     }
 
     /**
+     * Sets the {@link URI} as the image of the {@link SquareProgressBar}.
+     * 
+     * @param image
+     *            the image as a ressourceId
+     * @since 2.0
+     */
+    public void setImage(Uri imageUri) {
+        mImage.setImageURI(imageUri);
+    }
+
+    /**
+     * Sets the {@link Bitmap} of the {@link SquareProgressBar}. Must be a valid
+     * ressourceId.
+     * 
+     * @param image
+     *            the image as a ressourceId
+     * @since 2.0
+     */
+    public void setImage(Bitmap image) {
+        mImage.setImageBitmap(image);
+    }
+
+    /**
+     * Sets the {@link Drawable} of the {@link SquareProgressBar}. Must be a
+     * valid ressourceId.
+     * 
+     * @param image
+     *            the image as a ressourceId
+     * @since 2.0
+     */
+    public void setImage(Drawable image) {
+        mImage.setImageDrawable(image);
+    }
+
+    /**
      * Sets the progress of the {@link SquareProgressBar}. If opacity is
      * selected then here it sets it. See {@link #setOpacity(boolean)} for more
      * information.
@@ -104,11 +144,6 @@ public class SquareProgressBar extends ViewGroup {
     public void setProgress(int progress) {
         mCurProgress = progress;
         mRender.setProgress(progress);
-        if (mOpacity) {
-            setOpacity((int) progress);
-        } else {
-            setOpacity(100);
-        }
         invalidate();
     }
 
@@ -189,36 +224,6 @@ public class SquareProgressBar extends ViewGroup {
     }
 
     /**
-     * This sets the alpha of the image in the view. Actually I need to use the
-     * deprecated method here as the new one is only available for the API-level
-     * 16. And the min API level o this library is 14.
-     * 
-     * Use this only as private method.
-     * 
-     * @param progress
-     *            the progress
-     */
-    private void setOpacity(int progress) {
-        //mImage.setAlpha((int) (2.55 * progress));
-        mImage.getBackground().setAlpha(125);
-    }
-
-    /**
-     * Switches the opacity state of the image. This forces the
-     * SquareProgressBar to redraw with the current progress. As bigger the
-     * progress is, then more of the image comes to view. If the progress is 0,
-     * then you can't see the image at all. If the progress is 100, the image is
-     * shown full.
-     * 
-     * @param opacity
-     *            true if opacity should be enabled.
-     */
-    public void useOpacity(boolean opacity) {
-        mOpacity = opacity;
-        setProgress(mCurProgress);
-    }
-
-    /**
      * You can set the image to b/w with this method. Works fine with the
      * opacity.
      * 
@@ -240,7 +245,7 @@ public class SquareProgressBar extends ViewGroup {
         mClearAtEnd = clear;
         mRender.setToClear(mClearAtEnd);
     }
-    
+
     public boolean isClearingAtEnd() {
         return mClearAtEnd;
     }
