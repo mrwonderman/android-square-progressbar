@@ -36,7 +36,7 @@
         android:layout_toLeftOf="@+id/progressDisplay"
         android:layout_toRightOf="@+id/textView1"
         android:max="100"
-        android:progress="25" />
+        android:progress="0" />
 
     <TextView
         android:id="@+id/progressDisplay"
@@ -67,6 +67,6 @@
         android:layout_alignLeft="@+id/progressSeekBar"
         android:layout_alignParentRight="true"
         android:max="20"
-        android:progress="8" />
+        android:progress="0" />
 
 </RelativeLayout>
