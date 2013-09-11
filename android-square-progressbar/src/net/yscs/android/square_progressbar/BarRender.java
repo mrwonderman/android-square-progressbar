@@ -14,8 +14,10 @@
 package net.yscs.android.square_progressbar;
 
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
+import android.graphics.PorterDuff;
 import android.graphics.Rect;
 
 class BarRender {
@@ -31,6 +33,7 @@ class BarRender {
     private Paint mPaint = new Paint();
     private Rect mTempRect = new Rect();
     private int mExtraValue;
+    private boolean mClear;
 
     BarRender(int color) {
         changeColor(color);
@@ -51,7 +54,11 @@ class BarRender {
         mPaint.setColor(color);
     }
 
-    void draw(Canvas canvas) {
+    void setToClear(boolean clear) {
+        mClear = clear;
+    }
+
+    void draw(Canvas canvas) {        
         final Rect r = mTempRect;
         int totalPixelProgress = mCurProgress * mPixelStep;
         int leftOver = totalPixelProgress - mHalfWidth;
@@ -104,6 +111,9 @@ class BarRender {
         if (mCurProgress == mMaxProgress) {
             makeRectBar(r, mWidthSpace, 0, mHalfWidth, mWidthSpace);
             canvas.drawRect(r, mPaint);
+            if (mClear && mCurProgress == mMaxProgress) {
+                canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+            }
         } else {
             makeRectBar(r, mWidthSpace, 0, mWidthSpace + totalPixelProgress,
                     mWidthSpace);
@@ -146,4 +156,5 @@ class BarRender {
         mExtraValue = mExtraValue == 0 ? 1 : mExtraValue;
         return result;
     }
+
 }

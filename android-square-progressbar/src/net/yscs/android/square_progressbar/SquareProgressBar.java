@@ -23,8 +23,10 @@ public class SquareProgressBar extends ViewGroup {
     private boolean mGreyscale;
     private int mCurWidth;
     private int mCurProgress;
-    private int mMaxProgress = 100;
+    private int mMaxProgress;
     private BarRender mRender;
+    private int mCurColor;
+    private boolean mClearAtEnd = false;
 
     /**
      * New SquareProgressBar.
@@ -71,9 +73,11 @@ public class SquareProgressBar extends ViewGroup {
         mImage = new ImageView(context);
         addView(mImage);
         setWillNotDraw(false);
-        mRender = new BarRender(Color.YELLOW);
+        mCurColor = Color.BLUE;
+        mRender = new BarRender(mCurColor);
+        mMaxProgress = 100;
         mRender.setWidth(0);
-        setMaximumProgress(100);
+        setMaximumProgress(mMaxProgress);
     }
 
     /**
@@ -100,11 +104,11 @@ public class SquareProgressBar extends ViewGroup {
     public void setProgress(int progress) {
         mCurProgress = progress;
         mRender.setProgress(progress);
-        // if (mOpacity) {
-        // setOpacity((int) progress);
-        // } else {
-        // setOpacity(100);
-        // }
+        if (mOpacity) {
+            setOpacity((int) progress);
+        } else {
+            setOpacity(100);
+        }
         invalidate();
     }
 
@@ -134,7 +138,9 @@ public class SquareProgressBar extends ViewGroup {
      * @since 1.0
      */
     public void setHoloColor(int androidHoloColor) {
-        // bar.setColor(getContext().getResources().getColor(androidHoloColor));
+        mCurColor = getContext().getResources().getColor(androidHoloColor);
+        mRender.changeColor(mCurColor);
+        invalidate();
     }
 
     /**
@@ -146,7 +152,9 @@ public class SquareProgressBar extends ViewGroup {
      * @since 1.1
      */
     public void setColor(String colorString) {
-        // bar.setColor(Color.parseColor(colorString));
+        mCurColor = Color.parseColor(colorString);
+        mRender.changeColor(mCurColor);
+        invalidate();
     }
 
     /**
@@ -161,7 +169,9 @@ public class SquareProgressBar extends ViewGroup {
      * @since 1.1
      */
     public void setColorRGB(int r, int g, int b) {
-        // bar.setColor(Color.rgb(r, g, b));
+        mCurColor = Color.rgb(r, g, b);
+        mRender.changeColor(mCurColor);
+        invalidate();
     }
 
     /**
@@ -189,7 +199,8 @@ public class SquareProgressBar extends ViewGroup {
      *            the progress
      */
     private void setOpacity(int progress) {
-        mImage.setAlpha((int) (2.55 * progress));
+        //mImage.setAlpha((int) (2.55 * progress));
+        mImage.getBackground().setAlpha(125);
     }
 
     /**
@@ -202,8 +213,9 @@ public class SquareProgressBar extends ViewGroup {
      * @param opacity
      *            true if opacity should be enabled.
      */
-    public void setOpacity(boolean opacity) {
-        // TODO handle the opacity
+    public void useOpacity(boolean opacity) {
+        mOpacity = opacity;
+        setProgress(mCurProgress);
     }
 
     /**
@@ -224,12 +236,29 @@ public class SquareProgressBar extends ViewGroup {
         }
     }
 
-    public boolean isOpacity() {
+    public void clearProgressAtEnd(boolean clear) {
+        mClearAtEnd = clear;
+        mRender.setToClear(mClearAtEnd);
+    }
+    
+    public boolean isClearingAtEnd() {
+        return mClearAtEnd;
+    }
+
+    public boolean isOpacitySet() {
         return mOpacity;
     }
 
-    public boolean isGreyscale() {
+    public boolean isGreyscaleSet() {
         return mGreyscale;
+    }
+
+    public int getProgress() {
+        return mCurProgress;
+    }
+
+    public int getMaxProgress() {
+        return mMaxProgress;
     }
 
     @Override
@@ -260,7 +289,6 @@ public class SquareProgressBar extends ViewGroup {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        canvas.drawColor(Color.GREEN);
         super.onDraw(canvas);
         mRender.draw(canvas);
     }

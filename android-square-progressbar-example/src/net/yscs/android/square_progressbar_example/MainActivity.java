@@ -106,13 +106,13 @@ public class MainActivity extends Activity {
 
 				case 12:
 					box.setText(R.string.opacity);
-					box.setChecked(squareFragment.squareProgressBar.isOpacity());
+					box.setChecked(squareFragment.squareProgressBar.isOpacitySet());
 					box.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 						@Override
 						public void onCheckedChanged(CompoundButton buttonView,
 								boolean isChecked) {
 							squareFragment.squareProgressBar
-									.setOpacity(isChecked);
+									.useOpacity(isChecked);
 						}
 					});
 					return styleItem;
