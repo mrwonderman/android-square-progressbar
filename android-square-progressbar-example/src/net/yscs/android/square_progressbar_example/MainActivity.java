@@ -58,20 +58,20 @@ public class MainActivity extends ActionBarActivity {
                 IMAGE_DESC);
         drawerListView.setAdapter(mAdapter);
         drawerListView.setOnItemClickListener(new DrawerItemClickListener());
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
                 R.drawable.ic_drawer, R.string.drawer_open,
                 R.string.drawer_close) {
             @Override
             public void onDrawerClosed(View view) {
-                getActionBar().setTitle(title);
+                getSupportActionBar().setTitle(title);
                 supportInvalidateOptionsMenu();
             }
 
             @Override
             public void onDrawerOpened(View drawerView) {
-                getActionBar().setTitle(drawerTitle);
+                getSupportActionBar().setTitle(drawerTitle);
                 supportInvalidateOptionsMenu();
             }
         };
@@ -94,7 +94,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public void setTitle(CharSequence title) {
         this.title = title;
-        getActionBar().setTitle(title);
+        getSupportActionBar().setTitle(title);
     }
 
     @Override
@@ -109,7 +109,7 @@ public class MainActivity extends ActionBarActivity {
         drawerToggle.onConfigurationChanged(newConfig);
     }
 
-    private void changeTarget(int position) {
+    void changeTarget(int position, boolean clear) {
         drawerListView.setItemChecked(position, true);
         switch (position) {
         case 1:
@@ -128,11 +128,14 @@ public class MainActivity extends ActionBarActivity {
             squareFragment.squareProgressBar.setImage(IMAGE_IDS[position - 8]);
             break;
         case 13:
+            squareFragment.squareProgressBar.clearProgressAtEnd(clear);
+            break;
+        case 15:
             Intent siteIntent = new Intent(Intent.ACTION_VIEW,
                     Uri.parse("http://www.signer.pro"));
             startActivity(siteIntent);
             break;
-        case 14:
+        case 16:
             Intent githubIntent = new Intent(
                     Intent.ACTION_VIEW,
                     Uri.parse("https://github.com/mrwonderman/android-square-progressbar"));
@@ -147,7 +150,7 @@ public class MainActivity extends ActionBarActivity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position,
                 long id) {
-            changeTarget(position);
+            changeTarget(position, false);
         }
     }
 }

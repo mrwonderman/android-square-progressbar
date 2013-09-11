@@ -18,17 +18,11 @@ public class SquareFragment extends Fragment {
             Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.square_layout, container, false);
         squareProgressBar = (SquareProgressBar) view.findViewById(R.id.subi2);
-        squareProgressBar.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         squareProgressBar.setImage(R.drawable.city);
         squareProgressBar.setColor("#C9C9C9");
-        squareProgressBar.setProgress(32);
-        squareProgressBar.setWidth(8);        
-        squareProgressBar.clearProgressAtEnd(true);
-
         final TextView progressView = (TextView) view
                 .findViewById(R.id.progressDisplay);
-        progressView.setText("32%");
-
+        progressView.setText(String.valueOf(squareProgressBar.getMax()) + "%");
         SeekBar progressSeekBar = (SeekBar) view
                 .findViewById(R.id.progressSeekBar);
         progressSeekBar

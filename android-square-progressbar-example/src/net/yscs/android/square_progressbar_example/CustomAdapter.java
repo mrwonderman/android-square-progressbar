@@ -19,6 +19,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,12 +32,14 @@ public class CustomAdapter extends BaseAdapter {
     private static final int TYPE_IMAGE = 2;
     private static final int TYPE_AUTHOR = 3;
     private static final int TYPE_GITHUB = 4;
+    private static final int TYPE_CLEAR_END = 5;
     private Context mContext;
     private LayoutInflater mInflater;
     private int[] mColors;
     private String[] mColorsNames;
     private int[] mImages;
     private String[] mImageDescriptions;
+    private boolean mClearCheck = false;
 
     public CustomAdapter(Context context, int[] arrayColor,
             String[] arrayColorNames, int[] images, String[] imageDescription) {
@@ -68,6 +73,9 @@ public class CustomAdapter extends BaseAdapter {
             case TYPE_GITHUB:
                 item = mInflater.inflate(R.layout.lv_github, parent, false);
                 break;
+            case TYPE_CLEAR_END:
+                item = mInflater.inflate(R.layout.lv_clear, parent, false);
+                break;
             }
         }
         switch (type) {
@@ -95,6 +103,21 @@ public class CustomAdapter extends BaseAdapter {
             img.setImageResource(mImages[position - 8]);
             imageTag.setText(mImageDescriptions[position - 8]);
             break;
+        case TYPE_CLEAR_END:
+            CheckBox ckb = (CheckBox) item.findViewById(R.id.checkBox1);
+            ckb.setText("Clear progress at end?");
+            ckb.setChecked(mClearCheck);
+            ckb.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView,
+                        boolean isChecked) {
+                    mClearCheck = isChecked;
+                    ((MainActivity) buttonView.getContext()).changeTarget(13,
+                            isChecked);
+                }
+            });
+            break;
         }
         return item;
     }
@@ -116,13 +139,15 @@ public class CustomAdapter extends BaseAdapter {
 
     @Override
     public int getItemViewType(int position) {
-        if (position == 0 || position == 7 || position == 12) {
+        if (position == 0 || position == 7 || position == 12 || position == 14) {
             return TYPE_HEADER;
         } else if (position >= 1 && position <= 6) {
             return TYPE_COLOR;
         } else if (position >= 8 && position <= 11) {
             return TYPE_IMAGE;
         } else if (position == 13) {
+            return TYPE_CLEAR_END;
+        } else if (position == 15) {
             return TYPE_AUTHOR;
         } else {
             return TYPE_GITHUB;
@@ -132,7 +157,7 @@ public class CustomAdapter extends BaseAdapter {
 
     @Override
     public int getViewTypeCount() {
-        return 5;
+        return 6;
     }
 
     @Override
