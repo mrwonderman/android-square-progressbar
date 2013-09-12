@@ -111,7 +111,7 @@ public class SquareProgressBar extends ViewGroup {
         mRender.setWidth(mCurWidth);
         mCurColor = progressColor;
         mRender.changeColor(mCurColor);
-        setImage(image);
+        setImage(image);        
     }
 
     /**
@@ -162,16 +162,15 @@ public class SquareProgressBar extends ViewGroup {
     }
 
     /**
-     * Sets the progress of the {@link SquareProgressBar}. If opacity is
-     * selected then here it sets it. See {@link #setOpacity(boolean)} for more
-     * information.
+     * Sets the progress of the {@link SquareProgressBar}. 0 or a positive value
+     * is required a negative value will be reverted to 0.
      * 
      * @param progress
      *            the progress
      * @since 1.0
      */
     public void setProgress(int progress) {
-        mCurProgress = progress;
+        mCurProgress = progress < 0 ? 0 : progress;
         mRender.setProgress(progress);
         invalidate();
     }
@@ -273,6 +272,9 @@ public class SquareProgressBar extends ViewGroup {
     public void clearProgressAtEnd(boolean clear) {
         mClearAtEnd = clear;
         mRender.setToClear(mClearAtEnd);
+        if (mClearAtEnd && mCurProgress == mMaxProgress) {
+            setWidth(mCurWidth);
+        }
     }
 
     /**
