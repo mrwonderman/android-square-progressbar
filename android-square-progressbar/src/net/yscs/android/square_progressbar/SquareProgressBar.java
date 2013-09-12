@@ -3,6 +3,7 @@ package net.yscs.android.square_progressbar;
 import java.net.URI;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -45,7 +46,7 @@ public class SquareProgressBar extends ViewGroup {
      */
     public SquareProgressBar(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init(context);
+        init(context, attrs, defStyle);
     }
 
     /**
@@ -59,7 +60,7 @@ public class SquareProgressBar extends ViewGroup {
      */
     public SquareProgressBar(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context);
+        init(context, attrs, 0);
     }
 
     /**
@@ -70,18 +71,47 @@ public class SquareProgressBar extends ViewGroup {
      */
     public SquareProgressBar(Context context) {
         super(context);
-        init(context);
+        init(context, null, 0);
     }
 
-    private void init(Context context) {
+    private void init(Context context, AttributeSet attrs, int defStyle) {
         mImage = new ImageView(context);
         addView(mImage);
         setWillNotDraw(false);
-        mCurColor = Color.BLUE;
         mRender = new BarRender(mCurColor);
-        mMaxProgress = 100;
-        mRender.setWidth(0);
-        setMaximumProgress(mMaxProgress);
+        TypedArray ta = context.obtainStyledAttributes(attrs,
+                R.styleable.SquareProgressBar);
+        boolean clearAtEnd = false, greyscale = false;
+        int maxProgress = 100, progress = 0, progressWidth = 0, progressColor = Color.BLUE;
+        Drawable image;
+        try {
+            clearAtEnd = ta.getBoolean(
+                    R.styleable.SquareProgressBar_clearAtEnd, false);
+            maxProgress = ta.getInt(R.styleable.SquareProgressBar_max, 100);
+            progress = ta.getInt(R.styleable.SquareProgressBar_progress, 0);
+
+            greyscale = ta.getBoolean(R.styleable.SquareProgressBar_greyscale,
+                    false);
+            progressWidth = ta.getInt(
+                    R.styleable.SquareProgressBar_progressWidth, 0);
+            progressColor = ta.getColor(
+                    R.styleable.SquareProgressBar_progressColor, Color.BLUE);
+            image = ta.getDrawable(R.styleable.SquareProgressBar_image);
+        } finally {
+            ta.recycle();
+        }
+        mClearAtEnd = clearAtEnd;
+        mRender.setToClear(mClearAtEnd);
+        mMaxProgress = maxProgress;
+        mRender.setMaxProgress(mMaxProgress);
+        mCurProgress = progress;
+        mRender.setProgress(mCurProgress);
+        mGreyscale = greyscale;
+        mCurWidth = progressWidth;
+        mRender.setWidth(mCurWidth);
+        mCurColor = progressColor;
+        mRender.changeColor(mCurColor);
+        setImage(image);
     }
 
     /**
