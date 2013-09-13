@@ -31,7 +31,7 @@ class BarRender {
     private int mContainerWidth = 0;
     private int mContainerHeight = 0;
     private int mHalfWidth = 0;
-    private int mWidthSpace = 0;
+    private int mThickness = 0;
     private int mMaxProgress;
     private int mCurProgress;
     private Paint mPaint = new Paint();
@@ -54,17 +54,21 @@ class BarRender {
      *            the new width of the SquareProgressBar
      * @param height
      *            the new height of the SquareProgressBar
-     * @param space
+     * @param thickness
      *            the new width for the progress bar
      * @param maxProgress
      *            the new maximum progress
      */
-    void setupValues(int width, int height, int space, int maxProgress) {
-        this.mContainerWidth = width;
-        this.mContainerHeight = height;
-        this.mWidthSpace = space;
+    void setupValues(int width, int height, int thickness, int max) {
+        mContainerWidth = width;
+        mContainerHeight = height;
+        mThickness = thickness;
         mHalfWidth = mContainerWidth / 2;
-        mScale = (double) calculateEntireRange(width, height) / mMaxProgress;
+        if (max != 0) {
+            mScale = calculateEntireRange(width, height) / mMaxProgress;
+        } else {
+            mScale = 1.0;
+        }
     }
 
     void changeColor(int color) {
@@ -90,56 +94,56 @@ class BarRender {
         int leftOver = totalPixelProgress - mHalfWidth;
         if (leftOver <= 0) {
             makeRectBar(r, mHalfWidth, 0, mHalfWidth + totalPixelProgress,
-                    mWidthSpace);
+                    mThickness);
             canvas.drawRect(r, mPaint);
             return;
         } else {
-            makeRectBar(r, mHalfWidth, 0, mContainerWidth, mWidthSpace);
+            makeRectBar(r, mHalfWidth, 0, mContainerWidth, mThickness);
             canvas.drawRect(r, mPaint);
         }
         totalPixelProgress = leftOver;
-        leftOver = totalPixelProgress - (mContainerHeight - mWidthSpace);
+        leftOver = totalPixelProgress - (mContainerHeight - mThickness);
         if (leftOver <= 0) {
-            makeRectBar(r, mContainerWidth - mWidthSpace, mWidthSpace,
-                    mContainerWidth, mWidthSpace + totalPixelProgress);
+            makeRectBar(r, mContainerWidth - mThickness, mThickness,
+                    mContainerWidth, mThickness + totalPixelProgress);
             canvas.drawRect(r, mPaint);
             return;
         } else {
-            makeRectBar(r, mContainerWidth - mWidthSpace, mWidthSpace,
+            makeRectBar(r, mContainerWidth - mThickness, mThickness,
                     mContainerWidth, mContainerHeight);
             canvas.drawRect(r, mPaint);
         }
         totalPixelProgress = leftOver;
-        leftOver = totalPixelProgress - (mContainerWidth - mWidthSpace);
+        leftOver = totalPixelProgress - (mContainerWidth - mThickness);
         if (leftOver <= 0) {
-            makeRectBar(r, mContainerWidth - totalPixelProgress - mWidthSpace,
-                    mContainerHeight - mWidthSpace, mContainerWidth
-                            - mWidthSpace, mContainerHeight);
+            makeRectBar(r, mContainerWidth - totalPixelProgress - mThickness,
+                    mContainerHeight - mThickness,
+                    mContainerWidth - mThickness, mContainerHeight);
             canvas.drawRect(r, mPaint);
             return;
         } else {
-            makeRectBar(r, 0, mContainerHeight - mWidthSpace, mContainerWidth
-                    - mWidthSpace, mContainerHeight);
+            makeRectBar(r, 0, mContainerHeight - mThickness, mContainerWidth
+                    - mThickness, mContainerHeight);
             canvas.drawRect(r, mPaint);
         }
         totalPixelProgress = leftOver;
-        leftOver = totalPixelProgress - (mContainerHeight - mWidthSpace);
+        leftOver = totalPixelProgress - (mContainerHeight - mThickness);
         if (leftOver <= 0) {
             makeRectBar(r, 0, mContainerHeight - totalPixelProgress
-                    - mWidthSpace, mWidthSpace, mContainerHeight - mWidthSpace);
+                    - mThickness, mThickness, mContainerHeight - mThickness);
             canvas.drawRect(r, mPaint);
             return;
         } else {
-            makeRectBar(r, 0, 0, mWidthSpace, mContainerHeight - mWidthSpace);
+            makeRectBar(r, 0, 0, mThickness, mContainerHeight - mThickness);
             canvas.drawRect(r, mPaint);
         }
         totalPixelProgress = leftOver;
         if (mCurProgress == mMaxProgress) {
-            makeRectBar(r, mWidthSpace, 0, mHalfWidth, mWidthSpace);
+            makeRectBar(r, mThickness, 0, mHalfWidth, mThickness);
             canvas.drawRect(r, mPaint);
         } else {
-            makeRectBar(r, mWidthSpace, 0, mWidthSpace + totalPixelProgress,
-                    mWidthSpace);
+            makeRectBar(r, mThickness, 0, mThickness + totalPixelProgress,
+                    mThickness);
             canvas.drawRect(r, mPaint);
         }
     }
@@ -148,15 +152,26 @@ class BarRender {
         mCurProgress = progress;
     }
 
-    void setMaxProgress(int max) {
+    void setMax(int max) {
         mMaxProgress = max;
-
-        mScale = calculateEntireRange(mContainerWidth, mContainerHeight)
-                / mMaxProgress;
+        if (max != 0) {
+            mScale = calculateEntireRange(mContainerWidth, mContainerHeight)
+                    / mMaxProgress;
+        } else {
+            mScale = 1.0;
+        }
     }
 
-    void setWidth(int newWidth) {
-        mWidthSpace = newWidth;
+    void setThickness(int thickness) {
+        mThickness = thickness;
+    }
+
+    int getStoredWidth() {
+        return mContainerWidth;
+    }
+
+    int getStoredHeight() {
+        return mContainerHeight;
     }
 
     /**
@@ -179,7 +194,7 @@ class BarRender {
      * @return the size of the range which the progress bar will fill.
      */
     private double calculateEntireRange(int width, int height) {
-        int result = 2 * width + 2 * (height - 2 * mWidthSpace);
+        int result = 2 * width + 2 * (height - 2 * mThickness);
         return result < 0 ? 0 : result;
     }
 

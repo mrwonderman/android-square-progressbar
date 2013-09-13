@@ -5,10 +5,10 @@
         <attr name="clearAtEnd" format="boolean|reference" />
         <attr name="max" format="integer|reference" />
         <attr name="progress" format="integer|reference" />
-        <attr name="progressWidth" format="integer|reference" />
+        <attr name="thickness" format="integer|reference" />
         <attr name="image" format="reference" />
         <attr name="greyscale" format="boolean|reference" />
-        <attr name="progressColor" format="color|string|reference" />
+        <attr name="color" format="color|reference" />
     </declare-styleable>
 
 </resources>

@@ -16,8 +16,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 /**
- * The basic {@link SquareProgressBar}. This class includes all the methods you
- * need to modify your {@link SquareProgressBar}.
+ * The basic SquareProgressBar(default color of Color.BLUE). This class includes
+ * all the methods you need to modify the {@link SquareProgressBar}.
  * 
  * @author ysigner
  * @since 1.0
@@ -26,7 +26,7 @@ public class SquareProgressBar extends ViewGroup {
 
     private ImageView mImage;
     private boolean mGreyscale;
-    private int mCurWidth;
+    private int mThickness;
     private int mCurProgress;
     private int mMaxProgress;
     private BarRender mRender;
@@ -82,7 +82,7 @@ public class SquareProgressBar extends ViewGroup {
         TypedArray ta = context.obtainStyledAttributes(attrs,
                 R.styleable.SquareProgressBar);
         boolean clearAtEnd = false, greyscale = false;
-        int maxProgress = 100, progress = 0, progressWidth = 0, progressColor = Color.BLUE;
+        int maxProgress = 100, progress = 0, thickness = 0, progressColor = Color.BLUE;
         Drawable image;
         try {
             clearAtEnd = ta.getBoolean(
@@ -92,10 +92,9 @@ public class SquareProgressBar extends ViewGroup {
 
             greyscale = ta.getBoolean(R.styleable.SquareProgressBar_greyscale,
                     false);
-            progressWidth = ta.getInt(
-                    R.styleable.SquareProgressBar_progressWidth, 0);
-            progressColor = ta.getColor(
-                    R.styleable.SquareProgressBar_progressColor, Color.BLUE);
+            thickness = ta.getInt(R.styleable.SquareProgressBar_thickness, 0);
+            progressColor = ta.getColor(R.styleable.SquareProgressBar_color,
+                    Color.BLUE);
             image = ta.getDrawable(R.styleable.SquareProgressBar_image);
         } finally {
             ta.recycle();
@@ -103,12 +102,13 @@ public class SquareProgressBar extends ViewGroup {
         mClearAtEnd = clearAtEnd;
         mRender.setToClear(mClearAtEnd);
         mMaxProgress = maxProgress;
-        mRender.setMaxProgress(mMaxProgress);
+        mRender.setMax(mMaxProgress);
         mCurProgress = progress;
         mRender.setProgress(mCurProgress);
         mGreyscale = greyscale;
-        mCurWidth = progressWidth;
-        mRender.setWidth(mCurWidth);
+        setImageGrayscale(mGreyscale);
+        mThickness = thickness;
+        mRender.setThickness(mThickness);
         mCurColor = progressColor;
         mRender.changeColor(mCurColor);
         setImage(image);
@@ -194,7 +194,7 @@ public class SquareProgressBar extends ViewGroup {
             setProgress(max);
         }
         mMaxProgress = max;
-        mRender.setMaxProgress(mMaxProgress);
+        mRender.setMax(mMaxProgress);
     }
 
     /**
@@ -242,15 +242,16 @@ public class SquareProgressBar extends ViewGroup {
     }
 
     /**
-     * This sets the width of the {@link SquareProgressBar}.
+     * Sets the thickness of the {@link SquareProgressBar}. Can't be bigger then
+     * half of the current width/height of the SquareProgressBar.
      * 
-     * @param width
-     *            in Dp
+     * @param thickness
+     *            the new value for the thickness
      * @since 1.1
      */
-    public void setWidth(int newWidth) {
-        mCurWidth = newWidth;
-        mRender.setWidth(newWidth);
+    public void setThickness(int thickness) {
+        mThickness = thickness;
+        mRender.setThickness(thickness);
         requestLayout();
         invalidate();
     }
@@ -284,7 +285,7 @@ public class SquareProgressBar extends ViewGroup {
         mClearAtEnd = clear;
         mRender.setToClear(mClearAtEnd);
         if (mClearAtEnd && mCurProgress == mMaxProgress) {
-            setWidth(mCurWidth);
+            setThickness(mThickness);
         }
     }
 
@@ -329,8 +330,8 @@ public class SquareProgressBar extends ViewGroup {
 
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
-        mImage.layout(mCurWidth, mCurWidth, getMeasuredWidth() - mCurWidth,
-                getMeasuredHeight() - mCurWidth);
+        mImage.layout(mThickness, mThickness, getMeasuredWidth() - mThickness,
+                getMeasuredHeight() - mThickness);
     }
 
     @Override
@@ -341,16 +342,16 @@ public class SquareProgressBar extends ViewGroup {
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
         // first measure the ImageView with the current values(without the
         // current mWidthSize) and see how bit it wants to be
-        mImage.measure(MeasureSpec.makeMeasureSpec(widthSize - 2 * mCurWidth,
+        mImage.measure(MeasureSpec.makeMeasureSpec(widthSize - 2 * mThickness,
                 widthMode), MeasureSpec.makeMeasureSpec(heightSize - 2
-                * mCurWidth, heightMode));
+                * mThickness, heightMode));
         widthSize = Math.min(widthSize, mImage.getMeasuredWidth() + 2
-                * mCurWidth);
+                * mThickness);
         heightSize = Math.min(heightSize, mImage.getMeasuredHeight() + 2
-                * mCurWidth);
+                * mThickness);
         setMeasuredDimension(widthSize, heightSize);
-        mRender.setupValues(getMeasuredWidth(), getMeasuredHeight(), mCurWidth,
-                mMaxProgress);
+        mRender.setupValues(getMeasuredWidth(), getMeasuredHeight(),
+                mThickness, mMaxProgress);
     }
 
     @Override
@@ -362,8 +363,8 @@ public class SquareProgressBar extends ViewGroup {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        mRender.setupValues(getMeasuredWidth(), getMeasuredHeight(), mCurWidth,
-                mMaxProgress);
+        mRender.setupValues(getMeasuredWidth(), getMeasuredHeight(),
+                mThickness, mMaxProgress);
     }
 
     /**
