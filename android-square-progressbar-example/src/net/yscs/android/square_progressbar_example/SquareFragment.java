@@ -19,7 +19,6 @@ public class SquareFragment extends Fragment {
         View view = inflater.inflate(R.layout.square_layout, container, false);
         squareProgressBar = (SquareProgressBar) view.findViewById(R.id.subi2);
         squareProgressBar.setImage(R.drawable.city);
-        squareProgressBar.setColor("#C9C9C9");
         final TextView progressView = (TextView) view
                 .findViewById(R.id.progressDisplay);
         progressView.setText(String.valueOf(squareProgressBar.getMax()) + "%");
@@ -62,7 +61,7 @@ public class SquareFragment extends Fragment {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress,
                     boolean fromUser) {
-                squareProgressBar.setWidth(progress);
+                squareProgressBar.setThickness(progress);
             }
         });
         return view;
