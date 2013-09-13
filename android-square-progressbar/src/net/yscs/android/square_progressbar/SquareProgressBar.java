@@ -111,7 +111,7 @@ public class SquareProgressBar extends ViewGroup {
         mRender.setWidth(mCurWidth);
         mCurColor = progressColor;
         mRender.changeColor(mCurColor);
-        setImage(image);        
+        setImage(image);
     }
 
     /**
@@ -163,26 +163,37 @@ public class SquareProgressBar extends ViewGroup {
 
     /**
      * Sets the progress of the {@link SquareProgressBar}. 0 or a positive value
-     * is required a negative value will be reverted to 0.
+     * is required, a negative value will translate in a progress of 0. If the
+     * progress is greater than getMax() then the progress will be limited to
+     * the maximum value.
      * 
      * @param progress
      *            the progress
      * @since 1.0
      */
     public void setProgress(int progress) {
-        mCurProgress = progress < 0 ? 0 : progress;
-        mRender.setProgress(progress);
+        mCurProgress = progress < 0 ? 0
+                : (progress >= mMaxProgress ? mMaxProgress : progress);
+        mRender.setProgress(mCurProgress);
         invalidate();
     }
 
     /**
-     * Sets the maximum progress.
+     * Sets the maximum progress. A negative value will translate to a maximum
+     * progress of 0. If the set maximum progress is smaller then the current
+     * progress will revert to this maximum value.
      * 
-     * @param maximumProgress
+     * @param max
      *            the value representing the maximum progress.
      */
-    public void setMaximumProgress(int maximumProgress) {
-        mMaxProgress = maximumProgress;
+    public void setMax(int max) {
+        if (max < 0) {
+            max = 0;
+            setProgress(0);
+        } else if (max < mCurProgress) {
+            setProgress(max);
+        }
+        mMaxProgress = max;
         mRender.setMaxProgress(mMaxProgress);
     }
 
