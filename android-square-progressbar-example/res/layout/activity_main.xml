@@ -1,7 +1,6 @@
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
-    style="@android:style/Theme.Holo.Light"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
@@ -16,7 +15,8 @@
         android:layout_width="240dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:background="@android:color/background_light"
+        android:background="@android:color/white"
+        android:cacheColorHint="@android:color/transparent"
         android:choiceMode="singleChoice"
         android:divider="@android:color/transparent"
         android:dividerHeight="0dp"

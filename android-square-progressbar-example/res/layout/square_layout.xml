@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:asp="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -14,8 +15,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:paddingTop="20dp" >
-    </net.yscs.android.square_progressbar.SquareProgressBar>
+        asp:greyscale="false"
+        asp:color="#99cc00" />
 
     <TextView
         android:id="@+id/textView1"
@@ -36,7 +37,7 @@
         android:layout_toLeftOf="@+id/progressDisplay"
         android:layout_toRightOf="@+id/textView1"
         android:max="100"
-        android:progress="25" />
+        android:progress="0" />
 
     <TextView
         android:id="@+id/progressDisplay"
@@ -67,6 +68,6 @@
         android:layout_alignLeft="@+id/progressSeekBar"
         android:layout_alignParentRight="true"
         android:max="20"
-        android:progress="8" />
+        android:progress="0" />
 
 </RelativeLayout>

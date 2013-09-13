@@ -1,12 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@android:style/Theme.Holo.Light"
     android:layout_width="match_parent"
     android:layout_height="48dp" >
 
     <View
         android:id="@+id/item_separator"
-        style="@android:style/Theme.Holo.Light"
         android:layout_width="match_parent"
         android:layout_height="@dimen/lvDividerHeight"
         android:layout_alignParentBottom="true"
