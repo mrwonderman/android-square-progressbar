@@ -32,14 +32,12 @@ class BarRender {
     private int mContainerHeight = 0;
     private int mHalfWidth = 0;
     private int mWidthSpace = 0;
-    private int mTotalRange;
-    private int mPixelStep = 0;
     private int mMaxProgress;
     private int mCurProgress;
     private Paint mPaint = new Paint();
     private Rect mTempRect = new Rect();
-    private int mExtraValue;
     private boolean mClear;
+    private double mScale = 1.0;
 
     BarRender(int color) {
         changeColor(color);
@@ -66,8 +64,7 @@ class BarRender {
         this.mContainerHeight = height;
         this.mWidthSpace = space;
         mHalfWidth = mContainerWidth / 2;
-        mTotalRange = calculateEntireRange(width, height);
-        mPixelStep = calcPixelToProgressPoint(mTotalRange);
+        mScale = (double) calculateEntireRange(width, height) / mMaxProgress;
     }
 
     void changeColor(int color) {
@@ -89,7 +86,7 @@ class BarRender {
             return;
         }
         final Rect r = mTempRect;
-        int totalPixelProgress = mCurProgress * mPixelStep;
+        int totalPixelProgress = (int) Math.round(mCurProgress * mScale - 0.5);
         int leftOver = totalPixelProgress - mHalfWidth;
         if (leftOver <= 0) {
             makeRectBar(r, mHalfWidth, 0, mHalfWidth + totalPixelProgress,
@@ -100,7 +97,7 @@ class BarRender {
             makeRectBar(r, mHalfWidth, 0, mContainerWidth, mWidthSpace);
             canvas.drawRect(r, mPaint);
         }
-        totalPixelProgress = leftOver + mExtraValue;
+        totalPixelProgress = leftOver;
         leftOver = totalPixelProgress - (mContainerHeight - mWidthSpace);
         if (leftOver <= 0) {
             makeRectBar(r, mContainerWidth - mWidthSpace, mWidthSpace,
@@ -112,7 +109,7 @@ class BarRender {
                     mContainerWidth, mContainerHeight);
             canvas.drawRect(r, mPaint);
         }
-        totalPixelProgress = leftOver + mExtraValue;
+        totalPixelProgress = leftOver;
         leftOver = totalPixelProgress - (mContainerWidth - mWidthSpace);
         if (leftOver <= 0) {
             makeRectBar(r, mContainerWidth - totalPixelProgress - mWidthSpace,
@@ -125,7 +122,7 @@ class BarRender {
                     - mWidthSpace, mContainerHeight);
             canvas.drawRect(r, mPaint);
         }
-        totalPixelProgress = leftOver + mExtraValue;
+        totalPixelProgress = leftOver;
         leftOver = totalPixelProgress - (mContainerHeight - mWidthSpace);
         if (leftOver <= 0) {
             makeRectBar(r, 0, mContainerHeight - totalPixelProgress
@@ -136,7 +133,7 @@ class BarRender {
             makeRectBar(r, 0, 0, mWidthSpace, mContainerHeight - mWidthSpace);
             canvas.drawRect(r, mPaint);
         }
-        totalPixelProgress = leftOver + mExtraValue;
+        totalPixelProgress = leftOver;
         if (mCurProgress == mMaxProgress) {
             makeRectBar(r, mWidthSpace, 0, mHalfWidth, mWidthSpace);
             canvas.drawRect(r, mPaint);
@@ -153,8 +150,9 @@ class BarRender {
 
     void setMaxProgress(int max) {
         mMaxProgress = max;
-        mTotalRange = calculateEntireRange(mContainerWidth, mContainerHeight);
-        mPixelStep = calcPixelToProgressPoint(mTotalRange);
+
+        mScale = calculateEntireRange(mContainerWidth, mContainerHeight)
+                / mMaxProgress;
     }
 
     void setWidth(int newWidth) {
@@ -180,28 +178,9 @@ class BarRender {
      *            the height of the SquareProgressBar
      * @return the size of the range which the progress bar will fill.
      */
-    private int calculateEntireRange(int width, int height) {
+    private double calculateEntireRange(int width, int height) {
         int result = 2 * width + 2 * (height - 2 * mWidthSpace);
         return result < 0 ? 0 : result;
-    }
-
-    /**
-     * Maps the entire range to the maximum progress obtaining the actual pixel
-     * step used in the drawing. Also, adds some extra pixel offset so the
-     * progress will remain in valid proportions(so we end up with decent visual
-     * progress increase).
-     * 
-     * @param entireRange
-     * @return
-     */
-    private int calcPixelToProgressPoint(int entireRange) {
-        if (entireRange == 0 || mMaxProgress == 0) {
-            return 0;
-        }
-        int result = entireRange / mMaxProgress;
-        mExtraValue = (entireRange % mMaxProgress) / 4;
-        mExtraValue = mExtraValue == 0 ? 1 : mExtraValue;
-        return result;
     }
 
 }
