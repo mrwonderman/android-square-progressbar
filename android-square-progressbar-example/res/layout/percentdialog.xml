@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="16dip"
+    android:layout_marginRight="16dip"
+    android:divider="?android:attr/dividerHorizontal"
+    android:orientation="vertical"
+    android:showDividers="middle" >
+
+    <TextView
+        android:id="@+id/textView2"
+        style="@android:style/TextAppearance.Holo.Widget.TabWidget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/spinner1"
+        android:text="Text Size: "
+        android:textAllCaps="true"
+        android:textColor="@color/lvHeaderTextColor"
+        android:textStyle="normal|bold" />
+
+    <SeekBar
+        android:id="@+id/textSize"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView2"
+        android:layout_toLeftOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textSize"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/textSize"
+        android:gravity="center_vertical"
+        android:text="150 dp"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/previewView1"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/returnDialog"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Cancel" />
+
+        <Button
+            android:id="@+id/shareDialog"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Save" />
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/checkBox1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textSize"
+        android:text="Display percentsign" />
+
+    <TextView
+        android:id="@+id/TextView02"
+        style="@android:style/TextAppearance.Holo.Widget.TabWidget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/checkBox1"
+        android:layout_marginBottom="8dp"
+        android:text="Preview:"
+        android:textAllCaps="true"
+        android:textColor="@color/lvHeaderTextColor"
+        android:textStyle="normal|bold" />
+
+    <net.yscs.android.square_progressbar_example.PreviewView
+        android:id="@+id/previewView1"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_below="@+id/TextView02"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/TextView01"
+        style="@android:style/TextAppearance.Holo.Widget.TabWidget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/spinner1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/spinner1"
+        android:gravity="center_vertical"
+        android:text="Text Align: "
+        android:textAllCaps="true"
+        android:textColor="@color/lvHeaderTextColor"
+        android:textStyle="normal|bold" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="14dp"
+        android:layout_toRightOf="@+id/TextView01" />
+
+</RelativeLayout>

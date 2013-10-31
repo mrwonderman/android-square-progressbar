@@ -2,7 +2,7 @@ package net.yscs.android.square_progressbar_example;
 
 import java.util.ArrayList;
 
-import android.R.color;
+import net.yscs.android.square_progressbar.utils.ColourUtil;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
@@ -78,6 +78,15 @@ public class MainActivity extends Activity {
 				CheckBox box = (CheckBox) styleItem
 						.findViewById(R.id.checkBox1);
 
+				// Custom Style Item
+				View styleBoxItem = LayoutInflater
+						.from(getApplicationContext()).inflate(
+								R.layout.lv_style_box, parent, false);
+				CheckBox styleBox = (CheckBox) styleBoxItem
+						.findViewById(R.id.checkBox11);
+				ImageView styleImage = (ImageView) styleBoxItem
+						.findViewById(R.id.imageView1);
+
 				// Link to Github Item
 				View githubItem = LayoutInflater.from(getApplicationContext())
 						.inflate(R.layout.lv_github, parent, false);
@@ -118,9 +127,73 @@ public class MainActivity extends Activity {
 					return styleItem;
 
 				case 13:
+					box.setText("Outline");
+					box.setChecked(squareFragment.squareProgressBar.isOutline());
+					box.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+						@Override
+						public void onCheckedChanged(CompoundButton buttonView,
+								boolean isChecked) {
+							squareFragment.squareProgressBar
+									.drawOutline(isChecked);
+						}
+					});
+					return styleItem;
+
+				case 14:
+					box.setText("Startline");
+					box.setChecked(squareFragment.squareProgressBar
+							.isStartline());
+					box.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+						@Override
+						public void onCheckedChanged(CompoundButton buttonView,
+								boolean isChecked) {
+							squareFragment.squareProgressBar
+									.drawStartline(isChecked);
+						}
+					});
+					return styleItem;
+
+				case 15:
+					styleBox.setText("Show percent");
+					styleBox.setChecked(squareFragment.squareProgressBar
+							.isShowProgress());
+					styleBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+						@Override
+						public void onCheckedChanged(CompoundButton buttonView,
+								boolean isChecked) {
+							squareFragment.squareProgressBar
+									.showProgress(isChecked);
+						}
+					});
+					styleImage.setOnClickListener(new OnClickListener() {
+
+						@Override
+						public void onClick(View arg0) {
+							final PercentDialog percentDialog = new PercentDialog(
+									MainActivity.this);
+							percentDialog.show();
+							percentDialog
+									.setPercentStyle(squareFragment.squareProgressBar
+											.getPercentStyle());
+							percentDialog.getSaveButton().setOnClickListener(
+									new OnClickListener() {
+
+										@Override
+										public void onClick(View v) {
+											squareFragment.squareProgressBar
+													.setPercentStyle(percentDialog
+															.getSettings());
+											percentDialog.dismiss();
+
+										}
+									});
+						}
+					});
+					return styleBoxItem;
+				case 16:
 					title.setText("Image");
 					return headerItem;
-				case 14:
+				case 17:
 					imagePreview.setImageResource(R.drawable.city);
 					imageDesc.setText("sunrise at the city");
 					imageItem.setOnClickListener(new OnClickListener() {
@@ -132,7 +205,7 @@ public class MainActivity extends Activity {
 						}
 					});
 					return imageItem;
-				case 15:
+				case 18:
 					imagePreview
 							.setImageResource(R.drawable.millennium_stadium);
 					imageDesc.setText("the millennium stadium");
@@ -145,7 +218,7 @@ public class MainActivity extends Activity {
 						}
 					});
 					return imageItem;
-				case 16:
+				case 19:
 					imagePreview.setImageResource(R.drawable.edinburgh);
 					imageDesc.setText("carlton hill");
 					imageItem.setOnClickListener(new OnClickListener() {
@@ -157,7 +230,7 @@ public class MainActivity extends Activity {
 						}
 					});
 					return imageItem;
-				case 17:
+				case 20:
 					imagePreview.setImageResource(R.drawable.holyroodpark);
 					imageDesc.setText("holyrood park");
 					imageItem.setOnClickListener(new OnClickListener() {
@@ -169,10 +242,10 @@ public class MainActivity extends Activity {
 						}
 					});
 					return imageItem;
-				case 18:
+				case 21:
 					title.setText("Source");
 					return headerItem;
-				case 19:
+				case 22:
 					String text = "<font color=#4183C4>mrwonderman</font>/<b><font color=#4183C4>android-square-progressbar</font></b>";
 					githublink.setText(Html.fromHtml(text));
 					githubItem.setOnClickListener(new OnClickListener() {
@@ -186,7 +259,7 @@ public class MainActivity extends Activity {
 						}
 					});
 					return githubItem;
-				case 20:
+				case 23:
 					signerItem.setOnClickListener(new OnClickListener() {
 
 						@Override
@@ -202,18 +275,7 @@ public class MainActivity extends Activity {
 					break;
 				}
 
-				// all holo colours
-				ArrayList<Integer> colourArray = new ArrayList<Integer>();
-				colourArray.add(color.holo_blue_bright);
-				colourArray.add(color.holo_blue_dark);
-				colourArray.add(color.holo_blue_light);
-				colourArray.add(color.holo_green_dark);
-				colourArray.add(color.holo_green_light);
-				colourArray.add(color.holo_orange_dark);
-				colourArray.add(color.holo_orange_light);
-				colourArray.add(color.holo_purple);
-				colourArray.add(color.holo_red_dark);
-				colourArray.add(color.holo_red_light);
+				ArrayList<Integer> colourArray = ColourUtil.getColourArray();
 
 				if (position <= 10) {
 					Context context = getApplicationContext();
@@ -252,7 +314,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public int getCount() {
-				return 21;
+				return 24;
 			}
 		};
 		drawerListView.setAdapter(adapter);

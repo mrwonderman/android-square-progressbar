@@ -30,7 +30,13 @@
         <item>Description Four</item>
         <item>Description Five</item>
     </string-array>
-        <string name="signer_pro">by Yannick Signer (signer.pro)</string>
-        <string name="img_desc">main image of the progressbar</string>
+    <string-array name="alignstyle">
+        <item>CENTER</item>
+        <item>RIGHT</item>
+        <item>LEFT</item>
+    </string-array>
+
+    <string name="signer_pro">by Yannick Signer (signer.pro)</string>
+    <string name="img_desc">main image of the progressbar</string>
 
 </resources>
