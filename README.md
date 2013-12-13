@@ -3,9 +3,9 @@ android-square-progressbar
 ![square image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/IMG_20130811_112751.jpg)
 ## First things first
 
-My post aboth the update 1.3.0 : http://www.signer.pro/android-square-progressbar-v-1-3-0/
+My post about the update 1.3.0 : http://www.signer.pro/android-square-progressbar-v-1-3-0/
 
-My post aboth the update 1.2.0 : http://www.signer.pro/android-square-progressbar-v-1-2-0/
+My post about the update 1.2.0 : http://www.signer.pro/android-square-progressbar-v-1-2-0/
 
 My post about the update 1.1.0 : http://www.signer.pro/android-square-progressbar-v-1-1-0/
 
