@@ -17,5 +17,6 @@ android-square-progressbar-example/bin/R.txt
 
 #intelliJ Android Studio
 .idea/
+*.iml
 
 .DS_Store
