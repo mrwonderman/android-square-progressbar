@@ -1,9 +1,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     style="@style/listViewHeaderItem"
     android:layout_width="match_parent"
     android:layout_height="30dp"
-    android:clickable="false" >
+    android:clickable="false">
 
     <View
         android:id="@+id/item_separator"

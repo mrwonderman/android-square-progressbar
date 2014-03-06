@@ -6,7 +6,7 @@
     android:layout_marginRight="16dip"
     android:divider="?android:attr/dividerHorizontal"
     android:orientation="vertical"
-    android:showDividers="middle" >
+    android:showDividers="middle">
 
     <TextView
         android:id="@+id/textView2"
@@ -47,7 +47,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/previewView1"
         android:layout_marginTop="8dp"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/returnDialog"
