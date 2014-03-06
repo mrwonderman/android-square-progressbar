@@ -12,4 +12,10 @@ android-square-progressbar-example/gen/*
 
 android-square-progressbar-example/bin/R.txt
 
+#gradle
+.gradle/
+
+#intelliJ Android Studio
+.idea/
+
 .DS_Store

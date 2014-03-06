@@ -1,0 +1,30 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/listViewHeaderItem"
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:clickable="false" >
+
+    <View
+        android:id="@+id/item_separator"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/lvDividerHeight"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/lvSectionDividerMarginTop"
+        android:background="@color/lvHeaderDividerColor" />
+
+    <TextView
+        android:id="@+id/lv_list_hdr"
+        style="@android:style/TextAppearance.Holo.Widget.TabWidget"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/item_separator"
+        android:layout_alignParentLeft="true"
+        android:gravity="bottom|left"
+        android:paddingLeft="8dp"
+        android:textAllCaps="true"
+        android:textColor="@color/lvHeaderTextColor"
+        android:textIsSelectable="false"
+        android:textStyle="normal|bold" />
+
+</RelativeLayout>

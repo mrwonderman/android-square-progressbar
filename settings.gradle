@@ -1,0 +1,1 @@
+include ':square_progressbar', ':android-square-progressbar-example'

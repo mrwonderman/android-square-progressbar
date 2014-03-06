@@ -43,7 +43,7 @@ public class MainActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);
 		FragmentManager fragmentManager = getFragmentManager();
 		squareFragment = new SquareFragment();
 		fragmentManager.beginTransaction()
