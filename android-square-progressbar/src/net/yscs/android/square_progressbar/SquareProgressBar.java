@@ -14,7 +14,7 @@ import android.widget.RelativeLayout;
 /**
  * The basic {@link SquareProgressBar}. THis class includes all the methods you
  * need to modify your {@link SquareProgressBar}.
- * 
+ *
  * @author ysigner
  * @since 1.0.0
  */
@@ -27,7 +27,7 @@ public class SquareProgressBar extends RelativeLayout {
 
 	/**
 	 * New SquareProgressBar.
-	 * 
+	 *
 	 * @param context
 	 *            the {@link Context}
 	 * @param attrs
@@ -47,7 +47,7 @@ public class SquareProgressBar extends RelativeLayout {
 
 	/**
 	 * New SquareProgressBar.
-	 * 
+	 *
 	 * @param context
 	 *            the {@link Context}
 	 * @param attrs
@@ -65,7 +65,7 @@ public class SquareProgressBar extends RelativeLayout {
 
 	/**
 	 * New SquareProgressBar.
-	 * 
+	 *
 	 * @param context
 	 * @since 1.0.0
 	 */
@@ -81,7 +81,7 @@ public class SquareProgressBar extends RelativeLayout {
 	/**
 	 * Sets the image of the {@link SquareProgressBar}. Must be a valid
 	 * ressourceId.
-	 * 
+	 *
 	 * @param image
 	 *            the image as a ressourceId
 	 * @since 1.0
@@ -93,10 +93,19 @@ public class SquareProgressBar extends RelativeLayout {
 	}
 
 	/**
+	 * Sets the image scale type according to {@link ScaleType}.
+	 * @param scale
+	 * 			the image ScaleType
+	 */
+	public void setImageScaleType(ScaleType scale) {
+		imageView.setScaleType(scale);
+	}
+
+	/**
 	 * Sets the progress of the {@link SquareProgressBar}. If opacity is
 	 * selected then here it sets it. See {@link #setOpacity(boolean)} for more
 	 * information.
-	 * 
+	 *
 	 * @param progress
 	 *            the progress
 	 * @since 1.0.0
@@ -126,7 +135,7 @@ public class SquareProgressBar extends RelativeLayout {
 	 * <li>holo_red_dark</li>
 	 * <li>holo_red_light</li>
 	 * </ul>
-	 * 
+	 *
 	 * @param androidHoloColor
 	 * @since 1.0.0
 	 */
@@ -137,7 +146,7 @@ public class SquareProgressBar extends RelativeLayout {
 	/**
 	 * Sets the colour of the {@link SquareProgressBar}. YOu can give it a
 	 * hex-color string like <i>#C9C9C9</i>.
-	 * 
+	 *
 	 * @param colorString
 	 *            the colour of the {@link SquareProgressBar}
 	 * @since 1.1.0
@@ -148,7 +157,7 @@ public class SquareProgressBar extends RelativeLayout {
 
 	/**
 	 * This sets the colour of the {@link SquareProgressBar} with a RGB colour.
-	 * 
+	 *
 	 * @param r
 	 *            red
 	 * @param g
@@ -163,7 +172,7 @@ public class SquareProgressBar extends RelativeLayout {
 
 	/**
 	 * This sets the width of the {@link SquareProgressBar}.
-	 * 
+	 *
 	 * @param width
 	 *            in Dp
 	 * @since 1.1.0
@@ -178,9 +187,9 @@ public class SquareProgressBar extends RelativeLayout {
 	 * This sets the alpha of the image in the view. Actually I need to use the
 	 * deprecated method here as the new one is only available for the API-level
 	 * 16. And the min API level o this library is 14.
-	 * 
+	 *
 	 * Use this only as private method.
-	 * 
+	 *
 	 * @param progress
 	 *            the progress
 	 */
@@ -194,7 +203,7 @@ public class SquareProgressBar extends RelativeLayout {
 	 * progress is, then more of the image comes to view. If the progress is 0,
 	 * then you can't see the image at all. If the progress is 100, the image is
 	 * shown full.
-	 * 
+	 *
 	 * @param opacity
 	 *            true if opacity should be enabled.
 	 * @since 1.2.0
@@ -207,7 +216,7 @@ public class SquareProgressBar extends RelativeLayout {
 	/**
 	 * You can set the image to b/w with this method. Works fine with the
 	 * opacity.
-	 * 
+	 *
 	 * @param greyscale
 	 *            true if the grayscale should be activated.
 	 * @since 1.2.0 / but never used in the example application
@@ -225,7 +234,7 @@ public class SquareProgressBar extends RelativeLayout {
 
 	/**
 	 * If opacity is enabled.
-	 * 
+	 *
 	 * @return true if opacity is enabled.
 	 */
 	public boolean isOpacity() {
@@ -234,7 +243,7 @@ public class SquareProgressBar extends RelativeLayout {
 
 	/**
 	 * If greyscale is enabled.
-	 * 
+	 *
 	 * @return true if greyscale is enabled.
 	 */
 	public boolean isGreyscale() {
@@ -243,7 +252,7 @@ public class SquareProgressBar extends RelativeLayout {
 
 	/**
 	 * Draws an outline of the progressbar. Looks quite cool in some situations.
-	 * 
+	 *
 	 * @param drawOutline
 	 *            true if it should or not.
 	 * @since 1.3.0
@@ -254,7 +263,7 @@ public class SquareProgressBar extends RelativeLayout {
 
 	/**
 	 * If outline is enabled or not.
-	 * 
+	 *
 	 * @return true if outline is enabled.
 	 */
 	public boolean isOutline() {
@@ -264,7 +273,7 @@ public class SquareProgressBar extends RelativeLayout {
 	/**
 	 * Draws the startline. this is the line where the progressbar starts the
 	 * drawing around the image.
-	 * 
+	 *
 	 * @param drawStartline
 	 *            true if it should or not.
 	 * @since 1.3.0
@@ -275,7 +284,7 @@ public class SquareProgressBar extends RelativeLayout {
 
 	/**
 	 * If the startline is enabled.
-	 * 
+	 *
 	 * @return true if startline is enabled or not.
 	 */
 	public boolean isStartline() {
@@ -285,7 +294,7 @@ public class SquareProgressBar extends RelativeLayout {
 	/**
 	 * Defines if the percent text should be shown or not. To modify the text
 	 * checkout {@link #setPercentStyle(PercentStyle)}.
-	 * 
+	 *
 	 * @param showProgress
 	 *            true if it should or not.
 	 * @since 1.3.0
@@ -296,7 +305,7 @@ public class SquareProgressBar extends RelativeLayout {
 
 	/**
 	 * If the progress text inside of the image is enabled.
-	 * 
+	 *
 	 * @return true if it is or not.
 	 */
 	public boolean isShowProgress() {
@@ -321,7 +330,7 @@ public class SquareProgressBar extends RelativeLayout {
 	 * <td>true</td>
 	 * </tr>
 	 * </table>
-	 * 
+	 *
 	 * @param percentStyle
 	 */
 	public void setPercentStyle(PercentStyle percentStyle) {
@@ -331,7 +340,7 @@ public class SquareProgressBar extends RelativeLayout {
 	/**
 	 * Returns the {@link PercentStyle} of the percent text. Maybe returns the
 	 * default value, check {@link #setPercentStyle(PercentStyle)} fo that.
-	 * 
+	 *
 	 * @return the percent style of the moment.
 	 */
 	public PercentStyle getPercentStyle() {
