@@ -9,6 +9,7 @@ import android.graphics.ColorMatrixColorFilter;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 import android.widget.RelativeLayout;
 
 /**
@@ -163,7 +164,7 @@ public class SquareProgressBar extends RelativeLayout {
 	 * @param g
 	 *            green
 	 * @param b
-	 *            blue¨
+	 *            blueï¿½
 	 * @since 1.1.0
 	 */
 	public void setColorRGB(int r, int g, int b) {
