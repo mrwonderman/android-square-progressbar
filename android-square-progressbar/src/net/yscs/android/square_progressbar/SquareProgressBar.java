@@ -92,8 +92,6 @@ public class SquareProgressBar extends RelativeLayout {
 		imageView.setImageResource(image);
 
 	}
-	
-	
 
 	/**
 	 * Sets the image scale type according to {@link ScaleType}.
