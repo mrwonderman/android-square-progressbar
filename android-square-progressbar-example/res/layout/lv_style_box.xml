@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@android:style/Theme.Holo.Light"
+    android:layout_width="match_parent"
+    android:layout_height="48dp" >
+
+    <View
+        android:id="@+id/item_separator"
+        style="@android:style/Theme.Holo.Light"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/lvDividerHeight"
+        android:layout_alignParentBottom="true"
+        android:background="@color/lvDividerColor" />
+
+    <android.widget.CheckBox
+        android:id="@+id/checkBox11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/item_separator"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/imageView1"
+        android:text="@string/opacity"
+        android:textColor="#000000" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:src="@android:drawable/ic_menu_preferences" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/checkBox11"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/lvDividerColor" />
+
+</RelativeLayout>

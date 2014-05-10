@@ -1,0 +1,15 @@
+# Java class files
+*.class
+
+# Files for the VM
+*.dex
+
+# Binaries and generated files
+android-square-progressbar/bin/*
+android-square-progressbar/gen/*
+android-square-progressbar-example/bin/*
+android-square-progressbar-example/gen/*
+
+android-square-progressbar-example/bin/R.txt
+
+.DS_Store

@@ -1,0 +1,20 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- BaseNavigationDrawer -->
+    <dimen name="lvPrimaryTextSize">18sp</dimen>
+    <dimen name="lvSecondaryTextSize">14sp</dimen>
+    <dimen name="lvItemHeight">65dp</dimen>
+    <dimen name="lvHeadingTextSize">14sp</dimen>
+    <dimen name="lvPrimaryPaddingTop">6dp</dimen>
+    <dimen name="lvPrimaryPaddingBottom">1dp</dimen>
+    <dimen name="lvPrimaryPaddingLeft">8dp</dimen>
+    <dimen name="lvSecondaryPaddingTop">2dp</dimen>
+    <dimen name="lvSecondaryPaddingBottom">6dp</dimen>
+    <dimen name="lvSecondaryPaddingLeft">8dp</dimen>
+    <dimen name="lvDividerHeight">1dp</dimen>
+    <dimen name="lvSectionDividerMarginTop">5dp</dimen>
+
+</resources>

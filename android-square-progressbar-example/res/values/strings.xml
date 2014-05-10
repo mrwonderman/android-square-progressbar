@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">android-square-progressbar-example</string>
+    <string name="progress">Progress:</string>
+    <string name="width">Width:</string>
+    <string name="opacity">Opacity</string>
+
+    <!-- navigation drawer -->
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+    <string-array name="drawer_titel">
+        <item>Colour</item>
+        <item>Subitem One</item>
+        <item>Subitem Two</item>
+        <item>Style</item>
+        <item>Subitem Three</item>
+        <item>Title Three</item>
+        <item>Subitem Four</item>
+        <item>Subitem Five</item>
+    </string-array>
+    <string-array name="drawer_descriptions">
+        <item></item>
+        <item>Description One</item>
+        <item>Description Two</item>
+        <item></item>
+        <item>Description Three</item>
+        <item></item>
+        <item>Description Four</item>
+        <item>Description Five</item>
+    </string-array>
+    <string-array name="alignstyle">
+        <item>CENTER</item>
+        <item>RIGHT</item>
+        <item>LEFT</item>
+    </string-array>
+
+    <string name="signer_pro">by Yannick Signer (signer.pro)</string>
+    <string name="img_desc">main image of the progressbar</string>
+
+</resources>
