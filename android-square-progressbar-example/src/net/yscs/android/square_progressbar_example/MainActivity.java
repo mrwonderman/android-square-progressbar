@@ -191,10 +191,25 @@ public class MainActivity extends Activity {
 						}
 					});
 					return styleBoxItem;
+
 				case 16:
+					box.setText("Greyscale");
+					box.setChecked(squareFragment.squareProgressBar
+							.isGreyscale());
+					box.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+						@Override
+						public void onCheckedChanged(CompoundButton buttonView,
+								boolean isChecked) {
+							squareFragment.squareProgressBar
+									.setImageGrayscale(isChecked);
+						}
+					});
+					return styleItem;
+
+				case 17:
 					title.setText("Image");
 					return headerItem;
-				case 17:
+				case 18:
 					imagePreview.setImageResource(R.drawable.city);
 					imageDesc.setText("sunrise at the city");
 					imageItem.setOnClickListener(new OnClickListener() {
@@ -206,7 +221,7 @@ public class MainActivity extends Activity {
 						}
 					});
 					return imageItem;
-				case 18:
+				case 19:
 					imagePreview
 							.setImageResource(R.drawable.millennium_stadium);
 					imageDesc.setText("the millennium stadium");
@@ -219,7 +234,7 @@ public class MainActivity extends Activity {
 						}
 					});
 					return imageItem;
-				case 19:
+				case 20:
 					imagePreview.setImageResource(R.drawable.edinburgh);
 					imageDesc.setText("carlton hill");
 					imageItem.setOnClickListener(new OnClickListener() {
@@ -231,7 +246,7 @@ public class MainActivity extends Activity {
 						}
 					});
 					return imageItem;
-				case 20:
+				case 21:
 					imagePreview.setImageResource(R.drawable.holyroodpark);
 					imageDesc.setText("holyrood park");
 					imageItem.setOnClickListener(new OnClickListener() {
@@ -243,10 +258,10 @@ public class MainActivity extends Activity {
 						}
 					});
 					return imageItem;
-				case 21:
+				case 22:
 					title.setText("Source");
 					return headerItem;
-				case 22:
+				case 23:
 					String text = "<font color=#4183C4>mrwonderman</font>/<b><font color=#4183C4>android-square-progressbar</font></b>";
 					githublink.setText(Html.fromHtml(text));
 					githubItem.setOnClickListener(new OnClickListener() {
@@ -260,7 +275,7 @@ public class MainActivity extends Activity {
 						}
 					});
 					return githubItem;
-				case 23:
+				case 24:
 					signerItem.setOnClickListener(new OnClickListener() {
 
 						@Override
@@ -315,7 +330,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public int getCount() {
-				return 24;
+				return 25;
 			}
 		};
 		drawerListView.setAdapter(adapter);

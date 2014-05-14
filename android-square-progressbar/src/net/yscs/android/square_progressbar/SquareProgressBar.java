@@ -220,7 +220,7 @@ public class SquareProgressBar extends RelativeLayout {
 	 *
 	 * @param greyscale
 	 *            true if the grayscale should be activated.
-	 * @since 1.2.0 / but never used in the example application
+	 * @since 1.2.0
 	 */
 	public void setImageGrayscale(boolean greyscale) {
 		this.greyscale = greyscale;
