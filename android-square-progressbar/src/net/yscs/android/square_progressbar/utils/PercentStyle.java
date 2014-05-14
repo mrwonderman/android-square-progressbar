@@ -7,9 +7,10 @@ public class PercentStyle {
 	private Paint.Align align;
 	private float textSize;
 	private boolean percentSign;
+	private String customText = "%";
 
 	public PercentStyle() {
-		// TODO Auto-generated constructor stub
+		// do nothing
 	}
 
 	public PercentStyle(Align align, float textSize, boolean percentSign) {
@@ -41,6 +42,14 @@ public class PercentStyle {
 
 	public void setPercentSign(boolean percentSign) {
 		this.percentSign = percentSign;
+	}
+
+	public String getCustomText() {
+		return customText;
+	}
+
+	public void setCustomText(String customText) {
+		this.customText = customText;
 	}
 
 }

@@ -291,7 +291,7 @@ public class SquareProgressView extends View {
 
 		String percentString = new DecimalFormat("###").format(getProgress());
 		if (setting.isPercentSign()) {
-			percentString = percentString + "%";
+			percentString = percentString + percentSettings.getCustomText();
 		}
 
 		canvas.drawText(

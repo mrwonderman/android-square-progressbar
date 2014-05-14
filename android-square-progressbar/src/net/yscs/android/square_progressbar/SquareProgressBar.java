@@ -330,6 +330,10 @@ public class SquareProgressBar extends RelativeLayout {
 	 * <th>Display percentsign</td>
 	 * <td>true</td>
 	 * </tr>
+	 * <tr>
+	 * <th>Custom text</td>
+	 * <td>%</td>
+	 * </tr>
 	 * </table>
 	 *
 	 * @param percentStyle
