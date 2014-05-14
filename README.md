@@ -53,8 +53,7 @@ Then you use the following code to set some inital settings:
 Sadly you need to set the opacity from the start. This will be fixed with the version 1.3.0.
 
 ## Gradle
-
-https://github.com/elodieferrais/android-square-progressbar
+A big thank you to @elodieferrais who made it possible that this library is accessible for gradle builds. See her [fork](https://github.com/elodieferrais/android-square-progressbar) for more information. Also check out her repository about [useful dependancies](https://github.com/elodieferrais/wonder-libraries).
 
 ## Colour / Color
 (http://en.wikipedia.org/wiki/American_and_British_English_spelling_differences#-our.2C_-or)
