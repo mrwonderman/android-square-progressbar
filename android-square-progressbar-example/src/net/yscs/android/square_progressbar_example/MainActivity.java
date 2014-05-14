@@ -82,7 +82,7 @@ public class MainActivity extends Activity {
 				View styleBoxItem = LayoutInflater
 						.from(getApplicationContext()).inflate(
 								R.layout.lv_style_box, parent, false);
-				CheckBox styleBox = (CheckBox) styleBoxItem
+				final CheckBox styleBox = (CheckBox) styleBoxItem
 						.findViewById(R.id.checkBox11);
 				ImageView styleImage = (ImageView) styleBoxItem
 						.findViewById(R.id.imageView1);
@@ -184,7 +184,8 @@ public class MainActivity extends Activity {
 													.setPercentStyle(percentDialog
 															.getSettings());
 											percentDialog.dismiss();
-
+											styleBox.setChecked(true);
+											drawerLayout.closeDrawers();
 										}
 									});
 						}
