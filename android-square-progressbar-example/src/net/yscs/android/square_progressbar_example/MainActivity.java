@@ -8,6 +8,7 @@ import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -110,10 +111,40 @@ public class MainActivity extends Activity {
 					title.setText("Colour");
 					return headerItem;
 				case 11:
+					Context context = getApplicationContext();
+					item = LayoutInflater.from(context).inflate(
+							R.layout.lv_colour_text, parent, false);
+					item.setOnClickListener(new OnClickListener() {
+
+						@Override
+						public void onClick(View arg0) {
+							final CustomColourDialog customColourDialog = new CustomColourDialog(
+									MainActivity.this);
+							customColourDialog.show();
+							customColourDialog.getSaveButton()
+									.setOnClickListener(new OnClickListener() {
+
+										@Override
+										public void onClick(View v) {
+											squareFragment.squareProgressBar
+													.setColorRGB(customColourDialog
+															.getChoosenRGB());
+											customColourDialog.dismiss();
+
+										}
+									});
+							selectItem(position);
+						}
+					});
+					TextView textView = (TextView) item
+							.findViewById(R.id.colour_name_center);
+					textView.setText("choose RGB colour");
+					return item;
+				case 12:
 					title.setText("Style");
 					return headerItem;
 
-				case 12:
+				case 13:
 					box.setText(R.string.opacity);
 					box.setChecked(squareFragment.squareProgressBar.isOpacity());
 					box.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -126,7 +157,7 @@ public class MainActivity extends Activity {
 					});
 					return styleItem;
 
-				case 13:
+				case 14:
 					box.setText("Outline");
 					box.setChecked(squareFragment.squareProgressBar.isOutline());
 					box.setOnCheckedChangeListener(new OnCheckedChangeListener() {
@@ -139,7 +170,7 @@ public class MainActivity extends Activity {
 					});
 					return styleItem;
 
-				case 14:
+				case 15:
 					box.setText("Startline");
 					box.setChecked(squareFragment.squareProgressBar
 							.isStartline());
@@ -153,7 +184,7 @@ public class MainActivity extends Activity {
 					});
 					return styleItem;
 
-				case 15:
+				case 16:
 					styleBox.setText("Show percent");
 					styleBox.setChecked(squareFragment.squareProgressBar
 							.isShowProgress());
@@ -192,7 +223,7 @@ public class MainActivity extends Activity {
 					});
 					return styleBoxItem;
 
-				case 16:
+				case 17:
 					box.setText("Greyscale");
 					box.setChecked(squareFragment.squareProgressBar
 							.isGreyscale());
@@ -206,10 +237,10 @@ public class MainActivity extends Activity {
 					});
 					return styleItem;
 
-				case 17:
+				case 18:
 					title.setText("Image");
 					return headerItem;
-				case 18:
+				case 19:
 					imagePreview.setImageResource(R.drawable.city);
 					imageDesc.setText("sunrise at the city");
 					imageItem.setOnClickListener(new OnClickListener() {
@@ -221,7 +252,7 @@ public class MainActivity extends Activity {
 						}
 					});
 					return imageItem;
-				case 19:
+				case 20:
 					imagePreview
 							.setImageResource(R.drawable.millennium_stadium);
 					imageDesc.setText("the millennium stadium");
@@ -234,7 +265,7 @@ public class MainActivity extends Activity {
 						}
 					});
 					return imageItem;
-				case 20:
+				case 21:
 					imagePreview.setImageResource(R.drawable.edinburgh);
 					imageDesc.setText("carlton hill");
 					imageItem.setOnClickListener(new OnClickListener() {
@@ -246,7 +277,7 @@ public class MainActivity extends Activity {
 						}
 					});
 					return imageItem;
-				case 21:
+				case 22:
 					imagePreview.setImageResource(R.drawable.holyroodpark);
 					imageDesc.setText("holyrood park");
 					imageItem.setOnClickListener(new OnClickListener() {
@@ -258,10 +289,10 @@ public class MainActivity extends Activity {
 						}
 					});
 					return imageItem;
-				case 22:
+				case 23:
 					title.setText("Source");
 					return headerItem;
-				case 23:
+				case 24:
 					String text = "<font color=#4183C4>mrwonderman</font>/<b><font color=#4183C4>android-square-progressbar</font></b>";
 					githublink.setText(Html.fromHtml(text));
 					githubItem.setOnClickListener(new OnClickListener() {
@@ -275,7 +306,7 @@ public class MainActivity extends Activity {
 						}
 					});
 					return githubItem;
-				case 24:
+				case 25:
 					signerItem.setOnClickListener(new OnClickListener() {
 
 						@Override
@@ -330,7 +361,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public int getCount() {
-				return 25;
+				return 26;
 			}
 		};
 		drawerListView.setAdapter(adapter);

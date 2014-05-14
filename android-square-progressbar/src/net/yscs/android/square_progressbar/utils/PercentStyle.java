@@ -48,6 +48,14 @@ public class PercentStyle {
 		return customText;
 	}
 
+	/**
+	 * With this you can set a custom text which should get displayed right
+	 * behind the number of the progress. Per default it displays a <i>%</i>.
+	 * 
+	 * @param customText
+	 *            The custom text you want to display.
+	 * @since 1.4.0
+	 */
 	public void setCustomText(String customText) {
 		this.customText = customText;
 	}
