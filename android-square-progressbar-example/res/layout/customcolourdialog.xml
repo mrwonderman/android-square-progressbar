@@ -16,7 +16,7 @@
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="14dp"
-        android:text="RGB COLOUR:"
+        android:text="@string/rgb_colour_"
         android:textAllCaps="true"
         android:textColor="@color/lvHeaderTextColor"
         android:textStyle="normal|bold" />
@@ -36,7 +36,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignTop="@+id/rSeekBar"
         android:gravity="center_vertical"
-        android:text="Red:" />
+        android:text="@string/red_" />
 
     <SeekBar
         android:id="@+id/gSeekBar"
@@ -60,7 +60,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignTop="@+id/bSeekBar"
         android:gravity="center_vertical"
-        android:text="Blue:" />
+        android:text="@string/blue_" />
 
     <TextView
         android:id="@+id/TextView03"
@@ -71,7 +71,7 @@
         android:layout_alignTop="@+id/gSeekBar"
         android:layout_marginRight="8dp"
         android:gravity="center_vertical"
-        android:text="Green:" />
+        android:text="@string/green_" />
 
     <TextView
         android:id="@+id/rgbText"
@@ -82,7 +82,7 @@
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@+id/TextView02"
         android:gravity="center_horizontal"
-        android:text="(000,000,000)" />
+        android:text="@string/_000_000_000_" />
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -99,7 +99,7 @@
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Cancel" />
+            android:text="@string/cancel" />
 
         <Button
             android:id="@+id/shareColourDialog"
@@ -107,7 +107,7 @@
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Save" />
+            android:text="@string/save" />
     </LinearLayout>
 
 </RelativeLayout>

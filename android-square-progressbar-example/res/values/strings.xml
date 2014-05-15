@@ -38,5 +38,12 @@
 
     <string name="signer_pro">by Yannick Signer (signer.pro)</string>
     <string name="img_desc">main image of the progressbar</string>
+    <string name="defaultrgbvalue">(000,000,000)</string>
+    <string name="green_">Green:</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="blue_">Blue:</string>
+    <string name="rgb_colour_">RGB COLOUR:</string>
+    <string name="red_">Red:</string>
 
 </resources>
