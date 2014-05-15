@@ -82,7 +82,7 @@
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@+id/TextView02"
         android:gravity="center_horizontal"
-        android:text="@string/_000_000_000_" />
+        android:text="@string/defaultrgbvalue" />
 
     <LinearLayout
         android:id="@+id/linearLayout1"
