@@ -58,6 +58,8 @@ public class CustomColourDialog extends Dialog {
 		bSeekBar.setProgress(111);
 		bSeekBar.setOnSeekBarChangeListener(rgbOnSeekBarListener());
 
+		calculateRGB();
+		
 	}
 
 	private OnSeekBarChangeListener rgbOnSeekBarListener() {
