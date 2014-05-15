@@ -25,6 +25,7 @@ public class SquareProgressBar extends RelativeLayout {
 	private final SquareProgressView bar;
 	private boolean opacity = false;
 	private boolean greyscale;
+	private boolean isFadingOnProgress = false;
 
 	/**
 	 * New SquareProgressBar.
@@ -117,7 +118,11 @@ public class SquareProgressBar extends RelativeLayout {
 	public void setProgress(double progress) {
 		bar.setProgress(progress);
 		if (opacity) {
-			setOpacity((int) progress);
+			if (isFadingOnProgress) {
+				setOpacity(100 - (int) progress);
+			} else {
+				setOpacity((int) progress);
+			}
 		} else {
 			setOpacity(100);
 		}
@@ -231,6 +236,30 @@ public class SquareProgressBar extends RelativeLayout {
 	 */
 	public void setOpacity(boolean opacity) {
 		this.opacity = opacity;
+		setProgress(bar.getProgress());
+	}
+
+	/**
+	 * Switches the opacity state of the image. This forces the
+	 * SquareProgressBar to redraw with the current progress. As bigger the
+	 * progress is, then more of the image comes to view. If the progress is 0,
+	 * then you can't see the image at all. If the progress is 100, the image is
+	 * shown full.
+	 * 
+	 * You can also set the flag if the fading should get inverted so the image
+	 * disappears when the progress increases.
+	 * 
+	 * @param opacity
+	 *            true if opacity should be enabled.
+	 * @param isFadingOnProgress
+	 *            default false. This changes the behavior the opacity works. If
+	 *            the progress increases then the images fades. When the
+	 *            progress reaches 100, then the image disappears.
+	 * @since 1.4.0
+	 */
+	public void setOpacity(boolean opacity, boolean isFadingOnProgress) {
+		this.opacity = opacity;
+		this.isFadingOnProgress = isFadingOnProgress;
 		setProgress(bar.getProgress());
 	}
 
