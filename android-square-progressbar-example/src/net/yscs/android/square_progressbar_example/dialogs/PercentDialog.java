@@ -1,6 +1,11 @@
-package net.yscs.android.square_progressbar_example;
+package net.yscs.android.square_progressbar_example.dialogs;
 
 import net.yscs.android.square_progressbar.utils.PercentStyle;
+import net.yscs.android.square_progressbar_example.PreviewView;
+import net.yscs.android.square_progressbar_example.R;
+import net.yscs.android.square_progressbar_example.R.array;
+import net.yscs.android.square_progressbar_example.R.id;
+import net.yscs.android.square_progressbar_example.R.layout;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Paint.Align;

@@ -3,6 +3,8 @@ package net.yscs.android.square_progressbar_example;
 import java.util.ArrayList;
 
 import net.yscs.android.square_progressbar.utils.ColourUtil;
+import net.yscs.android.square_progressbar_example.dialogs.CustomColourDialog;
+import net.yscs.android.square_progressbar_example.dialogs.PercentDialog;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
