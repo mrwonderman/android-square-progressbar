@@ -212,7 +212,7 @@ public class SquareProgressBar extends RelativeLayout {
 	/**
 	 * This sets the alpha of the image in the view. Actually I need to use the
 	 * deprecated method here as the new one is only available for the API-level
-	 * 16. And the min API level o this library is 14.
+	 * 16. And the min API level of this library is 14.
 	 * 
 	 * Use this only as private method.
 	 * 

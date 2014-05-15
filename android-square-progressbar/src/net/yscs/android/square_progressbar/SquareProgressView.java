@@ -293,6 +293,8 @@ public class SquareProgressView extends View {
 		if (setting.isPercentSign()) {
 			percentString = percentString + percentSettings.getCustomText();
 		}
+		
+		textPaint.setColor(percentSettings.getTextColor());
 
 		canvas.drawText(
 				percentString,
