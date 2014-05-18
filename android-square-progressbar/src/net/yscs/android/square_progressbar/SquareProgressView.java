@@ -30,6 +30,7 @@ public class SquareProgressView extends View {
 
 	private PercentStyle percentSettings = new PercentStyle(Align.CENTER, 150,
 			true);
+	private boolean clearOnHundred = false;
 
 	public SquareProgressView(Context context) {
 		super(context);
@@ -126,6 +127,10 @@ public class SquareProgressView extends View {
 			drawPercent(percentSettings);
 		}
 
+		if (clearOnHundred && progress == 100.0) {
+			return;
+		}
+
 		Path path = new Path();
 		if (percent > halfOfTheImage) {
 			paintFirstHalfOfTheTop(canvas);
@@ -177,6 +182,7 @@ public class SquareProgressView extends View {
 			path.lineTo(halfOfTheImage + percent, strokewidth / 2);
 			canvas.drawPath(path, progressBarPaint);
 		}
+
 	}
 
 	private void drawStartline() {
@@ -293,7 +299,7 @@ public class SquareProgressView extends View {
 		if (setting.isPercentSign()) {
 			percentString = percentString + percentSettings.getCustomText();
 		}
-		
+
 		textPaint.setColor(percentSettings.getTextColor());
 
 		canvas.drawText(
@@ -319,6 +325,15 @@ public class SquareProgressView extends View {
 
 	public PercentStyle getPercentStyle() {
 		return percentSettings;
+	}
+
+	public void setClearOnHundred(boolean clearOnHundred) {
+		this.clearOnHundred = clearOnHundred;
+		this.invalidate();
+	}
+
+	public boolean isClearOnHundred() {
+		return clearOnHundred;
 	}
 
 }

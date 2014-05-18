@@ -401,4 +401,25 @@ public class SquareProgressBar extends RelativeLayout {
 		return bar.getPercentStyle();
 	}
 
+	/**
+	 * If the progress hits 100% then the progressbar disappears if this flag is
+	 * set to <code>true</code>. The default is set to false.
+	 * 
+	 * @param removeOnFinished
+	 *            if it should disappear or not.
+	 * @since 1.4.0
+	 */
+	public void setClearOnHundred(boolean clearOnHundred) {
+		bar.setClearOnHundred(clearOnHundred);
+	}
+	
+	/**
+	 * If the progressbar disappears when the progress reaches 100%.
+	 * 
+	 * @since 1.4.0
+	 */
+	public boolean isClearOnHundred() {
+		return bar.isClearOnHundred();
+	}
+
 }
