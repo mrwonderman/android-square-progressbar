@@ -375,7 +375,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public int getCount() {
-				return 26;
+				return 27;
 			}
 		};
 		drawerListView.setAdapter(adapter);
