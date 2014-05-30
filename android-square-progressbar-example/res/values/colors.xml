@@ -5,6 +5,6 @@
     <color name="primaryTextColor">#333333</color>
     <color name="secondaryTextColor">#777777</color>
     <color name="lvHeaderDividerColor">#168686</color>
-    <color name="lvDividerColor">#E0E0E0</color>
+    <color name="lvDividerColor">#FFFFFF</color>
 
 </resources>

@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/lvDividerHeight"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="4dp"
         android:layout_marginTop="@dimen/lvSectionDividerMarginTop"
         android:background="@color/lvHeaderDividerColor" />
 
