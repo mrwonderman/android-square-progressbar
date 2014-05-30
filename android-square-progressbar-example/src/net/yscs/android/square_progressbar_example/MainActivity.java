@@ -304,9 +304,21 @@ public class MainActivity extends Activity {
 					});
 					return imageItem;
 				case 24:
+					imagePreview.setImageResource(R.drawable.operahuset);
+					imageDesc.setText("operahuset oslo");
+					imageItem.setOnClickListener(new OnClickListener() {
+
+						@Override
+						public void onClick(View v) {
+							squareFragment.squareProgressBar
+									.setImage(R.drawable.operahuset);
+						}
+					});
+					return imageItem;
+				case 25:
 					title.setText("Source");
 					return headerItem;
-				case 25:
+				case 26:
 					String text = "<font color=#4183C4>mrwonderman</font>/<b><font color=#4183C4>android-square-progressbar</font></b>";
 					githublink.setText(Html.fromHtml(text));
 					githubItem.setOnClickListener(new OnClickListener() {
@@ -320,7 +332,7 @@ public class MainActivity extends Activity {
 						}
 					});
 					return githubItem;
-				case 26:
+				case 27:
 					signerItem.setOnClickListener(new OnClickListener() {
 
 						@Override
@@ -375,7 +387,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public int getCount() {
-				return 27;
+				return 28;
 			}
 		};
 		drawerListView.setAdapter(adapter);
