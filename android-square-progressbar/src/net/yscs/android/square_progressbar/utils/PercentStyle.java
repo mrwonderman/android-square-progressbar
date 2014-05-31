@@ -1,5 +1,6 @@
 package net.yscs.android.square_progressbar.utils;
 
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
 
@@ -7,9 +8,11 @@ public class PercentStyle {
 	private Paint.Align align;
 	private float textSize;
 	private boolean percentSign;
+	private String customText = "%";
+	private int textColor = Color.BLACK;
 
 	public PercentStyle() {
-		// TODO Auto-generated constructor stub
+		// do nothing
 	}
 
 	public PercentStyle(Align align, float textSize, boolean percentSign) {
@@ -41,6 +44,38 @@ public class PercentStyle {
 
 	public void setPercentSign(boolean percentSign) {
 		this.percentSign = percentSign;
+	}
+
+	public String getCustomText() {
+		return customText;
+	}
+
+	/**
+	 * With this you can set a custom text which should get displayed right
+	 * behind the number of the progress. Per default it displays a <i>%</i>.
+	 * 
+	 * @param customText
+	 *            The custom text you want to display.
+	 * @since 1.4.0
+	 */
+	public void setCustomText(String customText) {
+		this.customText = customText;
+	}
+
+	public int getTextColor() {
+		return textColor;
+	}
+
+	/**
+	 * Set the color of the text that display the current progress. This will
+	 * also change the color of the text that normally represents a <i>%</i>.
+	 * 
+	 * @param textColor
+	 *            the color to set the text to.
+	 * @since 1.4.0
+	 */
+	public void setTextColor(int textColor) {
+		this.textColor = textColor;
 	}
 
 }

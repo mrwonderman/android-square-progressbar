@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="16dip"
+    android:layout_marginRight="16dip"
+    android:divider="?android:attr/dividerHorizontal"
+    android:orientation="vertical"
+    android:showDividers="middle" >
+
+    <TextView
+        android:id="@+id/TextView02"
+        style="@android:style/TextAppearance.Holo.Widget.TabWidget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="14dp"
+        android:text="@string/rgb_colour_"
+        android:textAllCaps="true"
+        android:textColor="@color/lvHeaderTextColor"
+        android:textStyle="normal|bold" />
+
+    <SeekBar
+        android:id="@+id/rSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/gSeekBar"
+        android:layout_below="@+id/TextView02" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/rSeekBar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/rSeekBar"
+        android:gravity="center_vertical"
+        android:text="@string/red_" />
+
+    <SeekBar
+        android:id="@+id/gSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rSeekBar"
+        android:layout_toRightOf="@+id/TextView03" />
+
+    <SeekBar
+        android:id="@+id/bSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/gSeekBar"
+        android:layout_below="@+id/gSeekBar" />
+
+    <TextView
+        android:id="@+id/TextView04"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bSeekBar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/bSeekBar"
+        android:gravity="center_vertical"
+        android:text="@string/blue_" />
+
+    <TextView
+        android:id="@+id/TextView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/gSeekBar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/gSeekBar"
+        android:layout_marginRight="8dp"
+        android:gravity="center_vertical"
+        android:text="@string/green_" />
+
+    <TextView
+        android:id="@+id/rgbText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/TextView02"
+        android:layout_alignBottom="@+id/TextView02"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/TextView02"
+        android:gravity="center_horizontal"
+        android:text="@string/defaultrgbvalue" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/bSeekBar"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/returnColourDialog"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/cancel" />
+
+        <Button
+            android:id="@+id/shareColourDialog"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/save" />
+    </LinearLayout>
+
+</RelativeLayout>
