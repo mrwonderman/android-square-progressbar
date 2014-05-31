@@ -20,7 +20,7 @@ public class SquareProgressView extends View {
 	private final Paint outlinePaint;
 	private final Paint textPaint;
 
-	private float widthInDp = 0;
+	private float widthInDp = 10;
 	private float strokewidth = 0;
 	private Canvas canvas;
 
