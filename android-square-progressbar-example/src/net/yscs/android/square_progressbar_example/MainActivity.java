@@ -225,7 +225,7 @@ public class MainActivity extends Activity {
 					return styleBoxItem;
 
 				case 17:
-					box.setText("Greyscale");
+					box.setText("Grayscale");
 					box.setChecked(squareFragment.squareProgressBar
 							.isGreyscale());
 					box.setOnCheckedChangeListener(new OnCheckedChangeListener() {
