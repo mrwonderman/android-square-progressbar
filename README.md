@@ -1,6 +1,6 @@
 android-square-progressbar
 ==========================
-![square image](https://googledrive.com/host/0BwESwPCuXtw7eExwSFVLQkR2TTg/IMG_20130811_112751.jpg)
+![square image](https://oqvhhw.bn1.livefilestore.com/y2mKace9GiPHPZfvbfo9iAPXNDknWusA0zR7bY1MY0NGZuNjJ3VjenelkVBm2ADGEMFqVJiPhOX5rgkQT1aSxon0VpkKaLGUH7nt_2K-ZiL1gPqABRv-hSGi-ySSBrr0_dE/20140531_133511.jpg?psid=1)
 ## First things first
 
 You can find my blog post about the newest version here : [signer.pro - android-square-progressbar v. 1.4.0] (http://www.signer.pro/android-square-progressbar-v-1-4-0/)
