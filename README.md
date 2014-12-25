@@ -5,7 +5,7 @@ android-square-progressbar
 
 You can find my blog post about the newest version here : [signer.pro - android-square-progressbar v. 1.4.0] (http://www.signer.pro/android-square-progressbar-v-1-4-0/)
 
-The example application is available at the play store.
+The example application is available at the play store:
 
 <a href="https://play.google.com/store/apps/details?id=net.yscs.android.square_progressbar_example">
   <img alt="Get it on Google Play"
@@ -13,7 +13,7 @@ The example application is available at the play store.
 </a>
 
 ## General idea
-Sometimes you dont have enough space in your layout to display a wide progressbar. So this library gives you a complete new possibility to display a progress. You can simply show a progressbar around an image. An this progressbar can be configured in a lot of different ways, like colour, an outline, display the percentage and so on.
+Sometimes you don't have enough space in your layout to display a wide progressbar. So this library gives you a complete new possibility to display a progress. You can simply show a progressbar around an image. An this progressbar can be configured in a lot of different ways, like color, outline, display of the percentage and so on.
 
 ### Examples
 Here are some examples on how these progressbars could look like:
