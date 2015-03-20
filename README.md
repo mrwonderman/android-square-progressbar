@@ -24,5 +24,7 @@ There are some further examples availible here (with code) : [Examples](https://
 ### How to use it? / How to install? / How to contribute?
 Check the wiki for more information about [how to use](https://github.com/mrwonderman/android-square-progressbar/wiki/Usage), [how to install](https://github.com/mrwonderman/android-square-progressbar/wiki/Use-with-an-Eclipse-Setup) or [how to contribute](https://github.com/mrwonderman/android-square-progressbar/wiki/How-To-Contribute).
 
+If you have questions about the code or if you need some help, you can try the [Gitter-Group](https://gitter.im/mrwonderman/android-square-progressbar).
+
 ## Gradle
 A big thank you to [@elodieferrais](https://github.com/elodieferrais) who made it possible that this library is accessible for gradle builds. See her [fork](https://github.com/elodieferrais/android-square-progressbar) for more information. Also check out her repository about [useful dependancies](https://github.com/elodieferrais/wonder-libraries).
