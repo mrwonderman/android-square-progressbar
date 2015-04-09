@@ -3,7 +3,7 @@ android-square-progressbar
 ![square image](https://oavhhw.bn1.livefilestore.com/y2mOYieeVxCoUj5JwuoeHt302BrP4iKC3qeFV1gUkWh7Xjm5ie5ZjANjekofpakTTMZb6-m3gwnx1SauhMo87D9VVh4MVEDW-0Tpq47-liKfLF-lpNNAoTTYCSVUJcjz4dB/header140.png?psid=1)
 ## First things first
 
-You can find my blog post about the newest version here : [signer.pro - android-square-progressbar v. 1.4.1] (http://www.signer.pro/android-square-progressbar-v-1-4-1/), also checkout the post about the previous major 1.4.0 version [here](http://www.signer.pro/android-square-progressbar-v-1-4-0/).
+You can find my blog post about the newest version here : [signer.pro - android-square-progressbar v. 1.4.1] (http://www.halcyon.ch/android-square-progressbar-v-1-4-1/), also checkout the post about the previous major 1.4.0 version [here](http://www.halcyon.ch/android-square-progressbar-v-1-4-0/).
 
 The example application is available at the play store:
 
