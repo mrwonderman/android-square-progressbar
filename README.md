@@ -22,7 +22,7 @@ Sometimes you don't have enough space in your layout to display a wide progressb
 ### Examples
 Here are some examples of how these progressbars could look like:
 
-![three examples](https://mkvhhw.bn1.livefilestore.com/y2mmRAmVz8BzkLSYLSqV0yM6HCLh9uMMrQ4VqVJ0ocJTR5pUtc-b5ruBF6-XFOWzdKkxv1WbeVj15fefu0g0NEB60KUvbm6xwOEnBkbR_YwkmYF-Z808sqpgtGH4nhRs6ru/squareprogressbarexample_140.png?psid=1)
+![three examples](https://mavhhw-bn1306.files.1drv.com/y2p8nsn055K0X1rf95rWCcCuhokX4QE5B19SPohltQ758atQ9HcV2iK3K_w802Weg6hyMpbLPwpWGEGob8_z_brVQSnLW-PfNCw2tUNa2g-Y0xk4By4LjJ1nVOtE9JzjW7S_bQqlH3yfhezy8GdjtMKqznX2HjtF8461cEe69KS-oQ/cover_github.png)
 
 There are some further examples available here (with code) : [Examples](https://github.com/mrwonderman/android-square-progressbar/wiki/Examples)
 ### How to use it? / How to install? / How to contribute?
