@@ -1,0 +1,2 @@
+include ':exampleapp'
+include ':squareprogressbar'
