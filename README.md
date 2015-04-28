@@ -9,7 +9,7 @@ You can find my blog post about the newest version here: [halcyon.ch - android-s
 
 The example application is available at the play store:
 
-<a href="https://play.google.com/store/apps/details?id=net.yscs.android.square_progressbar_example">
+<a href="https://play.google.com/store/apps/details?id=ch.halcyon.squareprogressbar.example">
   <img alt="Get it on Google Play"
        src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
 </a>
