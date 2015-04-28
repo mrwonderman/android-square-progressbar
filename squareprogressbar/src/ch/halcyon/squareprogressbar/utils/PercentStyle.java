@@ -1,4 +1,4 @@
-package net.yscs.android.square_progressbar.utils;
+package ch.halcyon.squareprogressbar.utils;
 
 import android.graphics.Color;
 import android.graphics.Paint;

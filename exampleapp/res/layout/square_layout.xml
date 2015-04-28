@@ -8,14 +8,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <net.yscs.android.square_progressbar.SquareProgressBar
+    <ch.halcyon.squareprogressbar.SquareProgressBar
         android:id="@+id/subi2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:paddingTop="20dp" >
-    </net.yscs.android.square_progressbar.SquareProgressBar>
+    </ch.halcyon.squareprogressbar.SquareProgressBar>
 
     <TextView
         android:id="@+id/textView1"

@@ -1,4 +1,4 @@
-package net.yscs.android.square_progressbar_example;
+package ch.halcyon.squareprogressbar_example;
 
 import android.content.Context;
 import android.graphics.Canvas;

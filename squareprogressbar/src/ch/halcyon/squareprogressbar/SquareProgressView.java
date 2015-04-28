@@ -1,9 +1,10 @@
-package net.yscs.android.square_progressbar;
+package ch.halcyon.squareprogressbar;
 
 import java.text.DecimalFormat;
 
-import net.yscs.android.square_progressbar.utils.CalculationUtil;
-import net.yscs.android.square_progressbar.utils.PercentStyle;
+import ch.halcyon.squareprogressbar.utils.CalculationUtil;
+import ch.halcyon.squareprogressbar.utils.PercentStyle;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;

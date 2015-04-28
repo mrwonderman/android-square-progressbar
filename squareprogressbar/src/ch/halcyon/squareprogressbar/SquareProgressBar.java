@@ -1,7 +1,8 @@
-package net.yscs.android.square_progressbar;
+package ch.halcyon.squareprogressbar;
 
-import net.yscs.android.square_progressbar.utils.CalculationUtil;
-import net.yscs.android.square_progressbar.utils.PercentStyle;
+import ch.halcyon.squareprogressbar.utils.CalculationUtil;
+import ch.halcyon.squareprogressbar.utils.PercentStyle;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -344,7 +345,7 @@ public class SquareProgressBar extends RelativeLayout {
 
 	/**
 	 * Defines if the percent text should be shown or not. To modify the text
-	 * checkout {@link #setPercentStyle(PercentStyle)}.
+	 * checkout {@link #setPercentStyle(ch.halcyon.squareprogressbar.utils.PercentStyle)}.
 	 * 
 	 * @param showProgress
 	 *            true if it should or not.

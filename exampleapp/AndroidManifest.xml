@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.yscs.android.square_progressbar_example"
+    package="ch.halcyon.squareprogressbar_example"
     android:versionCode="6"
     android:versionName="1.4.0" >
 
@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Holo.Light" >
         <activity
-            android:name="net.yscs.android.square_progressbar_example.MainActivity"
+            android:name="ch.halcyon.squareprogressbar_example.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
             <intent-filter>

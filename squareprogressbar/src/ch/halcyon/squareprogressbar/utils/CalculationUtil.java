@@ -1,4 +1,4 @@
-package net.yscs.android.square_progressbar.utils;
+package ch.halcyon.squareprogressbar.utils;
 
 import android.content.Context;
 import android.util.TypedValue;

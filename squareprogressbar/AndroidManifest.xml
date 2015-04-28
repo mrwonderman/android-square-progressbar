@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.yscs.android.square_progressbar"
+    package="ch.halcyon.squareprogressbar"
     android:versionCode="5"
     android:versionName="1.3.0" >
 
