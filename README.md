@@ -14,6 +14,8 @@ The example application is available at the play store:
        src="https://developer.android.com/images/brand/en_generic_rgb_wo_60.png" />
 </a>
 
+[![Join the chat at https://gitter.im/mrwonderman/android-square-progressbar](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mrwonderman/android-square-progressbar?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 ## General idea
 Sometimes you don't have enough space in your layout to display a wide progressbar. So this library gives you a complete new possibility to display a progress. You can simply show a progressbar around an image. And this progressbar can be configured in a lot of different ways, like colour, outline, display of the percentage and so on.
 
