@@ -1,6 +1,6 @@
-package ch.halcyon.squareprogressbar_example.dialogs;
+package ch.halcyon.squareprogressbar.example.dialogs;
 
-import ch.halcyon.squareprogressbar_example.R;
+import ch.halcyon.squareprogressbar.example.R;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;

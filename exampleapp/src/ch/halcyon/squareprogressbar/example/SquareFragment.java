@@ -1,4 +1,4 @@
-package ch.halcyon.squareprogressbar_example;
+package ch.halcyon.squareprogressbar.example;
 
 import ch.halcyon.squareprogressbar.SquareProgressBar;
 import android.app.Fragment;
@@ -16,20 +16,20 @@ public class SquareFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = inflater.inflate(ch.halcyon.squareprogressbar_example.R.layout.square_layout, container, false);
-		squareProgressBar = (SquareProgressBar) view.findViewById(ch.halcyon.squareprogressbar_example.R.id.subi2);
-		squareProgressBar.setImage(ch.halcyon.squareprogressbar_example.R.drawable.operahuset);
+		View view = inflater.inflate(ch.halcyon.squareprogressbar.example.R.layout.square_layout, container, false);
+		squareProgressBar = (SquareProgressBar) view.findViewById(ch.halcyon.squareprogressbar.example.R.id.subi2);
+		squareProgressBar.setImage(ch.halcyon.squareprogressbar.example.R.drawable.operahuset);
 		squareProgressBar.setColor("#C9C9C9");
 		squareProgressBar.setProgress(32);
 		squareProgressBar.setWidth(8);
 		squareProgressBar.setOpacity(false);
 
 		final TextView progressView = (TextView) view
-				.findViewById(ch.halcyon.squareprogressbar_example.R.id.progressDisplay);
+				.findViewById(ch.halcyon.squareprogressbar.example.R.id.progressDisplay);
 		progressView.setText("32%");
 
 		SeekBar progressSeekBar = (SeekBar) view
-				.findViewById(ch.halcyon.squareprogressbar_example.R.id.progressSeekBar);
+				.findViewById(ch.halcyon.squareprogressbar.example.R.id.progressSeekBar);
 		progressSeekBar
 				.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
@@ -51,7 +51,7 @@ public class SquareFragment extends Fragment {
 					}
 				});
 
-		SeekBar widthSeekBar = (SeekBar) view.findViewById(ch.halcyon.squareprogressbar_example.R.id.widthSeekBar);
+		SeekBar widthSeekBar = (SeekBar) view.findViewById(ch.halcyon.squareprogressbar.example.R.id.widthSeekBar);
 		widthSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
 			@Override

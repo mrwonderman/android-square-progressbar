@@ -1,4 +1,4 @@
-package ch.halcyon.squareprogressbar_example;
+package ch.halcyon.squareprogressbar.example;
 
 import android.app.Activity;
 import android.app.FragmentManager;
@@ -29,8 +29,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import ch.halcyon.squareprogressbar.utils.ColourUtil;
-import ch.halcyon.squareprogressbar_example.dialogs.CustomColourDialog;
-import ch.halcyon.squareprogressbar_example.dialogs.PercentDialog;
+import ch.halcyon.squareprogressbar.example.dialogs.CustomColourDialog;
+import ch.halcyon.squareprogressbar.example.dialogs.PercentDialog;
 
 public class MainActivity extends Activity {
     private DrawerLayout drawerLayout;
@@ -50,17 +50,17 @@ public class MainActivity extends Activity {
         FragmentManager fragmentManager = getFragmentManager();
         squareFragment = new SquareFragment();
         fragmentManager.beginTransaction()
-                .replace(ch.halcyon.squareprogressbar_example.R.id.content_frame, squareFragment).commit();
-        setContentView(ch.halcyon.squareprogressbar_example.R.layout.activity_main);
+                .replace(ch.halcyon.squareprogressbar.example.R.id.content_frame, squareFragment).commit();
+        setContentView(ch.halcyon.squareprogressbar.example.R.layout.activity_main);
 
         title = drawerTitle = getTitle();
-        partTitle = getResources().getStringArray(ch.halcyon.squareprogressbar_example.R.array.drawer_titel);
+        partTitle = getResources().getStringArray(ch.halcyon.squareprogressbar.example.R.array.drawer_titel);
         descriptions = getResources().getStringArray(
-                ch.halcyon.squareprogressbar_example.R.array.drawer_descriptions);
-        drawerLayout = (DrawerLayout) findViewById(ch.halcyon.squareprogressbar_example.R.id.drawer_layout);
-        drawerListView = (ListView) findViewById(ch.halcyon.squareprogressbar_example.R.id.left_drawer);
+                ch.halcyon.squareprogressbar.example.R.array.drawer_descriptions);
+        drawerLayout = (DrawerLayout) findViewById(ch.halcyon.squareprogressbar.example.R.id.drawer_layout);
+        drawerListView = (ListView) findViewById(ch.halcyon.squareprogressbar.example.R.id.left_drawer);
 
-        drawerLayout.setDrawerShadow(ch.halcyon.squareprogressbar_example.R.drawable.drawer_shadow,
+        drawerLayout.setDrawerShadow(ch.halcyon.squareprogressbar.example.R.drawable.drawer_shadow,
                 GravityCompat.START);
         BaseAdapter adapter = new BaseAdapter() {
 
@@ -71,42 +71,42 @@ public class MainActivity extends Activity {
 
                 // Header Item
                 View headerItem = LayoutInflater.from(getApplicationContext())
-                        .inflate(ch.halcyon.squareprogressbar_example.R.layout.lv_header_layout, parent, false);
+                        .inflate(ch.halcyon.squareprogressbar.example.R.layout.lv_header_layout, parent, false);
                 TextView title = (TextView) headerItem
-                        .findViewById(ch.halcyon.squareprogressbar_example.R.id.lv_list_hdr);
+                        .findViewById(ch.halcyon.squareprogressbar.example.R.id.lv_list_hdr);
 
                 // Custom Style Item
                 View styleItem = LayoutInflater.from(getApplicationContext())
-                        .inflate(ch.halcyon.squareprogressbar_example.R.layout.lv_style, parent, false);
+                        .inflate(ch.halcyon.squareprogressbar.example.R.layout.lv_style, parent, false);
                 CheckBox box = (CheckBox) styleItem
-                        .findViewById(ch.halcyon.squareprogressbar_example.R.id.checkBox1);
+                        .findViewById(ch.halcyon.squareprogressbar.example.R.id.checkBox1);
 
                 // Custom Style Item
                 View styleBoxItem = LayoutInflater
                         .from(getApplicationContext()).inflate(
-                                ch.halcyon.squareprogressbar_example.R.layout.lv_style_box, parent, false);
+                                ch.halcyon.squareprogressbar.example.R.layout.lv_style_box, parent, false);
                 final CheckBox styleBox = (CheckBox) styleBoxItem
-                        .findViewById(ch.halcyon.squareprogressbar_example.R.id.checkBox11);
+                        .findViewById(ch.halcyon.squareprogressbar.example.R.id.checkBox11);
                 ImageView styleImage = (ImageView) styleBoxItem
-                        .findViewById(ch.halcyon.squareprogressbar_example.R.id.imageView1);
+                        .findViewById(ch.halcyon.squareprogressbar.example.R.id.imageView1);
 
                 // Link to Github Item
                 View githubItem = LayoutInflater.from(getApplicationContext())
-                        .inflate(ch.halcyon.squareprogressbar_example.R.layout.lv_github, parent, false);
+                        .inflate(ch.halcyon.squareprogressbar.example.R.layout.lv_github, parent, false);
                 TextView githublink = (TextView) githubItem
-                        .findViewById(ch.halcyon.squareprogressbar_example.R.id.textView1);
+                        .findViewById(ch.halcyon.squareprogressbar.example.R.id.textView1);
 
                 // Link to homepage Item
                 View signerItem = LayoutInflater.from(getApplicationContext())
-                        .inflate(ch.halcyon.squareprogressbar_example.R.layout.lv_signer, parent, false);
+                        .inflate(ch.halcyon.squareprogressbar.example.R.layout.lv_signer, parent, false);
 
                 // Link to Image Item
                 View imageItem = LayoutInflater.from(getApplicationContext())
-                        .inflate(ch.halcyon.squareprogressbar_example.R.layout.lv_image, parent, false);
+                        .inflate(ch.halcyon.squareprogressbar.example.R.layout.lv_image, parent, false);
                 ImageView imagePreview = (ImageView) imageItem
-                        .findViewById(ch.halcyon.squareprogressbar_example.R.id.imageView1);
+                        .findViewById(ch.halcyon.squareprogressbar.example.R.id.imageView1);
                 TextView imageDesc = (TextView) imageItem
-                        .findViewById(ch.halcyon.squareprogressbar_example.R.id.imagetag);
+                        .findViewById(ch.halcyon.squareprogressbar.example.R.id.imagetag);
 
                 switch (position) {
                     case 0:
@@ -115,7 +115,7 @@ public class MainActivity extends Activity {
                     case 11:
                         Context context = getApplicationContext();
                         item = LayoutInflater.from(context).inflate(
-                                ch.halcyon.squareprogressbar_example.R.layout.lv_colour_text, parent, false);
+                                ch.halcyon.squareprogressbar.example.R.layout.lv_colour_text, parent, false);
                         item.setOnClickListener(new OnClickListener() {
 
                             @Override
@@ -139,7 +139,7 @@ public class MainActivity extends Activity {
                             }
                         });
                         TextView textView = (TextView) item
-                                .findViewById(ch.halcyon.squareprogressbar_example.R.id.colour_name_center);
+                                .findViewById(ch.halcyon.squareprogressbar.example.R.id.colour_name_center);
                         textView.setText("choose RGB colour");
                         return item;
                     case 12:
@@ -147,7 +147,7 @@ public class MainActivity extends Activity {
                         return headerItem;
 
                     case 13:
-                        box.setText(ch.halcyon.squareprogressbar_example.R.string.opacity);
+                        box.setText(ch.halcyon.squareprogressbar.example.R.string.opacity);
                         box.setChecked(squareFragment.squareProgressBar.isOpacity());
                         box.setOnCheckedChangeListener(new OnCheckedChangeListener() {
                             @Override
@@ -256,63 +256,63 @@ public class MainActivity extends Activity {
                         title.setText("Image");
                         return headerItem;
                     case 20:
-                        imagePreview.setImageResource(ch.halcyon.squareprogressbar_example.R.drawable.city);
+                        imagePreview.setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.city);
                         imageDesc.setText("sunrise at the city");
                         imageItem.setOnClickListener(new OnClickListener() {
 
                             @Override
                             public void onClick(View v) {
                                 squareFragment.squareProgressBar
-                                        .setImage(ch.halcyon.squareprogressbar_example.R.drawable.city);
+                                        .setImage(ch.halcyon.squareprogressbar.example.R.drawable.city);
                             }
                         });
                         return imageItem;
                     case 21:
                         imagePreview
-                                .setImageResource(ch.halcyon.squareprogressbar_example.R.drawable.millennium_stadium);
+                                .setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.millennium_stadium);
                         imageDesc.setText("the millennium stadium");
                         imageItem.setOnClickListener(new OnClickListener() {
 
                             @Override
                             public void onClick(View v) {
                                 squareFragment.squareProgressBar
-                                        .setImage(ch.halcyon.squareprogressbar_example.R.drawable.millennium_stadium);
+                                        .setImage(ch.halcyon.squareprogressbar.example.R.drawable.millennium_stadium);
                             }
                         });
                         return imageItem;
                     case 22:
-                        imagePreview.setImageResource(ch.halcyon.squareprogressbar_example.R.drawable.edinburgh);
+                        imagePreview.setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.edinburgh);
                         imageDesc.setText("carlton hill");
                         imageItem.setOnClickListener(new OnClickListener() {
 
                             @Override
                             public void onClick(View v) {
                                 squareFragment.squareProgressBar
-                                        .setImage(ch.halcyon.squareprogressbar_example.R.drawable.edinburgh);
+                                        .setImage(ch.halcyon.squareprogressbar.example.R.drawable.edinburgh);
                             }
                         });
                         return imageItem;
                     case 23:
-                        imagePreview.setImageResource(ch.halcyon.squareprogressbar_example.R.drawable.holyroodpark);
+                        imagePreview.setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.holyroodpark);
                         imageDesc.setText("holyrood park");
                         imageItem.setOnClickListener(new OnClickListener() {
 
                             @Override
                             public void onClick(View v) {
                                 squareFragment.squareProgressBar
-                                        .setImage(ch.halcyon.squareprogressbar_example.R.drawable.holyroodpark);
+                                        .setImage(ch.halcyon.squareprogressbar.example.R.drawable.holyroodpark);
                             }
                         });
                         return imageItem;
                     case 24:
-                        imagePreview.setImageResource(ch.halcyon.squareprogressbar_example.R.drawable.operahuset);
+                        imagePreview.setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.operahuset);
                         imageDesc.setText("operahuset oslo");
                         imageItem.setOnClickListener(new OnClickListener() {
 
                             @Override
                             public void onClick(View v) {
                                 squareFragment.squareProgressBar
-                                        .setImage(ch.halcyon.squareprogressbar_example.R.drawable.operahuset);
+                                        .setImage(ch.halcyon.squareprogressbar.example.R.drawable.operahuset);
                             }
                         });
                         return imageItem;
@@ -354,8 +354,8 @@ public class MainActivity extends Activity {
                 if (position <= 10) {
                     Context context = getApplicationContext();
                     item = LayoutInflater.from(context).inflate(
-                            ch.halcyon.squareprogressbar_example.R.layout.lv_colour, parent, false);
-                    View colourView = item.findViewById(ch.halcyon.squareprogressbar_example.R.id.colour_preview);
+                            ch.halcyon.squareprogressbar.example.R.layout.lv_colour, parent, false);
+                    View colourView = item.findViewById(ch.halcyon.squareprogressbar.example.R.id.colour_preview);
                     final Integer integer = colourArray.get(position - 1);
                     colourView.setBackgroundColor(context.getResources()
                             .getColor(integer));
@@ -370,7 +370,7 @@ public class MainActivity extends Activity {
                         }
                     });
                     TextView textView = (TextView) item
-                            .findViewById(ch.halcyon.squareprogressbar_example.R.id.colour_name);
+                            .findViewById(ch.halcyon.squareprogressbar.example.R.id.colour_name);
                     textView.setText(getName(position - 1));
                 }
                 return item;
@@ -398,8 +398,8 @@ public class MainActivity extends Activity {
         getActionBar().setHomeButtonEnabled(true);
 
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout,
-                ch.halcyon.squareprogressbar_example.R.drawable.ic_drawer, ch.halcyon.squareprogressbar_example.R.string.drawer_open,
-                ch.halcyon.squareprogressbar_example.R.string.drawer_close) {
+                ch.halcyon.squareprogressbar.example.R.drawable.ic_drawer, ch.halcyon.squareprogressbar.example.R.string.drawer_open,
+                ch.halcyon.squareprogressbar.example.R.string.drawer_close) {
             @Override
             public void onDrawerClosed(View view) {
                 getActionBar().setTitle(title);

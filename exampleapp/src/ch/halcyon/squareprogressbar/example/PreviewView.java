@@ -1,4 +1,4 @@
-package ch.halcyon.squareprogressbar_example;
+package ch.halcyon.squareprogressbar.example;
 
 import android.content.Context;
 import android.graphics.Canvas;

@@ -87,7 +87,7 @@
         android:textColor="@color/lvHeaderTextColor"
         android:textStyle="normal|bold" />
 
-    <ch.halcyon.squareprogressbar_example.PreviewView
+    <ch.halcyon.squareprogressbar.example.PreviewView
         android:id="@+id/previewView1"
         android:layout_width="150dp"
         android:layout_height="150dp"
