@@ -1,4 +1,4 @@
-android-square-progressbar
+android-square-progressbar[ ![Download](https://api.bintray.com/packages/mrwonderman/maven/squareprogressbar/images/download.svg) ](https://bintray.com/mrwonderman/maven/squareprogressbar/_latestVersion)
 ==========================
 ![square image](https://oavhhw.bn1.livefilestore.com/y2mOYieeVxCoUj5JwuoeHt302BrP4iKC3qeFV1gUkWh7Xjm5ie5ZjANjekofpakTTMZb6-m3gwnx1SauhMo87D9VVh4MVEDW-0Tpq47-liKfLF-lpNNAoTTYCSVUJcjz4dB/header140.png?psid=1)
 ## First things first
@@ -31,4 +31,18 @@ Check the wiki for more information about [how to use](https://github.com/mrwond
 If you have questions about the code or if you need some help, you can try the [Gitter-Group](https://gitter.im/mrwonderman/android-square-progressbar).
 
 ## Gradle
-This library now works with gradle and will soon be available on the central maven repository.
+This library now works with gradle and will soon be available on the central maven repository. For the moment its on jCenter at [Bintray](https://bintray.com/mrwonderman/maven/squareprogressbar/view). Just add the following repository to your root build.gradle:
+
+    allprojects {
+        repositories {
+            jcenter()
+            maven { url "https://dl.bintray.com/mrwonderman/maven" }
+        }
+    }
+
+Then in your app build.gradle:
+
+    dependencies {
+        // other repos ...
+        compile(group: 'ch.halcyon', name:'squareprogressbar', version:'1.5.0')
+    }
