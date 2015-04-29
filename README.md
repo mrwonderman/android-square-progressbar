@@ -36,7 +36,7 @@ This library now works with gradle and will soon be available on the central mav
     allprojects {
         repositories {
             jcenter()
-            maven { url "https://dl.bintray.com/mrwonderman/maven" }
+            maven { url "https://jcenter.bintray.com" }
         }
     }
 
