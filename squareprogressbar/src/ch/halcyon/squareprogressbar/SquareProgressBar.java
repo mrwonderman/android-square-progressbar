@@ -46,6 +46,7 @@ public class SquareProgressBar extends RelativeLayout {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		mInflater.inflate(R.layout.progressbarview, this, true);
 		bar = (SquareProgressView) findViewById(R.id.squareProgressBar1);
+        imageView = (ImageView) findViewById(R.id.imageView1);
 		bar.bringToFront();
 	}
 
@@ -64,6 +65,7 @@ public class SquareProgressBar extends RelativeLayout {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		mInflater.inflate(R.layout.progressbarview, this, true);
 		bar = (SquareProgressView) findViewById(R.id.squareProgressBar1);
+        imageView = (ImageView) findViewById(R.id.imageView1);
 		bar.bringToFront();
 	}
 
@@ -79,6 +81,7 @@ public class SquareProgressBar extends RelativeLayout {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		mInflater.inflate(R.layout.progressbarview, this, true);
 		bar = (SquareProgressView) findViewById(R.id.squareProgressBar1);
+        imageView = (ImageView) findViewById(R.id.imageView1);
 		bar.bringToFront();
 	}
 
@@ -91,7 +94,6 @@ public class SquareProgressBar extends RelativeLayout {
 	 * @since 1.0
 	 */
 	public void setImage(int image) {
-		imageView = (ImageView) findViewById(R.id.imageView1);
 		imageView.setImageResource(image);
 
 	}
