@@ -28,9 +28,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import ch.halcyon.squareprogressbar.utils.ColourUtil;
 import ch.halcyon.squareprogressbar.example.dialogs.CustomColourDialog;
 import ch.halcyon.squareprogressbar.example.dialogs.PercentDialog;
+import ch.halcyon.squareprogressbar.utils.ColourUtil;
 
 public class MainActivity extends Activity {
     private DrawerLayout drawerLayout;
@@ -320,7 +320,7 @@ public class MainActivity extends Activity {
                         title.setText("Source");
                         return headerItem;
                     case 26:
-                        String text = "<font color=#4183C4>mrwonderman</font>/<b><font color=#4183C4>android-square-progressbar</font></b>";
+                        String text = "<font color=#4183C4>mrwonderman</font>/<b><font color=#4183C4>android-square-progressbar</font></b> (v. 1.5.1)";
                         githublink.setText(Html.fromHtml(text));
                         githubItem.setOnClickListener(new OnClickListener() {
 
