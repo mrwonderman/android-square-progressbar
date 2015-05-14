@@ -340,7 +340,7 @@ public class MainActivity extends Activity {
                             public void onClick(View arg0) {
                                 Intent browserIntent = new Intent(
                                         Intent.ACTION_VIEW, Uri
-                                        .parse("http://www.signer.pro/"));
+                                        .parse("http://www.halcyon.ch/"));
                                 startActivity(browserIntent);
                             }
                         });

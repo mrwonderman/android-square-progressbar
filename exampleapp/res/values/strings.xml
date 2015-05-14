@@ -36,7 +36,7 @@
         <item>LEFT</item>
     </string-array>
 
-    <string name="signer_pro">by Yannick Signer (signer.pro)</string>
+    <string name="signer_pro">by Yannick Signer (halcyon.ch)</string>
     <string name="img_desc">main image of the progressbar</string>
     <string name="defaultrgbvalue">(000,000,000)</string>
     <string name="green_">Green:</string>
