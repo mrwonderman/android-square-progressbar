@@ -136,6 +136,7 @@ public class MainActivity extends Activity {
                                             }
                                         });
                                 selectItem(position);
+                                lastPosition = position;
                             }
                         });
                         TextView textView = (TextView) item
@@ -484,8 +485,8 @@ public class MainActivity extends Activity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position,
                                 long id) {
-            if ((position != 0) && (position != 11) && (position != 13)
-                    && (position != 17)) {
+            if ((position != 0) && (position != 12) && (position != 19)
+                    && (position != 25)) {
                 selectItem(position);
             } else {
                 selectItem(lastPosition);
