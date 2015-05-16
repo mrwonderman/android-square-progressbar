@@ -20,6 +20,6 @@
         android:layout_alignParentTop="true"
         android:contentDescription="@string/description"
         android:padding="10dp"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/ic_spb_empty" />
 
 </RelativeLayout>
