@@ -15,7 +15,7 @@ import android.widget.ImageView.ScaleType;
 import android.widget.RelativeLayout;
 
 /**
- * The basic {@link SquareProgressBar}. THis class includes all the methods you
+ * The basic {@link SquareProgressBar}. This class includes all the methods you
  * need to modify your {@link SquareProgressBar}.
  * 
  * @author ysigner
