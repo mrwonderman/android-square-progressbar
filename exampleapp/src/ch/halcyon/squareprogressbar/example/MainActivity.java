@@ -28,9 +28,9 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import ch.halcyon.squareprogressbar.utils.ColourUtil;
 import ch.halcyon.squareprogressbar.example.dialogs.CustomColourDialog;
 import ch.halcyon.squareprogressbar.example.dialogs.PercentDialog;
+import ch.halcyon.squareprogressbar.utils.ColourUtil;
 
 public class MainActivity extends Activity {
     private DrawerLayout drawerLayout;
@@ -136,6 +136,7 @@ public class MainActivity extends Activity {
                                             }
                                         });
                                 selectItem(position);
+                                lastPosition = position;
                             }
                         });
                         TextView textView = (TextView) item
@@ -320,7 +321,7 @@ public class MainActivity extends Activity {
                         title.setText("Source");
                         return headerItem;
                     case 26:
-                        String text = "<font color=#4183C4>mrwonderman</font>/<b><font color=#4183C4>android-square-progressbar</font></b>";
+                        String text = "<font color=#4183C4>mrwonderman</font>/<b><font color=#4183C4>android-square-progressbar</font></b> (v. 1.5.2)";
                         githublink.setText(Html.fromHtml(text));
                         githubItem.setOnClickListener(new OnClickListener() {
 
@@ -340,7 +341,7 @@ public class MainActivity extends Activity {
                             public void onClick(View arg0) {
                                 Intent browserIntent = new Intent(
                                         Intent.ACTION_VIEW, Uri
-                                        .parse("http://www.signer.pro/"));
+                                        .parse("http://www.halcyon.ch/"));
                                 startActivity(browserIntent);
                             }
                         });
@@ -484,8 +485,8 @@ public class MainActivity extends Activity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position,
                                 long id) {
-            if ((position != 0) && (position != 11) && (position != 13)
-                    && (position != 17)) {
+            if ((position != 0) && (position != 12) && (position != 19)
+                    && (position != 25)) {
                 selectItem(position);
             } else {
                 selectItem(lastPosition);
