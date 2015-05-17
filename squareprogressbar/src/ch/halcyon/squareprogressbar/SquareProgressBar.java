@@ -456,4 +456,25 @@ public class SquareProgressBar extends RelativeLayout {
         return bar.isIndeterminate();
     }
 
+    /**
+     * Draws a line in the center of the way the progressbar has to go.
+     *
+     * @param drawCenterline
+     *            true if it should or not.
+     * @since 1.6.0
+     */
+    public void drawCenterline(boolean drawCenterline) {
+        bar.setCenterline(drawCenterline);
+    }
+
+    /**
+     * If the centerline is enabled or not.
+     *
+     * @return true if centerline is enabled.
+     * @since 1.6.0
+     */
+    public boolean isCenterline() {
+        return bar.isCenterline();
+    }
+
 }

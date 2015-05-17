@@ -28,6 +28,7 @@ public class SquareProgressView extends View {
     private boolean outline = false;
     private boolean startline = false;
     private boolean showProgress = false;
+    private boolean centerline = false;
 
     private PercentStyle percentSettings = new PercentStyle(Align.CENTER, 150,
             true);
@@ -83,7 +84,7 @@ public class SquareProgressView extends View {
         float scope = canvas.getWidth() + canvas.getHeight()
                 + canvas.getHeight() + canvas.getWidth() - strokewidth;
 
-        if (outline) {
+        if (isOutline()) {
             drawOutline();
         }
 
@@ -91,15 +92,19 @@ public class SquareProgressView extends View {
             drawStartline();
         }
 
-        if (showProgress) {
+        if (isShowProgress()) {
             drawPercent(percentSettings);
         }
 
-        if (clearOnHundred && progress == 100.0) {
+        if (isCenterline()) {
+            drawCenterline(strokewidth);
+        }
+
+        if ((isClearOnHundred() && progress == 100.0) || (progress <= 0.0)) {
             return;
         }
 
-        if (isIndeterminate) {
+        if (isIndeterminate()) {
             Path path = new Path();
             DrawStop drawEnd = getDrawEnd((scope / 100) * Float.valueOf(String.valueOf(indeterminate_count)), canvas);
 
@@ -288,6 +293,26 @@ public class SquareProgressView extends View {
 
     public boolean isClearOnHundred() {
         return clearOnHundred;
+    }
+
+    private void drawCenterline(float strokewidth) {
+        float centerOfStrokeWidth = strokewidth / 2;
+        Path centerlinePath = new Path();
+        centerlinePath.moveTo(centerOfStrokeWidth, centerOfStrokeWidth);
+        centerlinePath.lineTo(canvas.getWidth() - centerOfStrokeWidth, centerOfStrokeWidth);
+        centerlinePath.lineTo(canvas.getWidth() - centerOfStrokeWidth, canvas.getHeight() - centerOfStrokeWidth);
+        centerlinePath.lineTo(centerOfStrokeWidth, canvas.getHeight() - centerOfStrokeWidth);
+        centerlinePath.lineTo(centerOfStrokeWidth, centerOfStrokeWidth);
+        canvas.drawPath(centerlinePath, outlinePaint);
+    }
+
+    public boolean isCenterline() {
+        return centerline;
+    }
+
+    public void setCenterline(boolean centerline) {
+        this.centerline = centerline;
+        this.invalidate();
     }
 
     public boolean isIndeterminate() {
