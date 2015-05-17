@@ -30,7 +30,8 @@ Check the wiki for more information about [how to use](https://github.com/mrwond
 
 If you have questions about the code or if you need some help, you can try the [Gitter-Group](https://gitter.im/mrwonderman/android-square-progressbar).
 
-## Gradle
+## Usage
+### Gradle
 This library now works with gradle and will soon be available on the central maven repository. For the moment its on jCenter at [Bintray](https://bintray.com/mrwonderman/maven/squareprogressbar/view). Just add the following repository to your root build.gradle:
 
     allprojects {
@@ -46,3 +47,23 @@ Then in your app build.gradle:
         // other repos ...
         compile 'ch.halcyon:squareprogressbar:1.5.2'
     }
+
+### Code
+After adding the gradle depedency from above you can go to your xml layout and add the following code for a squareprogressbar:
+
+    <ch.halcyon.squareprogressbar.SquareProgressBar
+        android:id="@+id/sprogressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="20dp" >
+    </ch.halcyon.squareprogressbar.SquareProgressBar>
+    
+To set some basic settings use the following java-code:
+
+    SquareProgressBar squareProgressBar = (SquareProgressBar) rootView.findViewById(R.id.sprogressbar);
+    squareProgressBar.setImage(R.drawable.example);
+    squareProgressBar.setProgress(50.0);
+
+Now you can make the squareprogressbar as fancy as you like. Check the [usage page](https://github.com/mrwonderman/android-square-progressbar/wiki/Usage) for all the different possiblities.
