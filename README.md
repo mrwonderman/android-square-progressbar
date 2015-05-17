@@ -44,5 +44,5 @@ Then in your app build.gradle:
 
     dependencies {
         // other repos ...
-        compile 'ch.halcyon:squareprogressbar:1.5.1'
+        compile 'ch.halcyon:squareprogressbar:1.5.2'
     }
