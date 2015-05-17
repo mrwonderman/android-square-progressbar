@@ -436,4 +436,24 @@ public class SquareProgressBar extends RelativeLayout {
         imageView.setImageBitmap(bitmap);
     }
 
+    /**
+     * Set the status of the indeterminate mode. The default is false. You can
+     * still configure colour, width and so on.
+     *
+     * @param indeterminate true to enable the indeterminate mode (default true)
+     * @since 1.6.0
+     */
+    public void setIndeterminate(boolean indeterminate) {
+        bar.setIndeterminate(indeterminate);
+    }
+
+    /**
+     * Returns the status of the indeterminate mode. The default status is false.
+     *
+     * @since 1.6.0
+     */
+    public boolean isIndeterminate() {
+        return bar.isIndeterminate();
+    }
+
 }

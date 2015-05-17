@@ -239,6 +239,7 @@ public class MainActivity extends Activity {
                             }
                         });
                         return styleItem;
+
                     case 18:
                         box.setText("Clear at 100%");
                         box.setChecked(squareFragment.squareProgressBar
@@ -254,9 +255,23 @@ public class MainActivity extends Activity {
                         return styleItem;
 
                     case 19:
+                        box.setText("Indeterminate");
+                        box.setChecked(squareFragment.squareProgressBar
+                                .isIndeterminate());
+                        box.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+                            @Override
+                            public void onCheckedChanged(CompoundButton buttonView,
+                                                         boolean isChecked) {
+                                squareFragment.squareProgressBar
+                                        .setIndeterminate(isChecked);
+                            }
+                        });
+                        return styleItem;
+
+                    case 20:
                         title.setText("Image");
                         return headerItem;
-                    case 20:
+                    case 21:
                         imagePreview.setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.city);
                         imageDesc.setText("sunrise at the city");
                         imageItem.setOnClickListener(new OnClickListener() {
@@ -268,7 +283,7 @@ public class MainActivity extends Activity {
                             }
                         });
                         return imageItem;
-                    case 21:
+                    case 22:
                         imagePreview
                                 .setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.millennium_stadium);
                         imageDesc.setText("the millennium stadium");
@@ -281,7 +296,7 @@ public class MainActivity extends Activity {
                             }
                         });
                         return imageItem;
-                    case 22:
+                    case 23:
                         imagePreview.setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.edinburgh);
                         imageDesc.setText("carlton hill");
                         imageItem.setOnClickListener(new OnClickListener() {
@@ -293,7 +308,7 @@ public class MainActivity extends Activity {
                             }
                         });
                         return imageItem;
-                    case 23:
+                    case 24:
                         imagePreview.setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.holyroodpark);
                         imageDesc.setText("holyrood park");
                         imageItem.setOnClickListener(new OnClickListener() {
@@ -305,7 +320,7 @@ public class MainActivity extends Activity {
                             }
                         });
                         return imageItem;
-                    case 24:
+                    case 25:
                         imagePreview.setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.operahuset);
                         imageDesc.setText("operahuset oslo");
                         imageItem.setOnClickListener(new OnClickListener() {
@@ -317,10 +332,10 @@ public class MainActivity extends Activity {
                             }
                         });
                         return imageItem;
-                    case 25:
+                    case 26:
                         title.setText("Source");
                         return headerItem;
-                    case 26:
+                    case 27:
                         String text = "<font color=#4183C4>mrwonderman</font>/<b><font color=#4183C4>android-square-progressbar</font></b> (v. 1.5.2)";
                         githublink.setText(Html.fromHtml(text));
                         githubItem.setOnClickListener(new OnClickListener() {
@@ -334,7 +349,7 @@ public class MainActivity extends Activity {
                             }
                         });
                         return githubItem;
-                    case 27:
+                    case 28:
                         signerItem.setOnClickListener(new OnClickListener() {
 
                             @Override
@@ -389,7 +404,7 @@ public class MainActivity extends Activity {
 
             @Override
             public int getCount() {
-                return 28;
+                return 29;
             }
         };
         drawerListView.setAdapter(adapter);
@@ -485,8 +500,8 @@ public class MainActivity extends Activity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position,
                                 long id) {
-            if ((position != 0) && (position != 12) && (position != 19)
-                    && (position != 25)) {
+            if ((position != 0) && (position != 12) && (position != 20)
+                    && (position != 26)) {
                 selectItem(position);
             } else {
                 selectItem(lastPosition);
