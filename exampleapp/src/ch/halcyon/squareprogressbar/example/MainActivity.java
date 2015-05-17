@@ -321,7 +321,7 @@ public class MainActivity extends Activity {
                         title.setText("Source");
                         return headerItem;
                     case 26:
-                        String text = "<font color=#4183C4>mrwonderman</font>/<b><font color=#4183C4>android-square-progressbar</font></b> (v. 1.5.1)";
+                        String text = "<font color=#4183C4>mrwonderman</font>/<b><font color=#4183C4>android-square-progressbar</font></b> (v. 1.5.2)";
                         githublink.setText(Html.fromHtml(text));
                         githubItem.setOnClickListener(new OnClickListener() {
 
