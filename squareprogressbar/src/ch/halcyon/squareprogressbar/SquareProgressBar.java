@@ -477,4 +477,14 @@ public class SquareProgressBar extends RelativeLayout {
         return bar.isCenterline();
     }
 
+	/**
+	 * Return the {@link ImageView} that the progress gets drawn around.
+     *
+     * @return the main ImageView
+	 * @since 1.6.0
+	 */
+	public ImageView getImageView(){
+		return imageView;
+	}
+
 }
