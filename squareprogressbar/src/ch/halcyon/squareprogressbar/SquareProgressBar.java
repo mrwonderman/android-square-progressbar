@@ -478,7 +478,7 @@ public class SquareProgressBar extends RelativeLayout {
     }
 
 	/**
-	 * Return the {@link ImageView} that the progress gets drawn around.
+	 * Returns the {@link ImageView} that the progress gets drawn around.
      *
      * @return the main ImageView
 	 * @since 1.6.0
