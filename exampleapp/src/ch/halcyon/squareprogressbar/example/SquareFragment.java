@@ -18,7 +18,7 @@ public class SquareFragment extends Fragment {
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(ch.halcyon.squareprogressbar.example.R.layout.square_layout, container, false);
 		squareProgressBar = (SquareProgressBar) view.findViewById(ch.halcyon.squareprogressbar.example.R.id.subi2);
-		squareProgressBar.setImage(ch.halcyon.squareprogressbar.example.R.drawable.operahuset);
+		squareProgressBar.setImage(ch.halcyon.squareprogressbar.example.R.drawable.blenheim_palace);
 		squareProgressBar.setColor("#C9C9C9");
 		squareProgressBar.setProgress(32);
 		squareProgressBar.setWidth(8);
