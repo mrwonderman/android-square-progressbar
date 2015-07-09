@@ -22,7 +22,6 @@ public class SquareFragment extends Fragment {
 		squareProgressBar.setColor("#C9C9C9");
 		squareProgressBar.setProgress(32);
 		squareProgressBar.setWidth(8);
-		squareProgressBar.setOpacity(false);
 
 		final TextView progressView = (TextView) view
 				.findViewById(ch.halcyon.squareprogressbar.example.R.id.progressDisplay);
