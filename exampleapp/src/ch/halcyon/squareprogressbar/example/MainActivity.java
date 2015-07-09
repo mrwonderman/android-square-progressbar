@@ -285,14 +285,14 @@ public class MainActivity extends Activity {
                         title.setText("Image");
                         return headerItem;
                     case 22:
-                        imagePreview.setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.city);
-                        imageDesc.setText("sunrise at the city");
+                        imagePreview.setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.blenheim_palace);
+                        imageDesc.setText("blenheim palace");
                         imageItem.setOnClickListener(new OnClickListener() {
 
                             @Override
                             public void onClick(View v) {
                                 squareFragment.squareProgressBar
-                                        .setImage(ch.halcyon.squareprogressbar.example.R.drawable.city);
+                                        .setImage(ch.halcyon.squareprogressbar.example.R.drawable.blenheim_palace);
                             }
                         });
                         return imageItem;

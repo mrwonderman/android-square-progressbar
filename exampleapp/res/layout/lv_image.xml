@@ -18,7 +18,7 @@
         android:layout_centerVertical="true"
         android:contentDescription="@string/img_desc"
         android:scaleType="centerCrop"
-        android:src="@drawable/city" />
+        android:src="@drawable/blenheim_palace" />
 
     <TextView
         android:id="@+id/imagetag"
