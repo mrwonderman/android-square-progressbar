@@ -188,6 +188,20 @@ public class MainActivity extends Activity {
                         return styleItem;
 
                     case 16:
+                        box.setText("Centerline");
+                        box.setChecked(squareFragment.squareProgressBar
+                                .isCenterline());
+                        box.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+                            @Override
+                            public void onCheckedChanged(CompoundButton buttonView,
+                                                         boolean isChecked) {
+                                squareFragment.squareProgressBar
+                                        .drawCenterline(isChecked);
+                            }
+                        });
+                        return styleItem;
+
+                    case 17:
                         styleBox.setText("Show percent");
                         styleBox.setChecked(squareFragment.squareProgressBar
                                 .isShowProgress());
@@ -226,7 +240,7 @@ public class MainActivity extends Activity {
                         });
                         return styleBoxItem;
 
-                    case 17:
+                    case 18:
                         box.setText("Grayscale");
                         box.setChecked(squareFragment.squareProgressBar
                                 .isGreyscale());
@@ -239,7 +253,7 @@ public class MainActivity extends Activity {
                             }
                         });
                         return styleItem;
-                    case 18:
+                    case 19:
                         box.setText("Clear at 100%");
                         box.setChecked(squareFragment.squareProgressBar
                                 .isClearOnHundred());
@@ -253,22 +267,36 @@ public class MainActivity extends Activity {
                         });
                         return styleItem;
 
-                    case 19:
+                    case 20:
+                        box.setText("Indeterminate");
+                        box.setChecked(squareFragment.squareProgressBar
+                                .isIndeterminate());
+                        box.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+                            @Override
+                            public void onCheckedChanged(CompoundButton buttonView,
+                                                         boolean isChecked) {
+                                squareFragment.squareProgressBar
+                                        .setIndeterminate(isChecked);
+                            }
+                        });
+                        return styleItem;
+
+                    case 21:
                         title.setText("Image");
                         return headerItem;
-                    case 20:
-                        imagePreview.setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.city);
-                        imageDesc.setText("sunrise at the city");
+                    case 22:
+                        imagePreview.setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.blenheim_palace);
+                        imageDesc.setText("blenheim palace");
                         imageItem.setOnClickListener(new OnClickListener() {
 
                             @Override
                             public void onClick(View v) {
                                 squareFragment.squareProgressBar
-                                        .setImage(ch.halcyon.squareprogressbar.example.R.drawable.city);
+                                        .setImage(ch.halcyon.squareprogressbar.example.R.drawable.blenheim_palace);
                             }
                         });
                         return imageItem;
-                    case 21:
+                    case 23:
                         imagePreview
                                 .setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.millennium_stadium);
                         imageDesc.setText("the millennium stadium");
@@ -281,7 +309,7 @@ public class MainActivity extends Activity {
                             }
                         });
                         return imageItem;
-                    case 22:
+                    case 24:
                         imagePreview.setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.edinburgh);
                         imageDesc.setText("carlton hill");
                         imageItem.setOnClickListener(new OnClickListener() {
@@ -293,7 +321,7 @@ public class MainActivity extends Activity {
                             }
                         });
                         return imageItem;
-                    case 23:
+                    case 25:
                         imagePreview.setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.holyroodpark);
                         imageDesc.setText("holyrood park");
                         imageItem.setOnClickListener(new OnClickListener() {
@@ -305,7 +333,7 @@ public class MainActivity extends Activity {
                             }
                         });
                         return imageItem;
-                    case 24:
+                    case 26:
                         imagePreview.setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.operahuset);
                         imageDesc.setText("operahuset oslo");
                         imageItem.setOnClickListener(new OnClickListener() {
@@ -317,11 +345,11 @@ public class MainActivity extends Activity {
                             }
                         });
                         return imageItem;
-                    case 25:
+                    case 27:
                         title.setText("Source");
                         return headerItem;
-                    case 26:
-                        String text = "<font color=#4183C4>mrwonderman</font>/<b><font color=#4183C4>android-square-progressbar</font></b> (v. 1.5.2)";
+                    case 28:
+                        String text = "<font color=#4183C4>mrwonderman</font>/<b><font color=#4183C4>android-square-progressbar</font></b> (v. 1.6.0)";
                         githublink.setText(Html.fromHtml(text));
                         githubItem.setOnClickListener(new OnClickListener() {
 
@@ -334,7 +362,7 @@ public class MainActivity extends Activity {
                             }
                         });
                         return githubItem;
-                    case 27:
+                    case 29:
                         signerItem.setOnClickListener(new OnClickListener() {
 
                             @Override
@@ -389,7 +417,7 @@ public class MainActivity extends Activity {
 
             @Override
             public int getCount() {
-                return 28;
+                return 30;
             }
         };
         drawerListView.setAdapter(adapter);
@@ -485,8 +513,8 @@ public class MainActivity extends Activity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position,
                                 long id) {
-            if ((position != 0) && (position != 12) && (position != 19)
-                    && (position != 25)) {
+            if ((position != 0) && (position != 12) && (position != 21)
+                    && (position != 27)) {
                 selectItem(position);
             } else {
                 selectItem(lastPosition);

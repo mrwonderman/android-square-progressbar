@@ -436,4 +436,55 @@ public class SquareProgressBar extends RelativeLayout {
         imageView.setImageBitmap(bitmap);
     }
 
+    /**
+     * Set the status of the indeterminate mode. The default is false. You can
+     * still configure colour, width and so on.
+     *
+     * @param indeterminate true to enable the indeterminate mode (default true)
+     * @since 1.6.0
+     */
+    public void setIndeterminate(boolean indeterminate) {
+        bar.setIndeterminate(indeterminate);
+    }
+
+    /**
+     * Returns the status of the indeterminate mode. The default status is false.
+     *
+     * @since 1.6.0
+     */
+    public boolean isIndeterminate() {
+        return bar.isIndeterminate();
+    }
+
+    /**
+     * Draws a line in the center of the way the progressbar has to go.
+     *
+     * @param drawCenterline
+     *            true if it should or not.
+     * @since 1.6.0
+     */
+    public void drawCenterline(boolean drawCenterline) {
+        bar.setCenterline(drawCenterline);
+    }
+
+    /**
+     * If the centerline is enabled or not.
+     *
+     * @return true if centerline is enabled.
+     * @since 1.6.0
+     */
+    public boolean isCenterline() {
+        return bar.isCenterline();
+    }
+
+	/**
+	 * Returns the {@link ImageView} that the progress gets drawn around.
+     *
+     * @return the main ImageView
+	 * @since 1.6.0
+	 */
+	public ImageView getImageView(){
+		return imageView;
+	}
+
 }
