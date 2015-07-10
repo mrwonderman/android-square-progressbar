@@ -5,7 +5,7 @@ android-square-progressbar[ ![Download](https://api.bintray.com/packages/mrwonde
 
 This library is setup to work with the Android Studio and Gradle. If you're using the Eclipse environment then check out the legacy repository here: [android-square-progressbar-legacy](https://github.com/mrwonderman/android-square-progressbar-legacy). 
 
-You can find my blog post about the newest version here: [halcyon.ch - android-square-progressbar v.1.5.0] (http://www.halcyon.ch/android-square-progressbar-v-1-5-0/), also check out the post about the previous major 1.4.0 version [here](http://www.halcyon.ch/android-square-progressbar-v-1-4-0/).
+You can find my blog post about the newest version here: [halcyon.ch - android-square-progressbar v.1.6.0] (http://www.halcyon.ch/android-square-progressbar-v-1-6-0/), also check out the post about the previous major 1.5.0 version [here](http://www.halcyon.ch/android-square-progressbar-v-1-5-0/).
 
 The example application is available at the play store:
 
@@ -45,7 +45,7 @@ Then in your app build.gradle:
 
     dependencies {
         // other repos ...
-        compile 'ch.halcyon:squareprogressbar:1.5.2'
+        compile 'ch.halcyon:squareprogressbar:1.6.0'
     }
 
 ### Code
