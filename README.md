@@ -1,7 +1,7 @@
 android-square-progressbar[ ![Download](https://api.bintray.com/packages/mrwonderman/maven/squareprogressbar/images/download.svg) ](https://bintray.com/mrwonderman/maven/squareprogressbar/_latestVersion)
 ==========================
 ![square image](https://vqbaiq-bn1306.files.1drv.com/y3mWYs9BuIe9N1T99aNPJ3OS0HEFXgJHCn96voCjTc0gUiysA7qbzPyLm0-2UiMdIkddCPIEX4uAXH7SHYa_pS8dm8M-S1Q0mkS_0wNhi3QPMb-A9d7-SzD_LIfdA5qyJdFX-9FrfjskYkkPf3jRUqg6MBmQnMRfOfaqY5i4bb6AZw?)
-## First things first
+## First things first2
 
 This library is setup to work with the Android Studio and Gradle. If you're using the Eclipse environment then check out the legacy repository here: [android-square-progressbar-legacy](https://github.com/mrwonderman/android-square-progressbar-legacy).
 
