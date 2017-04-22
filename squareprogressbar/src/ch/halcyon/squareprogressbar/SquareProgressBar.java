@@ -148,7 +148,7 @@ public class SquareProgressBar extends RelativeLayout {
 
 	/**
 	 * Sets the colour of the {@link SquareProgressBar} to a predefined android
-	 * holo color. <br/>
+	 * holo color.
 	 * <b>Examples:</b>
 	 * <ul>
 	 * <li>holo_blue_bright</li>
@@ -200,14 +200,9 @@ public class SquareProgressBar extends RelativeLayout {
 	/**
 	 * This sets the colour of the {@link SquareProgressBar} with a RGB colour.
 	 * Works when used with
-	 * <code>android.graphics.Color.rgb(int, int, int)</code>
+	 * <code>android.graphics.Color.rgb(int)</code>
 	 * 
-	 * @param r
-	 *            red
-	 * @param g
-	 *            green
-	 * @param b
-	 *            blue
+	 * @param rgb the rgb color
 	 * @since 1.4.0
 	 */
 	public void setColorRGB(int rgb) {
@@ -383,27 +378,13 @@ public class SquareProgressBar extends RelativeLayout {
 	/**
 	 * Sets a custom percent style to the text inside the image. Make sure you
 	 * set {@link #showProgress(boolean)} to true. Otherwise it doesn't shows.
-	 * The default settings are:</br>
-	 * <table>
-	 * <tr>
-	 * <th>Text align</td>
-	 * <td>CENTER</td>
-	 * </tr>
-	 * <tr>
-	 * <th>Text size</td>
-	 * <td>150 [dp]</td>
-	 * </tr>
-	 * <tr>
-	 * <th>Display percentsign</td>
-	 * <td>true</td>
-	 * </tr>
-	 * <tr>
-	 * <th>Custom text</td>
-	 * <td>%</td>
-	 * </tr>
-	 * </table>
+	 * The default settings are:
+	 * Text align: CENTER
+	 * Text size: 150 [dp]
+	 * Display percentsign: true
+	 * Custom text: %
 	 * 
-	 * @param percentStyle
+	 * @param percentStyle the percent style
 	 */
 	public void setPercentStyle(PercentStyle percentStyle) {
 		bar.setPercentStyle(percentStyle);
@@ -423,7 +404,7 @@ public class SquareProgressBar extends RelativeLayout {
 	 * If the progress hits 100% then the progressbar disappears if this flag is
 	 * set to <code>true</code>. The default is set to false.
 	 * 
-	 * @param removeOnFinished
+	 * @param clearOnHundred
 	 *            if it should disappear or not.
 	 * @since 1.4.0
 	 */
