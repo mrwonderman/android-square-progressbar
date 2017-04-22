@@ -73,7 +73,7 @@ public class SquareProgressBar extends RelativeLayout {
 	/**
 	 * New SquareProgressBar.
 	 * 
-	 * @param context
+	 * @param context the context
 	 * @since 1.0.0
 	 */
 	public SquareProgressBar(Context context) {
@@ -163,7 +163,7 @@ public class SquareProgressBar extends RelativeLayout {
 	 * <li>holo_red_light</li>
 	 * </ul>
 	 * 
-	 * @param androidHoloColor
+	 * @param androidHoloColor holo color value
 	 * @since 1.0.0
 	 */
 	public void setHoloColor(int androidHoloColor) {
@@ -416,6 +416,8 @@ public class SquareProgressBar extends RelativeLayout {
 	 * If the progressbar disappears when the progress reaches 100%.
 	 * 
 	 * @since 1.4.0
+	 *
+	 * @return if "clearOnHundred" is enabled or not
 	 */
 	public boolean isClearOnHundred() {
 		return bar.isClearOnHundred();
@@ -446,6 +448,8 @@ public class SquareProgressBar extends RelativeLayout {
      * Returns the status of the indeterminate mode. The default status is false.
      *
      * @since 1.6.0
+	 *
+	 * @return if "indeterminate" is enabled or not
      */
     public boolean isIndeterminate() {
         return bar.isIndeterminate();
