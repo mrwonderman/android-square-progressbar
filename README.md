@@ -1,11 +1,11 @@
 android-square-progressbar[ ![Download](https://api.bintray.com/packages/mrwonderman/maven/squareprogressbar/images/download.svg) ](https://bintray.com/mrwonderman/maven/squareprogressbar/_latestVersion)
 ==========================
-![square image](https://oavhhw.bn1.livefilestore.com/y2mOYieeVxCoUj5JwuoeHt302BrP4iKC3qeFV1gUkWh7Xjm5ie5ZjANjekofpakTTMZb6-m3gwnx1SauhMo87D9VVh4MVEDW-0Tpq47-liKfLF-lpNNAoTTYCSVUJcjz4dB/header140.png?psid=1)
+![square image](https://vqbaiq-bn1306.files.1drv.com/y3mWYs9BuIe9N1T99aNPJ3OS0HEFXgJHCn96voCjTc0gUiysA7qbzPyLm0-2UiMdIkddCPIEX4uAXH7SHYa_pS8dm8M-S1Q0mkS_0wNhi3QPMb-A9d7-SzD_LIfdA5qyJdFX-9FrfjskYkkPf3jRUqg6MBmQnMRfOfaqY5i4bb6AZw?)
 ## First things first
 
-This library is setup to work with the Android Studio and Gradle. If you're using the Eclipse environment then check out the legacy repository here: [android-square-progressbar-legacy](https://github.com/mrwonderman/android-square-progressbar-legacy). 
+This library is setup to work with the Android Studio and Gradle. If you're using the Eclipse environment then check out the legacy repository here: [android-square-progressbar-legacy](https://github.com/mrwonderman/android-square-progressbar-legacy).
 
-You can find my blog post about the newest version here: [halcyon.ch - android-square-progressbar v.1.5.0] (http://www.halcyon.ch/android-square-progressbar-v-1-5-0/), also check out the post about the previous major 1.4.0 version [here](http://www.halcyon.ch/android-square-progressbar-v-1-4-0/).
+You can find my blog post about the newest version here: [halcyon.ch - android-square-progressbar v.1.6.0] (http://www.halcyon.ch/android-square-progressbar-v-1-6-0/), also check out the post about the previous major 1.5.0 version [here](http://www.halcyon.ch/android-square-progressbar-v-1-5-0/).
 
 The example application is available at the play store:
 
@@ -22,7 +22,7 @@ Sometimes you don't have enough space in your layout to display a wide progressb
 ### Examples
 Here are some examples of how these progressbars could look like:
 
-![three examples](https://mavhhw-bn1306.files.1drv.com/y2p8nsn055K0X1rf95rWCcCuhokX4QE5B19SPohltQ758atQ9HcV2iK3K_w802Weg6hyMpbLPwpWGEGob8_z_brVQSnLW-PfNCw2tUNa2g-Y0xk4By4LjJ1nVOtE9JzjW7S_bQqlH3yfhezy8GdjtMKqznX2HjtF8461cEe69KS-oQ/cover_github.png)
+![three examples](https://mkvhhw-bn1306.files.1drv.com/y3mag8UNO58wTkAUn8chyoNMmTBwW2_Ztyl3IOVn2K6Dd0AEpd6Cxu2nhdWLv-IoK84cxSAf3UuwHjFhByCW8XgjqG_qui6wUv5G5D26r66e14Jf6gAQQ-X42L7pskGov4P_mDY7ZqztaZ4aVYwZ1sR_u8aIStkjMNen-14D7IKdK0?)
 
 There are some further examples available here (with code) : [Examples](https://github.com/mrwonderman/android-square-progressbar/wiki/Examples)
 ### How to use it? / How to install? / How to contribute?
@@ -30,7 +30,8 @@ Check the wiki for more information about [how to use](https://github.com/mrwond
 
 If you have questions about the code or if you need some help, you can try the [Gitter-Group](https://gitter.im/mrwonderman/android-square-progressbar).
 
-## Gradle
+## Usage
+### Gradle
 This library now works with gradle and will soon be available on the central maven repository. For the moment its on jCenter at [Bintray](https://bintray.com/mrwonderman/maven/squareprogressbar/view). Just add the following repository to your root build.gradle:
 
     allprojects {
@@ -44,5 +45,25 @@ Then in your app build.gradle:
 
     dependencies {
         // other repos ...
-        compile 'ch.halcyon:squareprogressbar:1.5.1'
+        compile 'ch.halcyon:squareprogressbar:1.6.0'
     }
+
+### Code
+After adding the gradle depedency from above you can go to your xml layout and add the following code for a squareprogressbar:
+
+    <ch.halcyon.squareprogressbar.SquareProgressBar
+        android:id="@+id/sprogressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="20dp" >
+    </ch.halcyon.squareprogressbar.SquareProgressBar>
+
+To set some basic settings use the following java-code:
+
+    SquareProgressBar squareProgressBar = (SquareProgressBar) rootView.findViewById(R.id.sprogressbar);
+    squareProgressBar.setImage(R.drawable.example);
+    squareProgressBar.setProgress(50.0);
+
+Now you can make the squareprogressbar as fancy as you like. Check the [usage page](https://github.com/mrwonderman/android-square-progressbar/wiki/Usage) for all the different possiblities.
