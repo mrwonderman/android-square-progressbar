@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
@@ -72,7 +73,7 @@ public class SquareProgressBar extends RelativeLayout {
 	/**
 	 * New SquareProgressBar.
 	 * 
-	 * @param context
+	 * @param context the context
 	 * @since 1.0.0
 	 */
 	public SquareProgressBar(Context context) {
@@ -97,6 +98,19 @@ public class SquareProgressBar extends RelativeLayout {
 		imageView.setImageResource(image);
 
 	}
+
+    /**
+     * Sets the image of the {@link SquareProgressBar}. Must be a valid
+     * Drawable.
+     *
+     * @param imageDrawable the image as a Drawable
+     * @since 1.6.1
+     * @author erikswed
+     */
+    public void setImageDrawable(Drawable imageDrawable) {
+        imageView.setImageDrawable(imageDrawable);
+    }
+
 
 	/**
 	 * Sets the image scale type according to {@link ScaleType}.
@@ -134,7 +148,7 @@ public class SquareProgressBar extends RelativeLayout {
 
 	/**
 	 * Sets the colour of the {@link SquareProgressBar} to a predefined android
-	 * holo color. <br/>
+	 * holo color.
 	 * <b>Examples:</b>
 	 * <ul>
 	 * <li>holo_blue_bright</li>
@@ -149,7 +163,7 @@ public class SquareProgressBar extends RelativeLayout {
 	 * <li>holo_red_light</li>
 	 * </ul>
 	 * 
-	 * @param androidHoloColor
+	 * @param androidHoloColor holo color value
 	 * @since 1.0.0
 	 */
 	public void setHoloColor(int androidHoloColor) {
@@ -186,14 +200,9 @@ public class SquareProgressBar extends RelativeLayout {
 	/**
 	 * This sets the colour of the {@link SquareProgressBar} with a RGB colour.
 	 * Works when used with
-	 * <code>android.graphics.Color.rgb(int, int, int)</code>
+	 * <code>android.graphics.Color.rgb(int)</code>
 	 * 
-	 * @param r
-	 *            red
-	 * @param g
-	 *            green
-	 * @param b
-	 *            blue
+	 * @param rgb the rgb color
 	 * @since 1.4.0
 	 */
 	public void setColorRGB(int rgb) {
@@ -369,27 +378,13 @@ public class SquareProgressBar extends RelativeLayout {
 	/**
 	 * Sets a custom percent style to the text inside the image. Make sure you
 	 * set {@link #showProgress(boolean)} to true. Otherwise it doesn't shows.
-	 * The default settings are:</br>
-	 * <table>
-	 * <tr>
-	 * <th>Text align</td>
-	 * <td>CENTER</td>
-	 * </tr>
-	 * <tr>
-	 * <th>Text size</td>
-	 * <td>150 [dp]</td>
-	 * </tr>
-	 * <tr>
-	 * <th>Display percentsign</td>
-	 * <td>true</td>
-	 * </tr>
-	 * <tr>
-	 * <th>Custom text</td>
-	 * <td>%</td>
-	 * </tr>
-	 * </table>
+	 * The default settings are:
+	 * Text align: CENTER
+	 * Text size: 150 [dp]
+	 * Display percentsign: true
+	 * Custom text: %
 	 * 
-	 * @param percentStyle
+	 * @param percentStyle the percent style
 	 */
 	public void setPercentStyle(PercentStyle percentStyle) {
 		bar.setPercentStyle(percentStyle);
@@ -409,7 +404,7 @@ public class SquareProgressBar extends RelativeLayout {
 	 * If the progress hits 100% then the progressbar disappears if this flag is
 	 * set to <code>true</code>. The default is set to false.
 	 * 
-	 * @param removeOnFinished
+	 * @param clearOnHundred
 	 *            if it should disappear or not.
 	 * @since 1.4.0
 	 */
@@ -421,6 +416,8 @@ public class SquareProgressBar extends RelativeLayout {
 	 * If the progressbar disappears when the progress reaches 100%.
 	 * 
 	 * @since 1.4.0
+	 *
+	 * @return if "clearOnHundred" is enabled or not
 	 */
 	public boolean isClearOnHundred() {
 		return bar.isClearOnHundred();
@@ -451,6 +448,8 @@ public class SquareProgressBar extends RelativeLayout {
      * Returns the status of the indeterminate mode. The default status is false.
      *
      * @since 1.6.0
+	 *
+	 * @return if "indeterminate" is enabled or not
      */
     public boolean isIndeterminate() {
         return bar.isIndeterminate();
