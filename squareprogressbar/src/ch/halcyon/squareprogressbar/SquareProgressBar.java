@@ -86,18 +86,29 @@ public class SquareProgressBar extends RelativeLayout {
 		bar.bringToFront();
 	}
 
-	/**
-	 * Sets the image of the {@link SquareProgressBar}. Must be a valid
-	 * ressourceId.
-	 * 
-	 * @param image
-	 *            the image as a ressourceId
-	 * @since 1.0
-	 */
-	public void setImage(int image) {
-		imageView.setImageResource(image);
+    /**
+     * Sets the image of the {@link SquareProgressBar}. Must be a valid
+     * ressourceId.
+     *
+     * @param image the image as a ressourceId
+     * @since 1.0
+     */
+    public void setImageResource(int image) {
+        imageView.setImageResource(image);
 
-	}
+    }
+
+    /**
+     * Sets the image of the {@link SquareProgressBar}. Must be a valid
+     * Drawable.
+     *
+     * @param image the image as a Drawable
+     * @since 1.0
+     */
+    public void setImage(Drawable image) {
+        imageView.setImageDrawable(image);
+
+    }
 
     /**
      * Sets the image of the {@link SquareProgressBar}. Must be a valid
