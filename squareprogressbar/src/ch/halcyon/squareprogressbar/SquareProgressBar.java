@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
@@ -97,6 +98,19 @@ public class SquareProgressBar extends RelativeLayout {
 		imageView.setImageResource(image);
 
 	}
+
+    /**
+     * Sets the image of the {@link SquareProgressBar}. Must be a valid
+     * Drawable.
+     *
+     * @param imageDrawable the image as a Drawable
+     * @since 1.6.1
+     * @author erikswed
+     */
+    public void setImageDrawable(Drawable imageDrawable) {
+        imageView.setImageDrawable(imageDrawable);
+    }
+
 
 	/**
 	 * Sets the image scale type according to {@link ScaleType}.
