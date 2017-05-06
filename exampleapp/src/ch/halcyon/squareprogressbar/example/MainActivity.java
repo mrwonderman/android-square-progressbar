@@ -28,6 +28,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import ch.halcyon.squareprogressbar.example.dialogs.AnimateDialog;
 import ch.halcyon.squareprogressbar.example.dialogs.CustomColourDialog;
 import ch.halcyon.squareprogressbar.example.dialogs.PercentDialog;
 import ch.halcyon.squareprogressbar.utils.ColourUtil;
@@ -282,16 +283,37 @@ public class MainActivity extends Activity {
                         return styleItem;
 
                     case 21:
-                        box.setText("Animate");
-                        box.setChecked(squareFragment.isAnimated());
-                        box.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+                        styleBox.setText("Animate");
+                        styleBox.setChecked(squareFragment.isAnimated());
+                        styleBox.setOnCheckedChangeListener(new OnCheckedChangeListener() {
                             @Override
                             public void onCheckedChanged(CompoundButton buttonView,
                                                          boolean isChecked) {
                                 squareFragment.setAnimate(isChecked);
                             }
                         });
-                        return styleItem;
+                        styleImage.setOnClickListener(new OnClickListener() {
+
+                            @Override
+                            public void onClick(View arg0) {
+                                final AnimateDialog animateDialog = new AnimateDialog(
+                                        MainActivity.this);
+                                animateDialog.show();
+                                animateDialog.setDuration(squareFragment.getDuration());
+                                animateDialog.getSaveButton().setOnClickListener(
+                                        new OnClickListener() {
+
+                                            @Override
+                                            public void onClick(View v) {
+                                                squareFragment.setDuration(animateDialog.getDuration());
+                                                animateDialog.dismiss();
+                                                styleBox.setChecked(true);
+                                                drawerLayout.closeDrawers();
+                                            }
+                                        });
+                            }
+                        });
+                        return styleBoxItem;
 
                     case 22:
                         title.setText("Image");
