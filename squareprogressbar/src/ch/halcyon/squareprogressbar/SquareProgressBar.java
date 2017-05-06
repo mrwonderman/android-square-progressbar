@@ -486,4 +486,23 @@ public class SquareProgressBar extends RelativeLayout {
 		return imageView;
 	}
 
+	/**
+	 * Returns the progress of the progressbar as a double.
+	 *
+	 * @return the current progress as double.
+	 * @since 1.6.2
+	 */
+	public double getProgress() {
+		return bar.getProgress();
+	}
+
+	/**
+	 * Sets the progress as an integer value. This is mainly used for animations.
+	 *
+	 * @param progress as an integer value.
+	 * @since 1.6.2
+	 */
+	public void setProgress(int progress){
+		setProgress((double) progress);
+	}
 }
