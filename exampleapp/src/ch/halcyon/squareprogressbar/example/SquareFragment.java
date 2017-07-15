@@ -19,7 +19,6 @@ public class SquareFragment extends Fragment {
     private boolean animate = false;
     private ObjectAnimator anim;
     private SeekBar progressSeekBar, widthSeekBar;
-    private int duration = 500;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -104,7 +103,7 @@ public class SquareFragment extends Fragment {
     private void setProgressBarProgress(int progress, TextView progressView) {
         if (isAnimated()) {
             anim = ObjectAnimator.ofInt(squareProgressBar, "Progress", (int) squareProgressBar.getProgress(), progress);
-            anim.setDuration(duration);
+            anim.setDuration(500);
             anim.start();
         } else {
             squareProgressBar.setProgress(progress);
@@ -121,11 +120,4 @@ public class SquareFragment extends Fragment {
         return animate;
     }
 
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
 }
