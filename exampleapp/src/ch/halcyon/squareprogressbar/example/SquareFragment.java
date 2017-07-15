@@ -16,11 +16,9 @@ import java.util.Random;
 
 public class SquareFragment extends Fragment {
 	public SquareProgressBar squareProgressBar;
-    private boolean animate = false;
-    private ObjectAnimator anim;
     private SeekBar progressSeekBar, widthSeekBar;
 
-	@Override
+    @Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View view = inflater.inflate(ch.halcyon.squareprogressbar.example.R.layout.square_layout, container, false);
@@ -47,12 +45,6 @@ public class SquareFragment extends Fragment {
 
                 // random colour
                 squareProgressBar.setColorRGB(random.nextInt(256), random.nextInt(256), random.nextInt(256));
-
-                // animate to a random amount
-                boolean oldState = animate;
-                animate = true;
-                setProgressBarProgress(random.nextInt(100), progressView);
-                animate = oldState;
             }
         });
 
@@ -101,23 +93,9 @@ public class SquareFragment extends Fragment {
 	}
 
     private void setProgressBarProgress(int progress, TextView progressView) {
-        if (isAnimated()) {
-            anim = ObjectAnimator.ofInt(squareProgressBar, "Progress", (int) squareProgressBar.getProgress(), progress);
-            anim.setDuration(500);
-            anim.start();
-        } else {
-            squareProgressBar.setProgress(progress);
-        }
+        squareProgressBar.setProgress(progress);
         progressView.setText(progress + "%");
         progressSeekBar.setProgress(progress);
-    }
-
-    public void setAnimate(boolean animate) {
-        this.animate = animate;
-    }
-
-    public boolean isAnimated() {
-        return animate;
     }
 
 }

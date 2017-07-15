@@ -2,6 +2,7 @@ package ch.halcyon.squareprogressbar;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.Paint.Style;
@@ -29,6 +30,9 @@ public class SquareProgressView extends View {
     private boolean startline = false;
     private boolean showProgress = false;
     private boolean centerline = false;
+
+    private boolean roundedCorners = false;
+    private float roundedCornersRadius = 10;
 
     private PercentStyle percentSettings = new PercentStyle(Align.CENTER, 150,
             true);
@@ -171,8 +175,7 @@ public class SquareProgressView extends View {
             if (drawEnd.place == Place.BOTTOM) {
                 path.moveTo(canvas.getWidth() / 2, strokewidth / 2);
                 path.lineTo(canvas.getWidth() - (strokewidth / 2), strokewidth / 2);
-                path.lineTo(canvas.getWidth() - (strokewidth / 2), canvas.getHeight());
-                path.moveTo(canvas.getWidth(), canvas.getHeight() - strokewidth / 2);
+                path.lineTo(canvas.getWidth() - (strokewidth / 2), canvas.getHeight() - strokewidth / 2);
                 path.lineTo(drawEnd.location, canvas.getHeight()
                         - (strokewidth / 2));
                 canvas.drawPath(path, progressBarPaint);
@@ -182,8 +185,7 @@ public class SquareProgressView extends View {
                 path.moveTo(canvas.getWidth() / 2, strokewidth / 2);
                 path.lineTo(canvas.getWidth() - (strokewidth / 2), strokewidth / 2);
                 path.lineTo(canvas.getWidth() - (strokewidth / 2), canvas.getHeight() - strokewidth / 2);
-                path.lineTo(0, canvas.getHeight() - strokewidth / 2);
-                path.moveTo(strokewidth / 2, canvas.getHeight() - strokewidth / 2);
+                path.lineTo(strokewidth / 2, canvas.getHeight() - strokewidth / 2);
                 path.lineTo((strokewidth / 2), drawEnd.location);
                 canvas.drawPath(path, progressBarPaint);
             }
@@ -368,6 +370,21 @@ public class SquareProgressView extends View {
         }
 
         return drawStop;
+    }
+
+    public void setRoundedCorners(boolean roundedCorners, float radius) {
+        this.roundedCorners = roundedCorners;
+        this.roundedCornersRadius = radius;
+        if (roundedCorners) {
+            progressBarPaint.setPathEffect(new CornerPathEffect(roundedCornersRadius));
+        } else {
+            progressBarPaint.setPathEffect(null);
+        }
+        this.invalidate();
+    }
+
+    public boolean isRoundedCorners() {
+        return roundedCorners;
     }
 
     private class DrawStop {

@@ -282,13 +282,13 @@ public class MainActivity extends Activity {
                         return styleItem;
 
                     case 21:
-                        box.setText("Animate");
-                        box.setChecked(squareFragment.isAnimated());
+                        box.setText("Rounded corners");
+                        box.setChecked(squareFragment.squareProgressBar.isRoundedCorners());
                         box.setOnCheckedChangeListener(new OnCheckedChangeListener() {
                             @Override
                             public void onCheckedChanged(CompoundButton buttonView,
                                                          boolean isChecked) {
-                                squareFragment.setAnimate(isChecked);
+                                squareFragment.squareProgressBar.setRoundedCorners(isChecked);
                             }
                         });
                         return styleItem;
@@ -361,7 +361,7 @@ public class MainActivity extends Activity {
                         title.setText("Source");
                         return headerItem;
                     case 29:
-                        String text = "<font color=#4183C4>mrwonderman</font>/<b><font color=#4183C4>android-square-progressbar</font></b> (v. 1.6.1)";
+                        String text = "<font color=#4183C4>mrwonderman</font>/<b><font color=#4183C4>android-square-progressbar</font></b> (v. 1.6.2)";
                         githublink.setText(Html.fromHtml(text));
                         githubItem.setOnClickListener(new OnClickListener() {
 
