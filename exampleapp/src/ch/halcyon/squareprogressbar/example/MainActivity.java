@@ -282,9 +282,21 @@ public class MainActivity extends Activity {
                         return styleItem;
 
                     case 21:
+                        box.setText("Rounded corners");
+                        box.setChecked(squareFragment.squareProgressBar.isRoundedCorners());
+                        box.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+                            @Override
+                            public void onCheckedChanged(CompoundButton buttonView,
+                                                         boolean isChecked) {
+                                squareFragment.squareProgressBar.setRoundedCorners(isChecked);
+                            }
+                        });
+                        return styleItem;
+
+                    case 22:
                         title.setText("Image");
                         return headerItem;
-                    case 22:
+                    case 23:
                         imagePreview.setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.blenheim_palace);
                         imageDesc.setText("blenheim palace");
                         imageItem.setOnClickListener(new OnClickListener() {
@@ -296,7 +308,7 @@ public class MainActivity extends Activity {
                             }
                         });
                         return imageItem;
-                    case 23:
+                    case 24:
                         imagePreview
                                 .setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.millennium_stadium);
                         imageDesc.setText("the millennium stadium");
@@ -309,7 +321,7 @@ public class MainActivity extends Activity {
                             }
                         });
                         return imageItem;
-                    case 24:
+                    case 25:
                         imagePreview.setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.edinburgh);
                         imageDesc.setText("carlton hill");
                         imageItem.setOnClickListener(new OnClickListener() {
@@ -321,7 +333,7 @@ public class MainActivity extends Activity {
                             }
                         });
                         return imageItem;
-                    case 25:
+                    case 26:
                         imagePreview.setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.holyroodpark);
                         imageDesc.setText("holyrood park");
                         imageItem.setOnClickListener(new OnClickListener() {
@@ -333,7 +345,7 @@ public class MainActivity extends Activity {
                             }
                         });
                         return imageItem;
-                    case 26:
+                    case 27:
                         imagePreview.setImageResource(ch.halcyon.squareprogressbar.example.R.drawable.operahuset);
                         imageDesc.setText("operahuset oslo");
                         imageItem.setOnClickListener(new OnClickListener() {
@@ -345,11 +357,11 @@ public class MainActivity extends Activity {
                             }
                         });
                         return imageItem;
-                    case 27:
+                    case 28:
                         title.setText("Source");
                         return headerItem;
-                    case 28:
-                        String text = "<font color=#4183C4>mrwonderman</font>/<b><font color=#4183C4>android-square-progressbar</font></b> (v. 1.6.1)";
+                    case 29:
+                        String text = "<font color=#4183C4>mrwonderman</font>/<b><font color=#4183C4>android-square-progressbar</font></b> (v. 1.6.2)";
                         githublink.setText(Html.fromHtml(text));
                         githubItem.setOnClickListener(new OnClickListener() {
 
@@ -362,7 +374,7 @@ public class MainActivity extends Activity {
                             }
                         });
                         return githubItem;
-                    case 29:
+                    case 30:
                         signerItem.setOnClickListener(new OnClickListener() {
 
                             @Override
@@ -417,7 +429,7 @@ public class MainActivity extends Activity {
 
             @Override
             public int getCount() {
-                return 30;
+                return 31;
             }
         };
         drawerListView.setAdapter(adapter);
@@ -513,8 +525,8 @@ public class MainActivity extends Activity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position,
                                 long id) {
-            if ((position != 0) && (position != 12) && (position != 21)
-                    && (position != 27)) {
+            if ((position != 0) && (position != 12) && (position != 22)
+                    && (position != 28)) {
                 selectItem(position);
             } else {
                 selectItem(lastPosition);

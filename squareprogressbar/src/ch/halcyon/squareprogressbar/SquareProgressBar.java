@@ -29,8 +29,9 @@ public class SquareProgressBar extends RelativeLayout {
 	private boolean opacity = false;
 	private boolean greyscale;
 	private boolean isFadingOnProgress = false;
+    private boolean roundedCorners = false;
 
-	/**
+    /**
 	 * New SquareProgressBar.
 	 * 
 	 * @param context
@@ -486,4 +487,51 @@ public class SquareProgressBar extends RelativeLayout {
 		return imageView;
 	}
 
+	/**
+	 * Returns the progress of the progressbar as a double.
+	 *
+	 * @return the current progress as double.
+	 * @since 1.6.2
+	 */
+	public double getProgress() {
+		return bar.getProgress();
+	}
+
+	/**
+	 * Sets the progress as an integer value. This is mainly used for animations.
+	 *
+	 * @param progress as an integer value.
+	 * @since 1.6.2
+	 */
+	public void setProgress(int progress){
+		setProgress((double) progress);
+	}
+
+    /**
+     * Activates the drawing of rounded corners.
+     *
+     * @since 1.6.2
+     */
+    public void setRoundedCorners(boolean useRoundedCorners){
+        bar.setRoundedCorners(useRoundedCorners, 10);
+    }
+
+    /**
+     * Activates the drawing of rounded corners with a given radius.
+     *
+     * @since 1.6.2
+     */
+    public void setRoundedCorners(boolean useRoundedCorners, float radius){
+        bar.setRoundedCorners(useRoundedCorners, radius);
+    }
+
+    /**
+     * Returns a boolean if rounded corners is active or not.
+     *
+     * @return true if rounded corners is active.
+     * @since 1.6.2
+     */
+    public boolean isRoundedCorners(){
+        return bar.isRoundedCorners();
+    }
 }
