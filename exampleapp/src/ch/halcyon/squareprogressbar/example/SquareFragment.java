@@ -38,6 +38,9 @@ public class SquareFragment extends Fragment {
 
                 Random random = new Random();
 
+                // random progress
+                setProgressBarProgress(random.nextInt(100), progressView);
+
                 // random width
                 int randWidth = random.nextInt(17) + 4;
                 widthSeekBar.setProgress(randWidth);
