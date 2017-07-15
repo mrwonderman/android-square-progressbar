@@ -2,6 +2,7 @@ package ch.halcyon.squareprogressbar.example;
 
 import ch.halcyon.squareprogressbar.SquareProgressBar;
 
+import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -33,6 +34,7 @@ public class SquareFragment extends Fragment {
         squareProgressBar = (SquareProgressBar) view.findViewById(ch.halcyon.squareprogressbar.example.R.id.subi2);
 		squareProgressBar.setImage(ch.halcyon.squareprogressbar.example.R.drawable.blenheim_palace);
 		squareProgressBar.setColor("#C9C9C9");
+        squareProgressBar.useRoundedCorners(true);
 		squareProgressBar.setProgress(32);
 		squareProgressBar.setWidth(8);
         squareProgressBar.setOnClickListener(new View.OnClickListener() {
@@ -42,9 +44,9 @@ public class SquareFragment extends Fragment {
                 Random random = new Random();
 
                 // random width
-                int randWidth = random.nextInt(17) + 4;
-                widthSeekBar.setProgress(randWidth);
-                squareProgressBar.setWidth(randWidth);
+                //int randWidth = random.nextInt(17) + 4;
+                //widthSeekBar.setProgress(randWidth);
+                //squareProgressBar.setWidth(randWidth);
 
                 // random colour
                 squareProgressBar.setColorRGB(random.nextInt(256), random.nextInt(256), random.nextInt(256));
@@ -101,7 +103,7 @@ public class SquareFragment extends Fragment {
 		return view;
 	}
 
-    private void setProgressBarProgress(int progress, TextView progressView) {
+    private void setProgressBarProgress(final int progress, TextView progressView) {
         if (isAnimated()) {
             anim = ObjectAnimator.ofInt(squareProgressBar, "Progress", (int) squareProgressBar.getProgress(), progress);
             anim.setDuration(duration);
