@@ -2,15 +2,11 @@ package ch.halcyon.squareprogressbar;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.Paint.Style;
 import android.graphics.Path;
-import android.graphics.PorterDuff;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 
 import java.text.DecimalFormat;
@@ -41,10 +37,6 @@ public class SquareProgressView extends View {
     private int indeterminate_count = 1;
 
     private float indeterminate_width = 20.0f;
-    private boolean roundedCorners = false;
-    private float roundedCornersRadius = 10;
-
-    Path path = new Path();
 
     public SquareProgressView(Context context) {
         super(context);
@@ -82,14 +74,12 @@ public class SquareProgressView extends View {
                 android.R.color.black));
         textPaint.setAntiAlias(true);
         textPaint.setStyle(Style.STROKE);
-        this.postInvalidate();
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         this.canvas = canvas;
         super.onDraw(canvas);
-        path.reset();
         strokewidth = CalculationUtil.convertDpToPx(widthInDp, getContext());
         float scope = canvas.getWidth() + canvas.getHeight()
                 + canvas.getHeight() + canvas.getWidth() - strokewidth;
@@ -115,6 +105,7 @@ public class SquareProgressView extends View {
         }
 
         if (isIndeterminate()) {
+            Path path = new Path();
             DrawStop drawEnd = getDrawEnd((scope / 100) * Float.valueOf(String.valueOf(indeterminate_count)), canvas);
 
             if (drawEnd.place == Place.TOP) {
@@ -151,8 +142,9 @@ public class SquareProgressView extends View {
             }
             invalidate();
         } else {
+            Path path = new Path();
             DrawStop drawEnd = getDrawEnd((scope / 100) * Float.valueOf(String.valueOf(progress)), canvas);
-            Log.i("halcyon","canvas(h/w): "+ canvas.getHeight() + " / " + canvas.getWidth()+ " width: "+ strokewidth);
+
             if (drawEnd.place == Place.TOP) {
                 if (drawEnd.location > (canvas.getWidth() / 2)) {
                     path.moveTo(canvas.getWidth() / 2, strokewidth / 2);
@@ -179,8 +171,8 @@ public class SquareProgressView extends View {
             if (drawEnd.place == Place.BOTTOM) {
                 path.moveTo(canvas.getWidth() / 2, strokewidth / 2);
                 path.lineTo(canvas.getWidth() - (strokewidth / 2), strokewidth / 2);
-                path.lineTo(canvas.getWidth() - (strokewidth / 2), canvas.getHeight() - strokewidth / 2);
-                //path.moveTo(canvas.getWidth(), canvas.getHeight() - strokewidth / 2);
+                path.lineTo(canvas.getWidth() - (strokewidth / 2), canvas.getHeight());
+                path.moveTo(canvas.getWidth(), canvas.getHeight() - strokewidth / 2);
                 path.lineTo(drawEnd.location, canvas.getHeight()
                         - (strokewidth / 2));
                 canvas.drawPath(path, progressBarPaint);
@@ -190,8 +182,8 @@ public class SquareProgressView extends View {
                 path.moveTo(canvas.getWidth() / 2, strokewidth / 2);
                 path.lineTo(canvas.getWidth() - (strokewidth / 2), strokewidth / 2);
                 path.lineTo(canvas.getWidth() - (strokewidth / 2), canvas.getHeight() - strokewidth / 2);
-                path.lineTo(strokewidth / 2, canvas.getHeight() - strokewidth / 2);
-                //path.moveTo(strokewidth / 2, canvas.getHeight() - strokewidth / 2);
+                path.lineTo(0, canvas.getHeight() - strokewidth / 2);
+                path.moveTo(strokewidth / 2, canvas.getHeight() - strokewidth / 2);
                 path.lineTo((strokewidth / 2), drawEnd.location);
                 canvas.drawPath(path, progressBarPaint);
             }
@@ -253,22 +245,6 @@ public class SquareProgressView extends View {
         this.startline = startline;
         this.invalidate();
     }
-
-    public void setRoundedCorners(boolean roundedCorners, float radius) {
-        this.roundedCorners = roundedCorners;
-        this.roundedCornersRadius = radius;
-        if (roundedCorners) {
-            progressBarPaint.setPathEffect(new CornerPathEffect(roundedCornersRadius));
-        } else {
-            progressBarPaint.setPathEffect(null);
-        }
-        this.invalidate();
-    }
-
-    public boolean isRoundedCorners() {
-        return roundedCorners;
-    }
-
 
     private void drawPercent(PercentStyle setting) {
         textPaint.setTextAlign(setting.getAlign());
