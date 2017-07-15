@@ -2,7 +2,6 @@ package ch.halcyon.squareprogressbar.example;
 
 import ch.halcyon.squareprogressbar.SquareProgressBar;
 
-import android.animation.ObjectAnimator;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
