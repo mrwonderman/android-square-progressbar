@@ -5,7 +5,7 @@ android-square-progressbar[ ![Download](https://api.bintray.com/packages/mrwonde
 
 This library is setup to work with the Android Studio and Gradle. If you're using the Eclipse environment then check out the legacy repository here: [android-square-progressbar-legacy](https://github.com/mrwonderman/android-square-progressbar-legacy).
 
-You can find my blog post about the newest version here: [halcyon.ch - android-square-progressbar v.1.6.0] (http://www.halcyon.ch/android-square-progressbar-v-1-6-0/), also check out the post about the previous major 1.5.0 version [here](http://www.halcyon.ch/android-square-progressbar-v-1-5-0/).
+You can find my blog post about the newest version here: [halcyon.ch - android-square-progressbar v.1.6.0](http://www.halcyon.ch/android-square-progressbar-v-1-6-0/), also check out the post about the previous major 1.5.0 version [here](http://www.halcyon.ch/android-square-progressbar-v-1-5-0/).
 
 The example application is available at the play store:
 
@@ -22,7 +22,11 @@ Sometimes you don't have enough space in your layout to display a wide progressb
 ### Examples
 Here are some examples of how these progressbars could look like:
 
-![three examples](https://mkvhhw-bn1306.files.1drv.com/y3mag8UNO58wTkAUn8chyoNMmTBwW2_Ztyl3IOVn2K6Dd0AEpd6Cxu2nhdWLv-IoK84cxSAf3UuwHjFhByCW8XgjqG_qui6wUv5G5D26r66e14Jf6gAQQ-X42L7pskGov4P_mDY7ZqztaZ4aVYwZ1sR_u8aIStkjMNen-14D7IKdK0?)
+| normal / default       | rounded corners           | show percent  | indeterminate|
+| ------------- | ------------- | ----- | ----- |
+|![](https://whxvpq.bn1303.livefilestore.com/y4mbpv6GEOuDrqEaDIkV_bo7t49qpQcERn5YXsEHf9owXaomI--3m5Zx0E5go4ZZIhpz32hnPNne4J7N55qK4sNbCaBY71aVgJ7aaXJYR6pZU-P5iFhLHukKQYgfJKJZacUNUvBcehqVWrnZzQza2V287yPOvxKbflYn3pt4NOFmiQ3ktvT0Z0i_EYWvofzyWwM8xhYPrxeEvNXYANpUmbu3Q?width=200&height=128&cropmode=none)| ![](https://v3xvpq.bn1303.livefilestore.com/y4m4_lOK4OqKikGze8eqQSvlGsSmkKY96VaJWSVnmnkB-QE_oXIYiO4g1GsvojMJa6Cps6CzwocZpuBmCrKkdZiG7HfZ5xOJWZT94NJY8-2uZUmGI9Vehjmd3daTEFeN3rFVF8loYR0MZS5NfcdYH3pTKs2NXtmJq5jftOYVcHLFTnxvPKbsGW1V1gB_yqI7BNDqCYSpQmQOt-dOkcR1SnSrQ?width=200&height=128&cropmode=none)| ![](https://wnxvpq.bn1303.livefilestore.com/y4mY2mdqL2fEDeHd6-qmZVC2P8CXIFETcT_1nXw8ZCTLCJjoNwjFW6_ToAruJ22d_jto0P4LuHL0DIa152e9rJ0Q_SXqmJrqq9oghuYSBwEPEQIWDBHBahX2i0tH5NgW3bE--WKnzq5gtIFuje4_9Fzu4dtyCE9ni7Nnf4UO10pC3WrftTfjWkGFsl0Irp4cARQ1f-I6ET1FinisByPKodMCg?width=200&height=128&cropmode=none)| ![](https://wxxvpq.bn1303.livefilestore.com/y4mbhN1r2hpo6TSZYGMMvTrlDz2Xua214WHLAVkJJwEYGhpeMZ4JzPUrZnnbn3wBUSNSIzw6BP5Z2pvYbtTkK3Sm-pesy-C4pOiSO4EQvbLtG8bhGVUej7CcgIw10p6XGiAw4r5nWQApzuZZ4xkcVWLI0ku4pJijdu2eE74i5rKmyXI5Uei_e_dvW4rsaYjZs8zqc5QoScOTDQhSN2dXbly6g?width=200&height=128&cropmode=none)
+ |        | `setRoundedCorners(true)`          | `showProgress(true)` |  `drawOutline(true)`    |     
+|        |           | `setOpacity(true)` |  `setIndeterminate(true)`    |
 
 There are some further examples available here (with code) : [Examples](https://github.com/mrwonderman/android-square-progressbar/wiki/Examples)
 ### How to use it? / How to install? / How to contribute?
@@ -45,7 +49,7 @@ Then in your app build.gradle:
 
     dependencies {
         // other repos ...
-        compile 'ch.halcyon:squareprogressbar:1.6.0'
+        compile 'ch.halcyon:squareprogressbar:1.6.2'
     }
 
 ### Code
