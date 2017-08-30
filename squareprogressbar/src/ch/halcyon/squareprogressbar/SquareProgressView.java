@@ -150,7 +150,7 @@ public class SquareProgressView extends View {
             DrawStop drawEnd = getDrawEnd((scope / 100) * Float.valueOf(String.valueOf(progress)), canvas);
 
             if (drawEnd.place == Place.TOP) {
-                if (drawEnd.location > (canvas.getWidth() / 2)) {
+                if (drawEnd.location > (canvas.getWidth() / 2) && progress < 100.0) {
                     path.moveTo(canvas.getWidth() / 2, strokewidth / 2);
                     path.lineTo(drawEnd.location, strokewidth / 2);
                 } else {
