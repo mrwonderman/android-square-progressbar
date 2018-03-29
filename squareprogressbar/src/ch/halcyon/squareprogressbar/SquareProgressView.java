@@ -85,8 +85,10 @@ public class SquareProgressView extends View {
         this.canvas = canvas;
         super.onDraw(canvas);
         strokewidth = CalculationUtil.convertDpToPx(widthInDp, getContext());
-        float scope = canvas.getWidth() + canvas.getHeight()
-                + canvas.getHeight() + canvas.getWidth() - strokewidth;
+        int cW = canvas.getWidth();
+        int cH = canvas.getHeight();
+        float scope = (2 * cW) + (2 * cH) - (4 * strokewidth);
+        float hSw = strokewidth / 2;
 
         if (isOutline()) {
             drawOutline();
@@ -113,30 +115,30 @@ public class SquareProgressView extends View {
             DrawStop drawEnd = getDrawEnd((scope / 100) * Float.valueOf(String.valueOf(indeterminate_count)), canvas);
 
             if (drawEnd.place == Place.TOP) {
-                path.moveTo(drawEnd.location - indeterminate_width - strokewidth, strokewidth / 2);
-                path.lineTo(drawEnd.location, strokewidth / 2);
+                path.moveTo(drawEnd.location - indeterminate_width - strokewidth, hSw);
+                path.lineTo(drawEnd.location, hSw);
                 canvas.drawPath(path, progressBarPaint);
             }
 
             if (drawEnd.place == Place.RIGHT) {
-                path.moveTo(canvas.getWidth() - (strokewidth / 2), drawEnd.location - indeterminate_width);
-                path.lineTo(canvas.getWidth() - (strokewidth / 2), strokewidth
+                path.moveTo(cW - hSw, drawEnd.location - indeterminate_width);
+                path.lineTo(cW - hSw, strokewidth
                         + drawEnd.location);
                 canvas.drawPath(path, progressBarPaint);
             }
 
             if (drawEnd.place == Place.BOTTOM) {
                 path.moveTo(drawEnd.location - indeterminate_width - strokewidth,
-                        canvas.getHeight() - (strokewidth / 2));
-                path.lineTo(drawEnd.location, canvas.getHeight()
-                        - (strokewidth / 2));
+                        cH - hSw);
+                path.lineTo(drawEnd.location, cH
+                        - hSw);
                 canvas.drawPath(path, progressBarPaint);
             }
 
             if (drawEnd.place == Place.LEFT) {
-                path.moveTo((strokewidth / 2), drawEnd.location - indeterminate_width
+                path.moveTo(hSw, drawEnd.location - indeterminate_width
                         - strokewidth);
-                path.lineTo((strokewidth / 2), drawEnd.location);
+                path.lineTo(hSw, drawEnd.location);
                 canvas.drawPath(path, progressBarPaint);
             }
 
@@ -150,43 +152,45 @@ public class SquareProgressView extends View {
             DrawStop drawEnd = getDrawEnd((scope / 100) * Float.valueOf(String.valueOf(progress)), canvas);
 
             if (drawEnd.place == Place.TOP) {
-                if (drawEnd.location > (canvas.getWidth() / 2) && progress < 100.0) {
-                    path.moveTo(canvas.getWidth() / 2, strokewidth / 2);
-                    path.lineTo(drawEnd.location, strokewidth / 2);
+                if (drawEnd.location > (cW / 2) && progress < 100.0) {
+                    path.moveTo(cW / 2, hSw);
+                    path.lineTo(drawEnd.location, hSw);
                 } else {
-                    path.moveTo(canvas.getWidth() / 2, strokewidth / 2);
-                    path.lineTo(canvas.getWidth() - (strokewidth / 2), strokewidth / 2);
-                    path.lineTo(canvas.getWidth() - (strokewidth / 2), canvas.getHeight() - strokewidth / 2);
-                    path.lineTo(strokewidth / 2, canvas.getHeight() - strokewidth / 2);
-                    path.lineTo(strokewidth / 2, strokewidth / 2);
-                    path.lineTo(drawEnd.location, strokewidth / 2);
+                    path.moveTo(cW / 2, hSw);
+                    path.lineTo(cW - hSw, hSw);
+                    path.lineTo(cW - hSw, cH - hSw);
+                    path.lineTo(hSw, cH - hSw);
+                    path.lineTo(hSw, hSw);
+                    path.lineTo(strokewidth, hSw);
+                    path.lineTo(drawEnd.location, hSw);
                 }
                 canvas.drawPath(path, progressBarPaint);
             }
 
             if (drawEnd.place == Place.RIGHT) {
-                path.moveTo(canvas.getWidth() / 2, strokewidth / 2);
-                path.lineTo(canvas.getWidth() - (strokewidth / 2), strokewidth / 2);
-                path.lineTo(canvas.getWidth() - (strokewidth / 2), strokewidth / 2
+                path.moveTo(cW / 2, hSw);
+                path.lineTo(cW - hSw, hSw);
+                path.lineTo(cW - hSw, 0
                         + drawEnd.location);
                 canvas.drawPath(path, progressBarPaint);
             }
 
             if (drawEnd.place == Place.BOTTOM) {
-                path.moveTo(canvas.getWidth() / 2, strokewidth / 2);
-                path.lineTo(canvas.getWidth() - (strokewidth / 2), strokewidth / 2);
-                path.lineTo(canvas.getWidth() - (strokewidth / 2), canvas.getHeight() - strokewidth / 2);
-                path.lineTo(drawEnd.location, canvas.getHeight()
-                        - (strokewidth / 2));
+                path.moveTo(cW / 2, hSw);
+                path.lineTo(cW - hSw, hSw);
+                path.lineTo(cW - hSw, cH - hSw);
+                path.lineTo(cW - strokewidth, cH - hSw);
+                path.lineTo(drawEnd.location, cH - hSw);
                 canvas.drawPath(path, progressBarPaint);
             }
 
             if (drawEnd.place == Place.LEFT) {
-                path.moveTo(canvas.getWidth() / 2, strokewidth / 2);
-                path.lineTo(canvas.getWidth() - (strokewidth / 2), strokewidth / 2);
-                path.lineTo(canvas.getWidth() - (strokewidth / 2), canvas.getHeight() - strokewidth / 2);
-                path.lineTo(strokewidth / 2, canvas.getHeight() - strokewidth / 2);
-                path.lineTo((strokewidth / 2), drawEnd.location);
+                path.moveTo(cW / 2, hSw);
+                path.lineTo(cW - hSw, hSw);
+                path.lineTo(cW - hSw, cH - hSw);
+                path.lineTo(hSw, cH - hSw);
+                path.lineTo(hSw, cH - strokewidth);
+                path.lineTo(hSw, drawEnd.location);
                 canvas.drawPath(path, progressBarPaint);
             }
         }
@@ -331,18 +335,23 @@ public class SquareProgressView extends View {
         strokewidth = CalculationUtil.convertDpToPx(widthInDp, getContext());
         float halfOfTheImage = canvas.getWidth() / 2;
 
+        // top right
         if (percent > halfOfTheImage) {
-            float second = percent - halfOfTheImage;
+            float second = percent - (halfOfTheImage);
 
-            if (second > canvas.getHeight()) {
-                float third = second - canvas.getHeight();
+            // right
+            if (second > (canvas.getHeight() - strokewidth)) {
+                float third = second - (canvas.getHeight() - strokewidth);
 
-                if (third > canvas.getWidth()) {
-                    float forth = third - canvas.getWidth();
+                // bottom
+                if (third > (canvas.getWidth() - strokewidth)) {
+                    float forth = third - (canvas.getWidth() - strokewidth);
 
-                    if (forth > canvas.getHeight()) {
-                        float fifth = forth - canvas.getHeight();
+                    // left
+                    if (forth > (canvas.getHeight() - strokewidth)) {
+                        float fifth = forth - (canvas.getHeight() - strokewidth);
 
+                        // top left
                         if (fifth == halfOfTheImage) {
                             drawStop.place = Place.TOP;
                             drawStop.location = halfOfTheImage;
@@ -352,12 +361,12 @@ public class SquareProgressView extends View {
                         }
                     } else {
                         drawStop.place = Place.LEFT;
-                        drawStop.location = canvas.getHeight() - forth;
+                        drawStop.location = canvas.getHeight() - strokewidth - forth;
                     }
 
                 } else {
                     drawStop.place = Place.BOTTOM;
-                    drawStop.location = canvas.getWidth() - third;
+                    drawStop.location = canvas.getWidth() - strokewidth - third;
                 }
             } else {
                 drawStop.place = Place.RIGHT;
