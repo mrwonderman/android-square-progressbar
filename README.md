@@ -49,7 +49,7 @@ Then in your app build.gradle:
 
     dependencies {
         // other repos ...
-        compile 'ch.halcyon:squareprogressbar:1.6.4'
+        implementation 'ch.halcyon:squareprogressbar:1.6.4'
     }
 
 ### Code
@@ -66,7 +66,7 @@ After adding the gradle depedency from above you can go to your xml layout and a
 
 To set some basic settings use the following java-code:
 
-    SquareProgressBar squareProgressBar = (SquareProgressBar) rootView.findViewById(R.id.sprogressbar);
+    SquareProgressBar squareProgressBar = findViewById(R.id.sprogressbar);
     squareProgressBar.setImage(R.drawable.example);
     squareProgressBar.setProgress(50.0);
 
